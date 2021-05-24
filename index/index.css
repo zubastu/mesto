@@ -10,9 +10,6 @@
     background-color: #000000;
     font-family: 'Inter', sans-serif;
 }
-.page__content{
-
-}
 .header{
     min-height: 74px;
     max-width: 880px;
@@ -30,8 +27,19 @@
 
 
 .button{
-    
+    background-color: #000000;
+    transition: ease .6s;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 0;
 }
+.button:hover{
+    opacity: .6;
+
+}
+
 .main{
     max-width: 880px;
     min-width: 320px;
@@ -40,7 +48,9 @@
 .profile{
     max-height: 120px;
     display: flex;
-    padding: 40px 0 46px 0;
+    padding: 40px 0 51px 0;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .profile__avatar-image{
@@ -53,7 +63,7 @@
     margin: 0 30px 0 0;
 }
 .profile__info{
-    margin: 22px 0 0 0;
+    display: flex;
 }
 .profile__info-heading{
     color: #FFFFFF;
@@ -63,6 +73,7 @@
     line-height: 1.14;
     margin: 0;
     text-align: center;
+    margin: 22px 0 0 0;
 }
 .profile__info-subheading{
     color: #FFFFFF;
@@ -74,12 +85,16 @@
     text-align: start;
 }
 .profile__info-button{
-    max-height: 24px;
-    max-width: 24px;
+    height: 24px;
+    width: 24px;
+    background-image: url(../images/Edit-Button.svg);
+    margin: 37px 0 18px 18px;
 }
 .profile__add-button{
-    max-width: 150px;
-    max-height: 50px;
+    width: 150px;
+    height: 50px;
+    background-image: url(../images/add_button.svg);
+    
 }
 .photo-cards{
     display: grid;
@@ -98,16 +113,26 @@
     max-width: 282px;
     border-radius: 10px 10px 0 0;
 }
-.card__description{
+.card__content{
     background-color: #FFFFFF;
-    row-gap: 0px;
     border-radius: 10px 10px 10px;
 }
+.card__description{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
 .card__text{
-    
+
 }
 .card__like{
-    
+    width: 22px;
+    height: 19px;
+    margin: 31px 30px 30px 0;
+}
+.card__like_disabled{
+    background: url(../images/like-button_disabled.svg) no-repeat center;
 }
 
 

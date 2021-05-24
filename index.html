@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="./index/index.css">
     <title>Mesto</title>
 </head>
-  <body class="page">
-   <div class="page__content">
+  <body class="page center">
+
     <header class="header center">
         <img class="header__logo" src="./images/logo__header.svg" alt="Логотип">
         <img class="header__line" src="./images/header__line.svg" alt="Линия">
@@ -22,17 +22,24 @@
 
         <section class="profile">
 
-            <div class="profile__avatar">
-                <img class="profile__avatar-image" src="./images/profile__image.jpg" alt="Изображение Профиля">
-            </div>
+            
 
             <div class="profile__info">
-                <input class="profile__info-heading">Жак-Ив Кусто</input>
-                <input class="profile__info-subheading">Исследоватеь океана</input>
+                
+                <div class="profile__avatar">
+                    <img class="profile__avatar-image" src="./images/profile__image.jpg" alt="Изображение Профиля">
+                </div>
+
+                <div class="profile__info-content">
+                    <h2 class="profile__info-heading">Жак-Ив Кусто</h2>
+                    <p class="profile__info-subheading">Исследоватеь океана</p>
+                </div>
+
                 <button type="button" class="profile__info-button button"></button>
             </div>
             
-            <button type="button" class="profile__add-button button"></button>
+                
+                <button type="button" class="profile__add-button button"></button>
 
         </section>
 
@@ -40,58 +47,71 @@
 
             <div class="card">
                 
-                <div class="card__description">
+                <div class="card__content">
                     <img class="card__picture" src="./images/card__item_1.jpg">
-                    <p class="card__text"></p>
-                    <img class="card__like" src="./images/like-button_disabled.svg" alt="Лайк">
+                    <div class="card__description">
+                        <p class="card__text"></p>
+                        <button class="card__like card__like_disabled button"></button>
+                    </div>
                 </div>
             </div>
 
             <div class="card">
                 
-                <div class="card__description">
-                    <img class="card__picture" src="./images/card__item_2.jpg">
-                    <p class="card__text"></p>
-                    <img class="card__like" src="./images/like-button_disabled.svg" alt="Лайк">
+                <div class="card__content">
+                    <img class="card__picture" src="./images/card__item_1.jpg">
+                    <div class="card__description">
+                        <p class="card__text"></p>
+                        <button class="card__like card__like_disabled button"></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                
+                <div class="card__content">
+                    <img class="card__picture" src="./images/card__item_1.jpg">
+                    <div class="card__description">
+                        <p class="card__text"></p>
+                        <button class="card__like card__like_disabled button"></button>
+                    </div>
                 </div>
             </div>
 
             <div class="card">
                 
-                <div class="card__description">
-                    <img class="card__picture" src="./images/card__item_3.jpg">
-                    <p class="card__text"></p>
-                    <img class="card__like" src="./images/like-button_disabled.svg" alt="Лайк">
+                <div class="card__content">
+                    <img class="card__picture" src="./images/card__item_1.jpg">
+                    <div class="card__description">
+                        <p class="card__text"></p>
+                        <button class="card__like card__like_disabled button"></button>
+                    </div>
                 </div>
             </div>
 
             <div class="card">
                 
-                <div class="card__description">
-                    <img class="card__picture" src="./images/card__item_4.jpg">
-                    <p class="card__text"></p>
-                    <img class="card__like" src="./images/like-button_disabled.svg" alt="Лайк">
+                <div class="card__content">
+                    <img class="card__picture" src="./images/card__item_1.jpg">
+                    <div class="card__description">
+                        <p class="card__text"></p>
+                        <button class="card__like card__like_disabled button"></button>
+                    </div>
                 </div>
             </div>
 
             <div class="card">
                 
-                <div class="card__description">
-                    <img class="card__picture" src="./images/card__item_5.png">
-                    <p class="card__text"></p>
-                    <img class="card__like" src="./images/like-button_disabled.svg" alt="Лайк">
+                <div class="card__content">
+                    <img class="card__picture" src="./images/card__item_1.jpg">
+                    <div class="card__description">
+                        <p class="card__text"></p>
+                        <button class="card__like card__like_disabled button"></button>
+                    </div>
                 </div>
             </div>
 
-            <div class="card">
-                
-                <div class="card__description">
-                    <img class="card__picture" src="./images/card__item_6.jpg">
-                    <p class="card__text"></p>
-                    <img class="card__like" src="./images/like-button_disabled.svg" alt="Лайк">
-                </div>
-            </div>
-
+            
         </section>
 
     </main>
@@ -101,6 +121,6 @@
     <nav></nav>
 
     </footer>
-   </div>
+
   </body>
 </html>
