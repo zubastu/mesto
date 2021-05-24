@@ -8,36 +8,123 @@
     max-width: 1280px;
     min-width: 320px;
     background-color: #000000;
+    font-family: 'Inter', sans-serif;
+}
+.page__content{
+
 }
 .header{
-
+    min-height: 74px;
     max-width: 880px;
     min-width: 320px;
 }
 .header__logo{
-
+    padding: 45px 0 0 0;
+    max-width: 142px;
+    max-height: 33px;
 }
 .header__line{
-
+    max-width: 100%;
 }
 
 
 
-
+.button{
+    
+}
 .main{
     max-width: 880px;
     min-width: 320px;
 }
+
+.profile{
+    max-height: 120px;
+    display: flex;
+    padding: 40px 0 46px 0;
+}
+
+.profile__avatar-image{
+    max-width: 168px;
+    max-height: 120px;
+    border-radius: 100px;
+}
+
+.profile__avatar{
+    margin: 0 30px 0 0;
+}
+.profile__info{
+    margin: 22px 0 0 0;
+}
+.profile__info-heading{
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 1.14;
+    margin: 0;
+    text-align: center;
+}
+.profile__info-subheading{
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 16px 0 0 0;
+    text-align: start;
+}
+.profile__info-button{
+    max-height: 24px;
+    max-width: 24px;
+}
+.profile__add-button{
+    max-width: 150px;
+    max-height: 50px;
+}
+.photo-cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 17px;
+    row-gap: 20px;
+    max-width: 880px;
+}
+.card{
+    max-width: 282px;
+    max-height: 361px;
+}
+.card__picture{
+    max-height: 282px;
+    max-width: 282px;
+    border-radius: 10px 10px 0 0;
+}
+.card__description{
+    background-color: #FFFFFF;
+    row-gap: 0px;
+    border-radius: 10px 10px 10px;
+}
+.card__text{
+    
+}
+.card__like{
+    
+}
+
+
 .footer{
     max-width: 880px;
     min-width: 320px;
+    padding: 67px 0 60px 0;
+}
+.footer__copyright{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #545454;
+    margin: 0;
+
 }
 .center{
     margin:0 auto;
-}
-.form{
-    display: none;
-}
-.form_active{
-
 }

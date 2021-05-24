@@ -9,22 +9,16 @@
     <title>Mesto</title>
 </head>
   <body class="page">
-
+   <div class="page__content">
     <header class="header center">
         <img class="header__logo" src="./images/logo__header.svg" alt="Логотип">
         <img class="header__line" src="./images/header__line.svg" alt="Линия">
     </header>
 
-    <main class="main">
+    <main class="main center">
 
-        <section class="form">
-
-            <fieldset class="form__input-container">
-                <p class="form__heading"></p>
-                <input type="text" class="form__input-firstname">
-                <input type="text" class="form__input-lastname">
-            </fieldset>
-        </section>
+        <!--<section class="popup">
+        </section>-->
 
         <section class="profile">
 
@@ -33,60 +27,66 @@
             </div>
 
             <div class="profile__info">
-                <h1 class="profile__info-title"></h1>
-                <p class="profile__info-subtitle"></p>
-                <input type="button" class="profile__info-button">
+                <input class="profile__info-heading">Жак-Ив Кусто</input>
+                <input class="profile__info-subheading">Исследоватеь океана</input>
+                <button type="button" class="profile__info-button button"></button>
             </div>
-
-            <input type="button" class="profile__add-button">
+            
+            <button type="button" class="profile__add-button button"></button>
 
         </section>
 
-        <section class="photo-cards">
+        <section class="photo-cards center">
 
             <div class="card">
-                <img class="card__picture">
+                
                 <div class="card__description">
+                    <img class="card__picture" src="./images/card__item_1.jpg">
                     <p class="card__text"></p>
                     <img class="card__like" src="./images/like-button_disabled.svg" alt="Лайк">
                 </div>
             </div>
 
             <div class="card">
-                <img class="card__picture">
+                
                 <div class="card__description">
+                    <img class="card__picture" src="./images/card__item_2.jpg">
                     <p class="card__text"></p>
                     <img class="card__like" src="./images/like-button_disabled.svg" alt="Лайк">
                 </div>
             </div>
 
             <div class="card">
-                <img class="card__picture">
+                
                 <div class="card__description">
+                    <img class="card__picture" src="./images/card__item_3.jpg">
                     <p class="card__text"></p>
                     <img class="card__like" src="./images/like-button_disabled.svg" alt="Лайк">
                 </div>
             </div>
 
             <div class="card">
-                <img class="card__picture">
+                
                 <div class="card__description">
+                    <img class="card__picture" src="./images/card__item_4.jpg">
                     <p class="card__text"></p>
                     <img class="card__like" src="./images/like-button_disabled.svg" alt="Лайк">
                 </div>
             </div>
 
             <div class="card">
-                <img class="card__picture">
+                
                 <div class="card__description">
+                    <img class="card__picture" src="./images/card__item_5.png">
                     <p class="card__text"></p>
                     <img class="card__like" src="./images/like-button_disabled.svg" alt="Лайк">
                 </div>
             </div>
 
             <div class="card">
-                <img class="card__picture">
+                
                 <div class="card__description">
+                    <img class="card__picture" src="./images/card__item_6.jpg">
                     <p class="card__text"></p>
                     <img class="card__like" src="./images/like-button_disabled.svg" alt="Лайк">
                 </div>
@@ -96,11 +96,11 @@
 
     </main>
 
-    <footer class="footer">
-
+    <footer class="footer center">
+        <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
     <nav></nav>
 
     </footer>
-    
+   </div>
   </body>
 </html>
