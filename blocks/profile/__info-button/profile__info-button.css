@@ -1,0 +1,6 @@
+.profile__info-button{
+    height: 24px;
+    width: 24px;
+    background-image: url(../../../images/Edit-Button.svg);
+    margin: 37px 0 18px 18px;
+}
