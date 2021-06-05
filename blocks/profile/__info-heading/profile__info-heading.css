@@ -5,6 +5,15 @@
     font-size: 42px;
     line-height: 1.14;
     margin: 0;
-    text-align: center;
     margin: 22px 0 0 0;
+}
+
+@media screen and (max-width:640px) {
+    .profile__info-heading{
+        font-style: normal;
+        font-weight: 500;
+        font-size: 27px;
+        line-height: 33px;
+        text-align: center;
+    }
 }

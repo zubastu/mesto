@@ -1,9 +1,18 @@
 .header__logo{
     padding: 45px 0 0 0;
+    min-width: 103.74px;
+    min-height: 24.4px;
     max-width: 142px;
     max-height: 33px;
     transition: ease .6s;
 }
 .header__logo:hover{
     opacity: .05;
+}
+
+
+@media screen and (max-width:928px) {
+    .header__logo{
+        margin: 0 0 0 27px;
+    }
 }

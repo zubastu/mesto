@@ -2,3 +2,9 @@
     max-width: 282px;
     max-height: 361px;
 }
+
+@media screen and (max-width:882px) {
+    .card{
+        
+    }
+}
