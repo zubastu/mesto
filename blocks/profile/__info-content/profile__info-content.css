@@ -4,7 +4,7 @@
     align-self: flex-start;
 }
 
-@media screen and (max-width:734px) {
+@media screen and (max-width:576px) {
     .profile__info-content{
         flex-direction: column;
         align-self: center;

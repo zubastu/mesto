@@ -1,0 +1,11 @@
+.form__input{
+    margin-bottom: 13px;
+    max-width: 358px;
+    min-height: 30px;
+    border: 0;
+}
+.form__input:focus{
+    border: 2px solid dodgerblue;
+    border-radius: 5px;
+    outline: none;
+}

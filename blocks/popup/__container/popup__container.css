@@ -1,4 +1,14 @@
 .popup__container{
-    margin: 0 auto;
+    width: 430px;
+    height: 330px;
+    background-color: #fff;
+    max-width: 430px;
+    max-height: 330px;
+    min-width: 282px;
+    min-height: 322px;
+    z-index: 2;
+    align-self: flex-start;
+    border-radius: 10px;
+    margin: 70px 0 0 0;
     position: relative;
 }
