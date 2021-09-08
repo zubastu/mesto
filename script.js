@@ -11,7 +11,6 @@
 
     function popupOpened () {
         popup.setAttribute('style', 'display: flex;');
-        console.log('check_button1');
     }
 
     function popupClose() {
