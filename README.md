@@ -13,3 +13,4 @@ Mediaquries
 
 Java Script
 
+Ссылка на проект Github Pages : https://zubastu.github.io/mesto/
