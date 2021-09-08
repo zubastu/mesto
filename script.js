@@ -6,7 +6,7 @@
 
     let closeButton = document.querySelector('.form__close-button');
     let profileButton = document.querySelector('.profile__info-button');
-    let popup = document.querySelector('.popup_opened');
+    let popup = document.querySelector('.popup');
 
 
     function popupOpened () {
