@@ -1,8 +1,8 @@
 
     let formElement = document.querySelector('.form')
 
-    let nameInput = document.querySelector('.form__content_input_heading');
-    let jobInput = document.querySelector('.form__content_input_subheading')
+    let nameInput = document.querySelector('.form__item_input_name');
+    let jobInput = document.querySelector('.form__item_input_job ')
 
     let closeButton = document.querySelector('.form__close-button');
     let profileButton = document.querySelector('.profile__info-btn');
