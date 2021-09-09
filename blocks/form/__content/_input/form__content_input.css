@@ -1,16 +1,16 @@
-.form__input{
+.form__content_input{
     margin: 0 0 30px 0;
     width: 358px;
     border-bottom: 1px solid #545454;
     min-height: 27px;
 }
-.form__input:focus{
+.form__content_input:focus{
     border: 2px solid dodgerblue;
     border-radius: 5px;
     outline: none;
 }
 @media screen and (max-width:500px) {
-    .form__input{
+    .form__content_input{
         width: 238px;
         font-weight: normal;
         font-size: 14px;
