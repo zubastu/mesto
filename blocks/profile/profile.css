@@ -26,5 +26,6 @@
     .profile{
         max-height: max-content;
         flex-direction: column;
+        padding: 42px 0 36px 0
     }
 }

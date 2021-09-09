@@ -1,0 +1,8 @@
+.header_padding{
+    padding: 41px 0 0 0;
+}
+@media screen and (max-width:500px) {
+    .header_padding{
+        padding: 28px 0 0 0;
+    }
+}
