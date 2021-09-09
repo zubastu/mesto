@@ -5,7 +5,7 @@
     let jobInput = document.querySelector('.form__input_subheading')
 
     let closeButton = document.querySelector('.form__close-button');
-    let profileButton = document.querySelector('.profile__info-button');
+    let profileButton = document.querySelector('.profile__info-btn');
     let popup = document.querySelector('.popup');
 
 
@@ -19,8 +19,8 @@
 
     function formSubmitHandler (evt) {
         evt.preventDefault();
-        let name = document.querySelector('.profile__info-heading');
-        let job = document.querySelector('.profile__info-subheading');
+        let name = document.querySelector('.profile__info-content_heading');
+        let job = document.querySelector('.profile__info-content_subheading');
         name.textContent = nameInput.value;
         job.textContent = jobInput.value;
         popupClose();

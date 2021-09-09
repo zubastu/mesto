@@ -4,7 +4,11 @@
     margin: auto;
     background-color: #000;
     color: #fff;
+    border-radius: 2px;
+    font-size: 18px;
+    line-height: 22px;
     text-align: center;
+    border: none;
 }
 @media screen and (max-width:500px) {
     .form__submit-button{

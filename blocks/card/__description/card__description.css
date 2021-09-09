@@ -2,9 +2,5 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
-}
-
-@media screen and (max-width:320px) {
-    
+    min-height: 80px;
 }

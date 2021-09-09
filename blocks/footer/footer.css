@@ -8,3 +8,8 @@
         margin: 0 19px;
     }
 }
+@media screen and (max-width:500px) {
+    .footer{
+        padding: 36px 0 48px 0;
+    }
+}

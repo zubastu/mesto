@@ -25,14 +25,21 @@
 @import url(../blocks/form/__submit-button/form__submit-button.css);
 
 @import url(../blocks/profile/profile.css);
-@import url(../blocks/profile/__info/profile__info.css);
-@import url(../blocks/profile/__info-content/profile__info-content.css);
-@import url(../blocks/profile/__info-subheading/profile__info-subheading.css);
-@import url(../blocks/profile/__info-heading/profile__info-heading.css);
-@import url(../blocks/profile/__info-button/profile__info-button.css);
+@import url(../blocks/profile/_margin/profile_margin.css);
+@import url(../blocks/profile/__content/profile__content.css);
+
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__avatar-image/profile__avatar-image.css);
-@import url(../blocks/profile/__add-button/profile__add-button.css);
+
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__info-content/profile__info-content.css);
+@import url(../blocks/profile/__info-content/_heading/profile__info-content_heading.css);
+@import url(../blocks/profile/__info-content/_subheading/profile__info-content_subheading.css);
+@import url(../blocks/profile/__info-btn/profile__info-btn.css);
+
+@import url(../blocks/profile/__add-btn/profile__add-btn.css);
+
+
 
 @import url(../blocks/photo-cards/photo-cards.css);
 
