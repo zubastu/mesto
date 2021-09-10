@@ -10,7 +10,7 @@
 </head>
   <body class="page center">
 
-    <header class="header header_padding center">
+    <header class="header header__padding center">
         <img class="header__logo" src="./images/logo__header.svg" alt="Логотип">
     </header>
 
@@ -18,9 +18,9 @@
 
         <section class="popup">
 
-                <form class="form" id="profile__form">
+                <form class="form" id="profile__form" name="popup__content">
                     <button type="button" class="form__close-button button"></button>
-                    <h1 class="form__heading">Редактировать профиль</h1>
+                    <h2 class="form__heading">Редактировать профиль</h2>
                     
                     <fieldset class="form__input-container input">
                         <input type="text" class="form__item form__item_input_name input" value="Жак-Ив Кусто">
@@ -32,19 +32,18 @@
                 </form>
         </section>
 
-        <section class="profile profile_margin center">
+        <section class="profile profile__margin center">
 
             <div class="profile__content">
 
-                <div class="profile__avatar">
+                
                     <img src="./images/profile__image.jpg" alt="Фото Профиля" class="profile__avatar-image">
-                </div>
 
                 <div class="profile__info">
                 
                     <div class="profile__info-text">
-                        <h1 class="profile__item profile__item_heading">Жак-Ив Кусто</h1>
-                        <p class="profile__item profile__item_subheading">Исследователь океана</p>
+                        <h1 class="profile__item_heading">Жак-Ив Кусто</h1>
+                        <p class="profile__item_subheading">Исследователь океана</p>
                     </div>
 
                     <button type="button" class="profile__info-btn button"></button>

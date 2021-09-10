@@ -1,4 +1,5 @@
 .profie__info-text{
     display: flex;
     flex-direction: column;
+    max-width: 336px;
 }

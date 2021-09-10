@@ -24,7 +24,7 @@
     function formSubmitHandler (evt) {
         evt.preventDefault();
         let name = document.querySelector('.profile__item_heading');
-        let job = document.querySelector('.profile__item_heading');
+        let job = document.querySelector('.profile__item_subheading');
         name.textContent = nameInput.value;
         job.textContent = jobInput.value;
         popupClose();
