@@ -8,7 +8,7 @@
     max-width: 336px;
 }
 @media screen and (max-width: 500px){
-    .profile__info-content_subheading{
+    .profile__info_content_subheading{
         font-weight: normal;
         font-size: 14px;
         line-height: 17px;
