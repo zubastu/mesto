@@ -7,7 +7,7 @@
     text-align: start;
     max-width: 336px;
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 550px){
     .profile__info_content_subheading{
         font-weight: normal;
         font-size: 14px;
