@@ -23,8 +23,8 @@
 
     function formSubmitHandler (evt) {
         evt.preventDefault();
-        let name = document.querySelector('.profile__info-content_heading');
-        let job = document.querySelector('.profile__info-content_subheading');
+        let name = document.querySelector('.profile__info_content_heading');
+        let job = document.querySelector('.profile__info_content_subheading');
         name.textContent = nameInput.value;
         job.textContent = jobInput.value;
         popupClose();
