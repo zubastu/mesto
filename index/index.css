@@ -2,13 +2,15 @@
 @import url(../vendor/fonts/fonts.css);
 @import url(../blocks/button/button.css);
 @import url(../blocks/center/center.css);
+@import url(../blocks/margin/margin.css);
+@import url(../blocks/padding/padding.css);
 @import url(../blocks/input/input.css);
 
 @import url(../blocks/page/page.css);
 
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
-@import url(../blocks/header/__padding/header__padding.css);
+
 
 @import url(../blocks/main/main.css);
 
@@ -28,7 +30,7 @@
 
 @import url(../blocks/profile/profile.css);
 
-@import url(../blocks/profile/__margin/profile__margin.css);
+
 
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__info-text/profile__info-text.css);
