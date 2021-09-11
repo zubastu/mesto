@@ -8,7 +8,7 @@
     justify-content: center;
 }
 
-@media screen and (max-width:882px) {
+@media screen and (max-width:900px) {
     .photo-cards{
         grid-template-columns: repeat(2, max-content);
         grid-auto-rows: 1fr;
@@ -21,7 +21,7 @@
 
 
 
-@media screen and (max-width:580px) {
+@media screen and (max-width:600px) {
     .photo-cards{
         grid-template-columns: minmax(min-content, max-content);
         grid-auto-rows: 1fr;
