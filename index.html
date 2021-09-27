@@ -17,7 +17,6 @@
     <main class="main center">
 
         <section class="popup">
-
                 <form class="form" id="profile__form" name="popup__content">
                     <button type="button" class="form__close-button button"></button>
                     <h2 class="form__heading">Редактировать профиль</h2>
@@ -31,6 +30,7 @@
                     </fieldset>
                 </form>
         </section>
+
 
         <section class="profile margin center">
 
@@ -54,74 +54,18 @@
 
         </section>
 
-        <section class="photo-cards center">
+        <section id="cards-container" class="photo-cards center">
 
-            <div class="card">
-                
-                
-                    <img class="card__picture" src="./images/1_mir.jpg" alt="Алмазная шахта «Мир», Якутия">
+            <template id="card-template">
+                <div class="card">              
+                    <img class="card__picture" src="" alt="">
                     <div class="card__description">
-                        <p class="card__text">Алмазная шахта «Мир», Якутия</p>
-                        <button type="button" class="card__like card__like_disabled button"></button>
+                        <p class="card__text"></p>
+                        <button type="button" class="card__like button"></button>
                     </div>
-                
-            </div>
+                </div>
+            </template>
 
-            <div class="card">
-                
-                
-                    <img class="card__picture" src="./images/2_monastery.jpg" alt="Соловецкий монастырь">
-                    <div class="card__description">
-                        <p class="card__text">Соловецкий монастырь</p>
-                        <button type="button" class="card__like card__like_disabled button"></button>
-                    </div>
-                
-            </div>
-            
-            <div class="card">
-                
-                
-                    <img class="card__picture" src="./images/3_chsrskie_sands.jpg" alt="Чарские пески">
-                    <div class="card__description">
-                        <p class="card__text">Чарские пески</p>
-                        <button type="button" class="card__like card__like_disabled button"></button>
-                    </div>
-                
-            </div>
-
-            <div class="card">
-                
-                
-                    <img class="card__picture" src="./images/4_big_bogdo.jpg" alt="Гора Большой Богдо">
-                    <div class="card__description">
-                        <p class="card__text">Гора Большой Богдо</p>
-                        <button type="button" class="card__like card__like_disabled button"></button>
-                    </div>
-                
-            </div>
-
-            <div class="card">
-                
-                
-                    <img class="card__picture" src="./images/5_Jack's_london_lake.jpg" alt="Озеро Джека Лондона">
-                    <div class="card__description">
-                        <p class="card__text">Озеро Джека Лондона</p>
-                        <button type="button" class="card__like card__like_disabled button"></button>
-                    </div>
-                
-            </div>
-
-            <div class="card">
-                
-                
-                    <img class="card__picture" src="./images/6_lake_kezenoyam.jpg" alt="Озеро Кезенойам">
-                    <div class="card__description">
-                        <p class="card__text">Озеро Кезенойам</p>
-                        <button type="button" class="card__like card__like_disabled button"></button>
-                    </div>
-                
-            </div>
-            
         </section>
 
     </main>
