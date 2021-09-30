@@ -16,8 +16,8 @@
 
     <main class="main center">
 
-        <section class="popup__profile">
-                <form class="form-profile" id="profile__form" name="popup__content">
+        <section class="popup popup__profile">
+                <form class="form-profile" id="profile__form" name="popup__profile">
                     <button type="button" class="form-profile__close-button button"></button>
                     <h2 class="form-profile__heading">Редактировать профиль</h2>
                     
@@ -30,6 +30,28 @@
                     </fieldset>
                 </form>
         </section>
+
+        <section class="popup popup__card">
+            <form class="form-card" id="card__form" name="popup__card">
+                <button type="button" class="form-card__close-button button"></button>
+                <h2 class="form-card__heading">Новое место</h2>
+                
+                <fieldset class="form-card__input-container input">
+                    <input type="text" class="form-card__item form-card__item_input_name input" value="">
+
+                    <input type="text" class="form-card__item form-card__item_input_link input" value="">
+
+                    <button type="submit" class="form-card__submit-button button">Создать</button>
+                </fieldset>
+            </form>
+    </section>
+
+    <section class="popup popup__photo">
+        <button type="button" class="button"></button>
+        <img src="" alt="" class="popup__photo-image">
+        <h2 class="popup__photo-description"></h2>
+        
+    </section>
 
 
         <section class="profile margin center">
