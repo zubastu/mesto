@@ -1,5 +1,5 @@
 
-const formElement = document.querySelector('.form-profile')
+const formProfileElement = document.querySelector('.form-profile')
 
 const nameInput = document.querySelector('.form-profile__item_input_name');
 const jobInput = document.querySelector('.form-profile__item_input_job');
@@ -10,7 +10,7 @@ const closeButton = document.querySelector('.form-profile__close-button');
 const profileButton = document.querySelector('.profile__info-btn');
 const popupProfile = document.querySelector('.popup__profile');
 const popupCard = document.querySelector('.popup__card');
-const popupOpen = document.querySelector('.popup_opened');
+const popupOpen = document.querySelector('.popup-profile_opened');
 
 const cardsContainer = document.querySelector('.photo-cards');
 
@@ -77,15 +77,18 @@ function initCards (cards) {
     }
 }
 
+// Фукции popup закрыть, открыть
 
+function popupClose() {
+    document.querySelector('.popup').classList.remove('popup_opened');
+}
 
 function popupOpened () {
     document.querySelector('.popup').classList.add('popup_opened');
 }
 
-function popupClose() {
-    document.querySelector('.popup').classList.remove('popup_opened');
-}
+
+
 
 
 
