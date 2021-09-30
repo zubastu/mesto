@@ -10,7 +10,8 @@ const closeButton = document.querySelector('.form-profile__close-button');
 const profileButton = document.querySelector('.profile__info-btn');
 const popupProfile = document.querySelector('.popup__profile');
 const popupCard = document.querySelector('.popup__card');
-const popupOpen = document.querySelector('.popup-profile_opened');
+const popupOpen = document.querySelector('.popup__profile_opened');
+const profileAddButtonElement = document.querySelector('.profile__add-btn')
 
 const cardsContainer = document.querySelector('.photo-cards');
 
@@ -71,8 +72,18 @@ function addCard (cardId, cardItem, cardsSectionElement) {
 
     function removeCard () {
         cardElement.remove();
-    }   
+    }
+    //Добавление карточки при нажатии
+    
+
+    profileAddButtonElement.addEventListener('click', addCreatedCard);
+
+    function addCreatedCard () {
+        cardElement.prepend();
+    }
 }
+
+
 
 //Определение количества карт в массиве, присвоение id, вызов добавления карточек после определения.
 function initCards (cards) {
@@ -84,14 +95,14 @@ function initCards (cards) {
     }
 }
 
-// Фукции popup закрыть, открыть
+//Фукции popup закрыть, открыть
 
 function popupClose() {
-    document.querySelector('.popup').classList.remove('popup_opened');
+    document.querySelector('.popup__profile').classList.remove('popup__profile_opened');
 }
 
 function popupOpened () {
-    document.querySelector('.popup').classList.add('popup_opened');
+    document.querySelector('.popup__profile').classList.add('popup__profile_opened');
 }
 
 //Сохранение значений из формы в popup + закрытие
@@ -106,8 +117,8 @@ function formSubmitHandler (evt) {
 
 //Открытие popup с изменением текстового контента
 function profileOpenCopy () {
-    let name = document.querySelector('.form__item_input_name');
-    let job = document.querySelector('.form__item_input_job');
+    let name = document.querySelector('.form-profile__item_input_name');
+    let job = document.querySelector('.form-profile__item_input_job');
     let nameInput = document.querySelector('.profile__name');
     let jobInput = document.querySelector('.profile__job');
     name.value = nameInput.textContent;
@@ -116,7 +127,7 @@ function profileOpenCopy () {
 }
 
 //Слушатели событий
-formElement.addEventListener('submit', formSubmitHandler);
+formProfileElement.addEventListener('submit', formSubmitHandler);
 closeButton.addEventListener('click', popupClose);
 profileButton.addEventListener('click', profileOpenCopy);
 
