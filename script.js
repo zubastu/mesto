@@ -54,6 +54,10 @@ function addCard (cardId, cardItem, cardsSectionElement) {
 
     const likeButtonElement = newCardElement.querySelector('.card__like');
     likeButtonElement.addEventListener('click', () => onLikeClick(cardId));
+    
+    function onLikeClick () {
+        likeButtonElement.classList.toggle('card__like_active');
+    };
     cardsSectionElement.append(newCardElement);
 }
 
@@ -66,10 +70,6 @@ function initCards (cards) {
     }
 }
 
-function onLikeClick (cardId, cardsSectionElement) {
-    const cardLiked = newCardElement.querySelector('.card__like');
-    cardLiked.classList.toggle('card__like_active');
-}
 
 
 
