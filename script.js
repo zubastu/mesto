@@ -8,9 +8,8 @@ const job = document.querySelector('.profile__job');
 
 const closeButton = document.querySelector('.form-profile__close-button');
 const profileButton = document.querySelector('.profile__info-btn');
-const popupProfile = document.querySelector('.popup__profile');
-const popupCard = document.querySelector('.popup__card');
-const popupOpen = document.querySelector('.popup__profile_opened');
+const popupProfile = document.querySelector('.popup');
+const popupOpen = document.querySelector('.popup_opened');
 const profileAddButtonElement = document.querySelector('.profile__add-btn')
 
 const cardsContainer = document.querySelector('.photo-cards');
@@ -98,11 +97,11 @@ function initCards (cards) {
 //Фукции popup закрыть, открыть
 
 function popupClose() {
-    document.querySelector('.popup__profile').classList.remove('popup__profile_opened');
+    document.querySelector('.popup__profile').classList.remove('popup_opened');
 }
 
 function popupOpened () {
-    document.querySelector('.popup__profile').classList.add('popup__profile_opened');
+    document.querySelector('.popup__profile').classList.add('popup_opened');
 }
 
 //Сохранение значений из формы в popup + закрытие

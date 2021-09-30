@@ -1,11 +1,16 @@
-.popup__profile{
+
+.popup{
     position: absolute;
     width: 100%;
     height: 100%;
-    display: none;
     justify-content: center;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .6s ease;
+    z-index: 1;
 }
-.popup__profile::before{
+.popup::before{
     content: '';
     background-color: #000000;
     opacity: .6;
