@@ -42,16 +42,21 @@ const cards = [
 ];
 
 function addCard (cardId, cardItem, cardsSectionElement) {
+
+    //Клонирование узла и присвоение id
     const newCardElement = document.querySelector('#card-template').content.cloneNode(true);
     const cardElement = newCardElement.querySelector('.card');
     cardElement.id = cardId;
 
+    //Изменение контента название
     const cardName = cardElement.querySelector('.card__text');
     cardName.textContent = cardItem.name;
 
+    //Изменение контента картинки
     const cardImage = cardElement.querySelector('.card__picture');
     cardImage.src = cardItem.link;
 
+    //Работа кнопки лайк
     const likeButtonElement = cardElement.querySelector('.card__like');
     likeButtonElement.addEventListener('click', () => onLikeClick(cardId));
     
@@ -60,6 +65,7 @@ function addCard (cardId, cardItem, cardsSectionElement) {
     }
     cardsSectionElement.append(newCardElement);
 
+    //Работа кнопки удалить
     const removeCardButton = cardElement.querySelector('.card__delete');
     removeCardButton.addEventListener('click', removeCard);
 
@@ -68,6 +74,7 @@ function addCard (cardId, cardItem, cardsSectionElement) {
     }   
 }
 
+//Определение количества карт в массиве, присвоение id, вызов добавления карточек после определения.
 function initCards (cards) {
     const cardsSectionElement = document.querySelector('#cards-container');
     for (i = 0; i < cards.length; i++) {
@@ -87,11 +94,7 @@ function popupOpened () {
     document.querySelector('.popup').classList.add('popup_opened');
 }
 
-
-
-
-
-
+//Сохранение значений из формы в popup + закрытие
 function formSubmitHandler (evt) {
     evt.preventDefault();
     let name = document.querySelector('.profile__name');
@@ -101,6 +104,7 @@ function formSubmitHandler (evt) {
     popupClose();
 }
 
+//Открытие popup с изменением текстового контента
 function profileOpenCopy () {
     let name = document.querySelector('.form__item_input_name');
     let job = document.querySelector('.form__item_input_job');
@@ -111,8 +115,10 @@ function profileOpenCopy () {
     popupOpened();
 }
 
+//Слушатели событий
 formElement.addEventListener('submit', formSubmitHandler);
 closeButton.addEventListener('click', popupClose);
 profileButton.addEventListener('click', profileOpenCopy);
 
+//Вызов добавления карточек
 initCards(cards);
