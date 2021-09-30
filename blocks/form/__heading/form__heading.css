@@ -1,4 +1,4 @@
-.form__heading{
+.form-profile__heading{
     max-width: 330px;
     width: 100%;
     margin: 34px 0 54px 0;
@@ -6,7 +6,7 @@
     line-height: 29px;
 }
 @media screen and (max-width:500px) {
-    .form__heading{
+    .form-profile__heading{
         width: 282px;
         font-weight: 900;
         font-size: 18px;

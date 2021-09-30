@@ -14,19 +14,20 @@
 
 @import url(../blocks/main/main.css);
 
-@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__card/popup__card.css);
+@import url(../blocks/popup/__profile/popup__profile.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 
 
-@import url(../blocks/form/form.css);
-@import url(../blocks/form/__item/form__item.css);
-@import url(../blocks/form/__input-container/form__input-container.css);
+@import url(../blocks/form-profile/form-profile.css);
+@import url(../blocks/form-profile/__item/form-profile__item.css);
+@import url(../blocks/form-profile/__input-container/form-profile__input-container.css);
 
-@import url(../blocks/form/__close-button/form__close-button.css);
-@import url(../blocks/form/__heading/form__heading.css);
+@import url(../blocks/form-profile/__close-button/form-profile__close-button.css);
+@import url(../blocks/form-profile/__heading/form-profile__heading.css);
 
 
-@import url(../blocks/form/__submit-button/form__submit-button.css);
+@import url(../blocks/form-profile/__submit-button/form-profile__submit-button.css);
 
 @import url(../blocks/profile/profile.css);
 
@@ -50,6 +51,7 @@
 @import url(../blocks/photo-cards/photo-cards.css);
 
 @import url(../blocks/card/card.css);
+@import url(../blocks/card/__delete/card__delete.css);
 @import url(../blocks/card/__text/card__text.css);
 @import url(../blocks/card/__picture/card__picture.css);
 @import url(../blocks/card/__like/card__like.css);

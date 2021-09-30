@@ -16,17 +16,17 @@
 
     <main class="main center">
 
-        <section class="popup">
-                <form class="form" id="profile__form" name="popup__content">
-                    <button type="button" class="form__close-button button"></button>
-                    <h2 class="form__heading">Редактировать профиль</h2>
+        <section class="popup__profile">
+                <form class="form-profile" id="profile__form" name="popup__content">
+                    <button type="button" class="form-profile__close-button button"></button>
+                    <h2 class="form-profile__heading">Редактировать профиль</h2>
                     
-                    <fieldset class="form__input-container input">
-                        <input type="text" class="form__item form__item_input_name input" value="Жак-Ив Кусто">
+                    <fieldset class="form-profile__input-container input">
+                        <input type="text" class="form-profile__item form__item_input_name input" value="Жак-Ив Кусто">
 
-                        <input type="text" class="form__item form__item_input_job input" value="Исследователь океана">
+                        <input type="text" class="form-profile__item form__item_input_job input" value="Исследователь океана">
 
-                        <button type="submit" class="form__submit-button button">Сохранить</button>
+                        <button type="submit" class="form-profile__submit-button button">Сохранить</button>
                     </fieldset>
                 </form>
         </section>
@@ -57,7 +57,8 @@
         <section id="cards-container" class="photo-cards center">
 
             <template id="card-template">
-                <div class="card">              
+                <div class="card">
+                    <button type="button" class="card__delete button"></button>
                     <img class="card__picture" src="" alt="">
                     <div class="card__description">
                         <p class="card__text"></p>

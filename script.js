@@ -1,17 +1,17 @@
 
-const formElement = document.querySelector('.form')
+const formElement = document.querySelector('.form-profile')
 
-const nameInput = document.querySelector('.form__item_input_name');
-const jobInput = document.querySelector('.form__item_input_job');
+const nameInput = document.querySelector('.form-profile__item_input_name');
+const jobInput = document.querySelector('.form-profile__item_input_job');
 const name = document.querySelector('.profile__name');
 const job = document.querySelector('.profile__job');
 
-const closeButton = document.querySelector('.form__close-button');
+const closeButton = document.querySelector('.form-profile__close-button');
 const profileButton = document.querySelector('.profile__info-btn');
-const popup = document.querySelector('.popup');
+const popupProfile = document.querySelector('.popup__profile');
+const popupCard = document.querySelector('.popup__card');
 const popupOpen = document.querySelector('.popup_opened');
-const nameString = document.querySelector('.profile__name');
-const jobString = document.querySelector('.profile__job');
+
 const cardsContainer = document.querySelector('.photo-cards');
 
 const cards = [
@@ -52,13 +52,20 @@ function addCard (cardId, cardItem, cardsSectionElement) {
     const cardImage = cardElement.querySelector('.card__picture');
     cardImage.src = cardItem.link;
 
-    const likeButtonElement = newCardElement.querySelector('.card__like');
+    const likeButtonElement = cardElement.querySelector('.card__like');
     likeButtonElement.addEventListener('click', () => onLikeClick(cardId));
     
     function onLikeClick () {
         likeButtonElement.classList.toggle('card__like_active');
-    };
+    }
     cardsSectionElement.append(newCardElement);
+
+    const removeCardButton = cardElement.querySelector('.card__delete');
+    removeCardButton.addEventListener('click', removeCard);
+
+    function removeCard () {
+        cardElement.remove();
+    }   
 }
 
 function initCards (cards) {
@@ -69,8 +76,6 @@ function initCards (cards) {
         addCard(cardId, cardInfo, cardsSectionElement);
     }
 }
-
-
 
 
 
