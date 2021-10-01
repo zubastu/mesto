@@ -36,12 +36,13 @@
 
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__card/popup__card.css);
-@import url(../blocks/popup/__photo-description/popup__photo-description);
+
 @import url(../blocks/popup/__photo-image/popup__photo-image.css);
 @import url(../blocks/popup/__photo/popup__photo.css);
 @import url(../blocks/popup/__profile/poup__profile.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__photo-container/popup__photo-container.css);
+@import url(../blocks/popup/__photo-paragpaph/popup__photo-paragpaph.css);
 
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__add-btn/profile__add-btn.css);

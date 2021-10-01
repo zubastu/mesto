@@ -1,0 +1,13 @@
+.popup__photo-paragpaph{
+    min-width: 291px;
+    font-size: 12px;
+    line-height: 15px;
+    color: white;
+    text-align: start;
+    position: absolute;
+    bottom: -25px;
+    left: 0px;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+}
