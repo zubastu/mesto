@@ -7,9 +7,11 @@ const job = document.querySelector('.profile__job');
 //обьявления popup
 const popupProfile = document.querySelector('.popup__profile');
 const popupCard = document.querySelector('.popup__card');
-const popupOpen = document.querySelector('.popup_opened');
+const popupPhoto =document.querySelector('.popup__photo');
 //обьявления кнопок
-const closeButton = document.querySelector('.close-btn');
+const closeButtonProfile = popupProfile.querySelector('.close-btn__profile');
+const closeButtonCard = popupCard.querySelector('.close-btn__card');
+const closeButtonPhoto = popupPhoto.querySelector('.close-btn__photo')
 const profileButton = document.querySelector('.profile__info-btn');
 const profileAddButtonElement = document.querySelector('.profile__add-btn');
 
@@ -75,9 +77,11 @@ function addCard (cardId, cardItem, cardsSectionElement) {
         cardElement.remove();
     }
     //Добавление карточки при нажатии
+
+
     //открытие popup__card
-    const popupPhoto = document.querySelector('.popup__photo');
-    cardImage.addEventListener('click', popupOpened(popupPhoto));
+    cardImage.addEventListener('click', () => popupOpened(popupPhoto));
+
 
 }
 
@@ -95,12 +99,12 @@ function initCards (cards) {
 
 //Фукции popup закрыть, открыть, запретить скролл
 
-function popupClose() {
-    document.querySelector('.popup').classList.remove('popup_opened');
+function popupClose(popup) {
+    popup.classList.remove('popup_opened');
 }
 
-function popupOpened () {
-    document.querySelector('.popup').classList.add('popup_opened');
+function popupOpened (popup) {
+    popup.classList.add('popup_opened');
 }
 
 
@@ -128,9 +132,12 @@ function profileOpenCopy () {
 
 //Слушатели событий
 formProfileElement.addEventListener('submit', formSubmitHandler);
-closeButton.addEventListener('click', popupClose);
+closeButtonProfile.addEventListener('click', () => popupClose(popupProfile));
+closeButtonCard.addEventListener('click', () => popupClose(popupCard));
+closeButtonPhoto.addEventListener('click', () => popupClose(popupPhoto));
 profileButton.addEventListener('click', profileOpenCopy);
-profileAddButtonElement.addEventListener('click', popupOpened(popupCard));
+profileAddButtonElement.addEventListener('click', () => popupOpened(popupCard));
+
 
 //Вызов добавления карточек
 initCards(cards);
