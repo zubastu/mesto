@@ -5,13 +5,13 @@ const nameInput = document.querySelector('.form__item_input_name-profile');
 const jobInput = document.querySelector('.form__item_input_job-profile');
 const name = document.querySelector('.profile__name');
 const job = document.querySelector('.profile__job');
-
 const closeButton = document.querySelector('.close-btn');
 const profileButton = document.querySelector('.profile__info-btn');
 const popupProfile = document.querySelector('.popup__profile');
 const popupCard = document.querySelector('.popup__card');
 const popupPhoto = document.querySelector('.popup__photo');
 const popupOpen = document.querySelector('.popup_opened');
+const modalWindowAll = document.querySelectorAll('.popup');
 const profileAddButtonElement = document.querySelector('.profile__add-btn')
 
 const cardsContainer = document.querySelector('.photo-cards');
@@ -42,6 +42,14 @@ const cards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
+
+function noScroll (e) {
+    e.preventDefault(noScroll)
+    window.scrollTo(0,0);
+}
+
+modalWindowAll.addEventListener('scroll', noScroll);
+console.log(modalWindowAll);
 
 function addCard (cardId, cardItem, cardsSectionElement) {
 
@@ -96,7 +104,7 @@ function initCards (cards) {
     }
 }
 
-//Фукции popup закрыть, открыть
+//Фукции popup закрыть, открыть, запретить скролл
 
 function popupClose() {
     document.querySelector('.popup__profile').classList.remove('popup_opened');
@@ -105,6 +113,7 @@ function popupClose() {
 function popupOpened () {
     document.querySelector('.popup__profile').classList.add('popup_opened');
 }
+
 
 //Сохранение значений из формы в popup + закрытие
 function formSubmitHandler (evt) {
@@ -118,7 +127,7 @@ function formSubmitHandler (evt) {
 
 //Открытие popup с изменением текстового контента
 function profileOpenCopy () {
-    let name = document.querySelector('.formp__item_input_name-profile');
+    let name = document.querySelector('.form__item_input_name-profile');
     let job = document.querySelector('.form__item_input_job-profile');
     let nameInput = document.querySelector('.profile__name');
     let jobInput = document.querySelector('.profile__job');
