@@ -1,18 +1,17 @@
 
 const formProfileElement = document.querySelector('.form__profile')
-
 const nameInput = document.querySelector('.form__item_input_name-profile');
 const jobInput = document.querySelector('.form__item_input_job-profile');
 const name = document.querySelector('.profile__name');
 const job = document.querySelector('.profile__job');
-const closeButton = document.querySelector('.close-btn');
-const profileButton = document.querySelector('.profile__info-btn');
+//обьявления popup
 const popupProfile = document.querySelector('.popup__profile');
 const popupCard = document.querySelector('.popup__card');
-const popupPhoto = document.querySelector('.popup__photo');
 const popupOpen = document.querySelector('.popup_opened');
-const modalWindowAll = document.querySelectorAll('.popup');
-const profileAddButtonElement = document.querySelector('.profile__add-btn')
+//обьявления кнопок
+const closeButton = document.querySelector('.close-btn');
+const profileButton = document.querySelector('.profile__info-btn');
+const profileAddButtonElement = document.querySelector('.profile__add-btn');
 
 const cardsContainer = document.querySelector('.photo-cards');
 
@@ -43,13 +42,6 @@ const cards = [
     }
 ];
 
-function noScroll (e) {
-    e.preventDefault(noScroll)
-    window.scrollTo(0,0);
-}
-
-modalWindowAll.addEventListener('scroll', noScroll);
-console.log(modalWindowAll);
 
 function addCard (cardId, cardItem, cardsSectionElement) {
 
@@ -83,13 +75,10 @@ function addCard (cardId, cardItem, cardsSectionElement) {
         cardElement.remove();
     }
     //Добавление карточки при нажатии
-    
+    //открытие popup__card
+    const popupPhoto = document.querySelector('.popup__photo');
+    cardImage.addEventListener('click', popupOpened(popupPhoto));
 
-    profileAddButtonElement.addEventListener('click', addCreatedCard);
-
-    function addCreatedCard () {
-        cardElement.prepend();
-    }
 }
 
 
@@ -107,11 +96,11 @@ function initCards (cards) {
 //Фукции popup закрыть, открыть, запретить скролл
 
 function popupClose() {
-    document.querySelector('.popup__profile').classList.remove('popup_opened');
+    document.querySelector('.popup').classList.remove('popup_opened');
 }
 
 function popupOpened () {
-    document.querySelector('.popup__profile').classList.add('popup_opened');
+    document.querySelector('.popup').classList.add('popup_opened');
 }
 
 
@@ -122,7 +111,7 @@ function formSubmitHandler (evt) {
     let job = document.querySelector('.profile__job');
     name.textContent = nameInput.value;
     job.textContent = jobInput.value;
-    popupClose();
+    popupClose(popupProfile);
 }
 
 //Открытие popup с изменением текстового контента
@@ -133,13 +122,15 @@ function profileOpenCopy () {
     let jobInput = document.querySelector('.profile__job');
     name.value = nameInput.textContent;
     job.value = jobInput.textContent;
-    popupOpened();
+    popupOpened(popupProfile);
 }
+
 
 //Слушатели событий
 formProfileElement.addEventListener('submit', formSubmitHandler);
 closeButton.addEventListener('click', popupClose);
 profileButton.addEventListener('click', profileOpenCopy);
+profileAddButtonElement.addEventListener('click', popupOpened(popupCard));
 
 //Вызов добавления карточек
 initCards(cards);
