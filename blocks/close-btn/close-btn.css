@@ -1,4 +1,4 @@
-.form-profile__close-button{
+.close-btn{
     background: url(../../../images/popup__close-button.svg) center;
     width: 24px;
     height: 24px;
@@ -7,7 +7,7 @@
     right: -24px;
 }
 @media screen and (max-width:500px) {
-    .form-profile__close-button{
+    .close-btn{
         width: 20px;
         height: 20px;
         top: -36px;

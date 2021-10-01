@@ -17,40 +17,39 @@
     <main class="main center">
 
         <section class="popup popup__profile">
-                <form class="form-profile" id="profile__form" name="popup__profile">
-                    <button type="button" class="form-profile__close-button button"></button>
-                    <h2 class="form-profile__heading">Редактировать профиль</h2>
+                <form class="form form__profile" id="profile__form" name="popup__profile">
+                    <button type="button" class="close-btn close-btn__profile button"></button>
+                    <h2 class="form__heading">Редактировать профиль</h2>
                     
-                    <fieldset class="form-profile__input-container input">
-                        <input type="text" class="form-profile__item form-profile__item_input_name input" value="Жак-Ив Кусто">
+                    <fieldset class="form__input-container input">
+                        <input type="text" class="form__item form__item_input_name-profile input" value="Жак-Ив Кусто">
 
-                        <input type="text" class="form-profile__item form-profile__item_input_job input" value="Исследователь океана">
+                        <input type="text" class="form__item form__item_input_job-profile input" value="Исследователь океана">
 
-                        <button type="submit" class="form-profile__submit-button button">Сохранить</button>
+                        <button type="submit" class="submit-btn submit-btn__profile button">Сохранить</button>
                     </fieldset>
                 </form>
         </section>
 
         <section class="popup popup__card">
-            <form class="form-card" id="card__form" name="popup__card">
-                <button type="button" class="form-card__close-button button"></button>
-                <h2 class="form-card__heading">Новое место</h2>
+            <form class="form" id="card__form" name="popup__card">
+                <button type="button" class="close-btn close-btn__card button"></button>
+                <h2 class="form__heading">Новое место</h2>
                 
-                <fieldset class="form-card__input-container input">
-                    <input type="text" class="form-card__item form-card__item_input_name input" value="">
+                <fieldset class="form__input-container input">
+                    <input type="text" class="form__item form__item_input_name-card input" value="">
 
-                    <input type="text" class="form-card__item form-card__item_input_link input" value="">
+                    <input type="text" class="form__item form__item_input_link-card input" value="">
 
-                    <button type="submit" class="form-card__submit-button button">Создать</button>
+                    <button type="submit" class="submit-btn submit-btn__card button">Создать</button>
                 </fieldset>
             </form>
     </section>
 
     <section class="popup popup__photo">
-        <button type="button" class="button"></button>
+        <button class="close-btn close-btn__photo" type="button" class="button"></button>
         <img src="" alt="" class="popup__photo-image">
-        <h2 class="popup__photo-description"></h2>
-        
+        <p class="popup__photo-description"></p>
     </section>
 
 

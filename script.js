@@ -1,14 +1,16 @@
 
-const formProfileElement = document.querySelector('.form-profile')
+const formProfileElement = document.querySelector('.form__profile')
 
-const nameInput = document.querySelector('.form-profile__item_input_name');
-const jobInput = document.querySelector('.form-profile__item_input_job');
+const nameInput = document.querySelector('.form__item_input_name-profile');
+const jobInput = document.querySelector('.form__item_input_job-profile');
 const name = document.querySelector('.profile__name');
 const job = document.querySelector('.profile__job');
 
-const closeButton = document.querySelector('.form-profile__close-button');
+const closeButton = document.querySelector('.close-btn');
 const profileButton = document.querySelector('.profile__info-btn');
-const popupProfile = document.querySelector('.popup');
+const popupProfile = document.querySelector('.popup__profile');
+const popupCard = document.querySelector('.popup__card');
+const popupPhoto = document.querySelector('.popup__photo');
 const popupOpen = document.querySelector('.popup_opened');
 const profileAddButtonElement = document.querySelector('.profile__add-btn')
 
@@ -116,8 +118,8 @@ function formSubmitHandler (evt) {
 
 //Открытие popup с изменением текстового контента
 function profileOpenCopy () {
-    let name = document.querySelector('.form-profile__item_input_name');
-    let job = document.querySelector('.form-profile__item_input_job');
+    let name = document.querySelector('.formp__item_input_name-profile');
+    let job = document.querySelector('.form__item_input_job-profile');
     let nameInput = document.querySelector('.profile__name');
     let jobInput = document.querySelector('.profile__job');
     name.value = nameInput.textContent;
