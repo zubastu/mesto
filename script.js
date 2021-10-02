@@ -1,5 +1,5 @@
 //Обьявление элементов профиля
-const profileButtonSubmit = document.querySelector('.submit-btn_profile');
+const profileSubmit = document.getElementById('profile__form');
 const nameInput = document.querySelector('.form__item_input_name-profile');
 const jobInput = document.querySelector('.form__item_input_job-profile');
 const name = document.querySelector('.profile__name');
@@ -14,7 +14,7 @@ const closeButtonCard = popupCard.querySelector('.close-btn_card');
 const closeButtonPhoto = popupPhoto.querySelector('.close-btn_photo');
 const profileInfoButton = document.querySelector('.profile__info-btn');
 const profileAddButtonElement = document.querySelector('.profile__add-btn');
-const popupCardSubmitButtonElement = document.querySelector('.submit-btn_card');
+const popupCardSubmitElement = document.getElementById('card__form');
 const cardContainer = document.querySelector('.photo-cards');
 //обьявление элементов popup card
 const cardNameInput = popupCard.querySelector('.form__item_input_name-card');
@@ -106,8 +106,8 @@ function popupOpened (popup) {
 //Сохранение значений из формы в popup + закрытие
 function formProfileSubmitHandler (event) {
     event.preventDefault();
-    let name = document.querySelector('.profile__name');
-    let job = document.querySelector('.profile__job');
+    const name = document.querySelector('.profile__name');
+    const job = document.querySelector('.profile__job');
     name.textContent = nameInput.value;
     job.textContent = jobInput.value;
     popupClose(popupProfile);
@@ -115,14 +115,14 @@ function formProfileSubmitHandler (event) {
 
 //Открытие popup с изменением текстового контента
 function profileOpenCopy () {
-    let name = document.querySelector('.form__item_input_name-profile');
-    let job = document.querySelector('.form__item_input_job-profile');
-    let nameInput = document.querySelector('.profile__name');
-    let jobInput = document.querySelector('.profile__job');
+    const name = document.querySelector('.form__item_input_name-profile');
+    const job = document.querySelector('.form__item_input_job-profile');
+    const nameInput = document.querySelector('.profile__name');
+    const jobInput = document.querySelector('.profile__job');
     name.value = nameInput.textContent;
     job.value = jobInput.textContent;
     popupOpened(popupProfile);
-}
+} 
 
 function getPopupCard() {
     const name = cardNameInput.value;
@@ -161,7 +161,7 @@ function showCardDetails(card) {
 //Слушатели событий
 profileAddButtonElement.addEventListener('click', () => popupOpened(popupCard));
 
-profileButtonSubmit.addEventListener('click', formProfileSubmitHandler);
+profileSubmit.addEventListener('submit', formProfileSubmitHandler);
 
 profileInfoButton.addEventListener('click', profileOpenCopy);
 
@@ -170,7 +170,7 @@ closeButtonCard.addEventListener('click', () => popupClose(popupCard));
 closeButtonPhoto.addEventListener('click', () => popupClose(popupPhoto));
 
 
-popupCardSubmitButtonElement.addEventListener('click', сreateNewCardHandle);
+popupCardSubmitElement.addEventListener('submit', сreateNewCardHandle);
 
 //Вызов добавления карточек
 createNewCard(cards);
