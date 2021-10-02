@@ -7,7 +7,7 @@ const job = document.querySelector('.profile__job');
 //обьявления popup
 const popupProfile = document.querySelector('.popup_profile');
 const popupCard = document.querySelector('.popup_card');
-const popupPhoto =document.querySelector('.popup__photo');
+const popupPhoto =document.querySelector('.popup_photo');
 //обьявления кнопок
 const closeButtonProfile = popupProfile.querySelector('.close-btn_profile');
 const closeButtonCard = popupCard.querySelector('.close-btn_card');
