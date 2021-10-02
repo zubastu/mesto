@@ -1,20 +1,20 @@
 //Обьявление элементов профиля
-const formProfileElement = document.querySelector('.form__profile')
+const profileButtonSubmit = document.querySelector('.submit-btn_profile');
 const nameInput = document.querySelector('.form__item_input_name-profile');
 const jobInput = document.querySelector('.form__item_input_job-profile');
 const name = document.querySelector('.profile__name');
 const job = document.querySelector('.profile__job');
 //обьявления popup
-const popupProfile = document.querySelector('.popup__profile');
-const popupCard = document.querySelector('.popup__card');
+const popupProfile = document.querySelector('.popup_profile');
+const popupCard = document.querySelector('.popup_card');
 const popupPhoto =document.querySelector('.popup__photo');
 //обьявления кнопок
-const closeButtonProfile = popupProfile.querySelector('.close-btn__profile');
-const closeButtonCard = popupCard.querySelector('.close-btn__card');
-const closeButtonPhoto = popupPhoto.querySelector('.close-btn__photo')
+const closeButtonProfile = popupProfile.querySelector('.close-btn_profile');
+const closeButtonCard = popupCard.querySelector('.close-btn_card');
+const closeButtonPhoto = popupPhoto.querySelector('.close-btn_photo')
 const profileButton = document.querySelector('.profile__info-btn');
 const profileAddButtonElement = document.querySelector('.profile__add-btn');
-const popupCardSubmitButtonElement = document.querySelector('.submit-btn__card');
+const popupCardSubmitButtonElement = document.querySelector('.submit-btn_card');
 const cardContainer = document.querySelector('.photo-cards');
 //обьявление элементов popup card
 const cardNameInput = popupCard.querySelector('.form__item_input_name-card');
@@ -79,7 +79,7 @@ function initButtonsElements(cardElement) {
 function createNewCard (card) {
     //нахожу шаблон карточки
     const cardTemplate = document.querySelector('#card-template').content;
-    //клонимрую содержимое шаблона
+    //клонирую содержимое шаблона
     const newCardElement = cardTemplate.querySelector('.card').cloneNode(true);
 
     initCardTextElement(newCardElement, card);
@@ -132,6 +132,11 @@ function getPopupCard() {
         link: link
     };
 }
+function popupCardClear() {
+    cardNameInput.value = null;
+    cardLinkInput.value = null;
+    popupClose(popupCard);
+}
 
 function onCreateNewCardClick(event) {
     event.preventDefault();
@@ -140,7 +145,7 @@ function onCreateNewCardClick(event) {
     // создать новую карточку с этой информацией
     const newCardElement = createNewCard(card);
     cardContainer.append(newCardElement);
-    popupClose(popupCard);
+    popupCardClear();
 }
 
 function showCardDetails(card) {
@@ -154,7 +159,7 @@ function showCardDetails(card) {
 
 
 //Слушатели событий
-formProfileElement.addEventListener('submit', formSubmitHandler);
+profileButtonSubmit.addEventListener('submit', formSubmitHandler);
 closeButtonProfile.addEventListener('click', () => popupClose(popupProfile));
 closeButtonCard.addEventListener('click', () => popupClose(popupCard));
 closeButtonPhoto.addEventListener('click', () => popupClose(popupPhoto));

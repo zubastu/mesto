@@ -1,4 +1,4 @@
-.popup__card{
+.popup_card{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -10,7 +10,7 @@
     z-index: 1;
 }
 
-.popup__card::before{
+.popup_card::before{
     content: '';
     background-color: #000000;
     opacity: .9;

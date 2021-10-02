@@ -1,10 +1,10 @@
-.close-btn__card{
+.close-btn_card{
     position: absolute;
     top: -24px;
     right: -24px;
 }
 @media screen and (max-width:500px) {
-    .close-btn__card{
+    .close-btn_card{
         top: -36px;
         right: 0;
     }

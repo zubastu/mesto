@@ -1,10 +1,10 @@
-.close-btn__profile{
+.close-btn_photo{
     position: absolute;
-    top: -24px;
-    right: -24px;
+    top: -32px;
+    right: -32px;
 }
 @media screen and (max-width:500px) {
-    .close-btn__profile{
+    .close-btn_photo{
         top: -36px;
         right: 0;
     }
