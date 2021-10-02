@@ -104,7 +104,7 @@ function popupOpened (popup) {
 }
 
 //Сохранение значений из формы в popup + закрытие
-function formSubmitHandler (event) {
+function formProfileSubmitHandler (event) {
     event.preventDefault();
     let name = document.querySelector('.profile__name');
     let job = document.querySelector('.profile__job');
@@ -138,7 +138,7 @@ function popupCardClear() {
     popupClose(popupCard);
 }
 
-function onCreateNewCardClick(event) {
+function сreateNewCardHandle(event) {
     event.preventDefault();
     // получить информацию по карточке из попапа
     const card = getPopupCard();
@@ -161,7 +161,7 @@ function showCardDetails(card) {
 //Слушатели событий
 profileAddButtonElement.addEventListener('click', () => popupOpened(popupCard));
 
-profileButtonSubmit.addEventListener('click', formSubmitHandler);
+profileButtonSubmit.addEventListener('click', formProfileSubmitHandler);
 
 profileInfoButton.addEventListener('click', profileOpenCopy);
 
@@ -170,7 +170,7 @@ closeButtonCard.addEventListener('click', () => popupClose(popupCard));
 closeButtonPhoto.addEventListener('click', () => popupClose(popupPhoto));
 
 
-popupCardSubmitButtonElement.addEventListener('click', onCreateNewCardClick);
+popupCardSubmitButtonElement.addEventListener('click', сreateNewCardHandle);
 
 //Вызов добавления карточек
 createNewCard(cards);
