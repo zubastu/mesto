@@ -138,7 +138,7 @@ function сreateNewCardHandle(event) {
     const card = getPopupCard();
     // создать новую карточку с этой информацией
     const newCardElement = createNewCard(card);
-    cardContainer.append(newCardElement);
+    cardContainer.prepend(newCardElement);
     popupCardClear();
 }
 
