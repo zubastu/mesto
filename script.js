@@ -2,8 +2,8 @@
 const profileSubmit = document.getElementById('profile__form');
 const nameInput = document.querySelector('.form__item_input_name-profile');
 const jobInput = document.querySelector('.form__item_input_job-profile');
-const name = document.querySelector('.profile__name');
-const job = document.querySelector('.profile__job');
+const nameProfile = document.querySelector('.profile__name');
+const jobProfile = document.querySelector('.profile__job');
 //обьявления popup
 const popupProfile = document.querySelector('.popup_profile');
 const popupCard = document.querySelector('.popup_card');
@@ -106,21 +106,15 @@ function openPopup (popup) {
 //Сохранение значений из формы в popup + закрытие
 function formProfileSubmitHandler (event) {
     event.preventDefault();
-    const name = document.querySelector('.profile__name');
-    const job = document.querySelector('.profile__job');
-    name.textContent = nameInput.value;
-    job.textContent = jobInput.value;
+    nameProfile.textContent = nameInput.value;
+    jobProfile.textContent = jobInput.value;
     closePopup(popupProfile);
 }
 
 //Открытие popup с изменением текстового контента
 function profileOpenCopy () {
-    const name = document.querySelector('.form__item_input_name-profile');
-    const job = document.querySelector('.form__item_input_job-profile');
-    const nameInput = document.querySelector('.profile__name');
-    const jobInput = document.querySelector('.profile__job');
-    name.value = nameInput.textContent;
-    job.value = jobInput.textContent;
+    nameInput.value = nameProfile.textContent;
+    jobInput.value = jobProfile.textContent;
     openPopup(popupProfile);
 } 
 
