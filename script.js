@@ -11,8 +11,8 @@ const popupPhoto =document.querySelector('.popup_photo');
 //обьявления кнопок
 const closeButtonProfile = popupProfile.querySelector('.close-btn_profile');
 const closeButtonCard = popupCard.querySelector('.close-btn_card');
-const closeButtonPhoto = popupPhoto.querySelector('.close-btn_photo')
-const profileButton = document.querySelector('.profile__info-btn');
+const closeButtonPhoto = popupPhoto.querySelector('.close-btn_photo');
+const profileInfoButton = document.querySelector('.profile__info-btn');
 const profileAddButtonElement = document.querySelector('.profile__add-btn');
 const popupCardSubmitButtonElement = document.querySelector('.submit-btn_card');
 const cardContainer = document.querySelector('.photo-cards');
@@ -104,8 +104,8 @@ function popupOpened (popup) {
 }
 
 //Сохранение значений из формы в popup + закрытие
-function formSubmitHandler (evt) {
-    evt.preventDefault();
+function formSubmitHandler (event) {
+    event.preventDefault();
     let name = document.querySelector('.profile__name');
     let job = document.querySelector('.profile__job');
     name.textContent = nameInput.value;
@@ -159,12 +159,17 @@ function showCardDetails(card) {
 
 
 //Слушатели событий
-profileButtonSubmit.addEventListener('submit', formSubmitHandler);
+profileAddButtonElement.addEventListener('click', () => popupOpened(popupCard));
+
+profileButtonSubmit.addEventListener('click', formSubmitHandler);
+
+profileInfoButton.addEventListener('click', profileOpenCopy);
+
 closeButtonProfile.addEventListener('click', () => popupClose(popupProfile));
 closeButtonCard.addEventListener('click', () => popupClose(popupCard));
 closeButtonPhoto.addEventListener('click', () => popupClose(popupPhoto));
-profileButton.addEventListener('click', profileOpenCopy);
-profileAddButtonElement.addEventListener('click', () => popupOpened(popupCard));
+
+
 popupCardSubmitButtonElement.addEventListener('click', onCreateNewCardClick);
 
 //Вызов добавления карточек
