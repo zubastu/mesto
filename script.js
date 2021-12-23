@@ -77,7 +77,6 @@ function openPhotoPopup(e){
     let popupImage = photoPopup.querySelector('.popup__photo-image');
     popupParagraph.textContent = cardName;
     popupImage.src = cardLink;
-    console.log(e.target);
     openPopup(photoPopup)
 }
 
