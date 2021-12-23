@@ -1,3 +1,5 @@
+
+
 const profilePopup = document.querySelector('.popup_profile');
 const profilePopupCloseButton = document.querySelector('.close-btn_profile');
 const profilePopupSubmit = document.getElementById('profile__form');
@@ -64,6 +66,7 @@ function initCards(){
         createCard(cardName, cardImage);
     });
 }
+
 function closePopup(popup){
     popup.classList.toggle('popup_opened');
 }
@@ -71,12 +74,10 @@ function openPopup(popup){
     popup.classList.toggle('popup_opened');
 }
 function openPhotoPopup(e){
-    let cardName = e.target.alt;
-    let cardLink = e.target.src;
     let popupParagraph = photoPopup.querySelector('.popup__photo-paragraph');
     let popupImage = photoPopup.querySelector('.popup__photo-image');
-    popupParagraph.textContent = cardName;
-    popupImage.src = cardLink;
+    popupParagraph.textContent = e.target.alt;
+    popupImage.src = e.target.src;
     openPopup(photoPopup)
 }
 
