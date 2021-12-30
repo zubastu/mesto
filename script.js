@@ -60,7 +60,7 @@ function createCardFromPopup(){
 }
 
 function initCards(){
-    cards.forEach(function (item) {
+    cards.forEach(function (item){
         let cardName = item.name;
         let cardImage = item.link;
         createCard(cardName, cardImage);

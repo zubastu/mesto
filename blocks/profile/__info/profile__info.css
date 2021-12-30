@@ -1,8 +1,9 @@
 .profile__info{
     max-width: 336px;
+    min-width: 282px;
     display: flex;
-    align-items: center;
+    align-items: baseline;
     align-self: center;
     text-align: center;
-    justify-content: center;
+    justify-content: end;
 }
