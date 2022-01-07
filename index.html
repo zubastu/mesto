@@ -11,37 +11,90 @@
   <body class="page center">
 
     <header class="header padding center">
-        <img class="header__logo" src="./images/logo__header.svg" alt="Логотип">
+
+        <img class="header__logo"
+             src="./images/logo__header.svg"
+             alt="Логотип">
+
     </header>
 
     <main class="main center">
 
         <section class="popup popup_profile">
-                <form class="form" id="profile__form" name="popup_profile">
-                    <button type="button" class="close-btn close-btn_profile button"></button>
+
+                <form class="form"
+                      id="profile__form"
+                      name="popup_profile"
+                      novalidate>
+
+                    <button type="button"
+                            class="close-btn close-btn_profile button"></button>
+
                     <h2 class="form__heading">Редактировать профиль</h2>
                     
                     <fieldset class="form__input-container input">
-                        <input type="text" class="form__item form__item_input_name-profile input" value="Жак-Ив Кусто" placeholder="Имя профиля">
 
-                        <input type="text" class="form__item form__item_input_job-profile input" value="Исследователь океана" placeholder="Деятельность">
+                        <label class="form__field">
+                            <input type="text"
+                                   class="form__item form__item_input_name-profile input"
+                                   value="Жак-Ив Кусто"
+                                   minlength="2"
+                                   maxlength="40"
+                                   required
+                                   placeholder="Имя профиля">
+                        </label>
 
-                        <button type="submit" class="submit-btn submit-btn_profile button">Сохранить</button>
+                        <label class="form__field">
+                            <input type="text"
+                                   class="form__item form__item_input_job-profile input"
+                                   value="Исследователь океана"
+                                   minlength="2"
+                                   maxlength="200"
+                                   required
+                                   placeholder="Деятельность">
+                        </label>
+
+                        <button type="submit"
+                                class="submit-btn submit-btn_profile button">Сохранить</button>
                     </fieldset>
                 </form>
         </section>
 
         <section class="popup popup_card">
-            <form class="form" id="card__form" name="popup__card">
-                <button type="button" class="close-btn close-btn_card button"></button>
+
+            <form class="form"
+                  id="card__form"
+                  name="popup__card"
+                  novalidate>
+
+                <button type="button"
+                        class="close-btn close-btn_card button"></button>
+
                 <h2 class="form__heading">Новое место</h2>
                 
                 <fieldset class="form__input-container input">
-                    <input type="text" class="form__item form__item_input_name-card input" value="" placeholder="Имя места">
 
-                    <input type="text" class="form__item form__item_input_link-card input" value="" placeholder="Ссылка на место">
+                    <label class="form__field">
+                        <input type="text"
+                               class="form__item form__item_input_name-card input"
+                               value=""
+                               minlength="2"
+                               maxlength="30"
+                               required
+                               placeholder="Имя места">
+                    </label>
 
-                    <button type="submit" class="submit-btn submit-btn_card button">Создать</button>
+                    <label class="form__field">
+                        <input type="url"
+                               class="form__item form__item_input_link-card input"
+                               value=""
+                               required
+                               placeholder="Ссылка на место">
+                    </label>
+
+                    <button type="submit"
+                            class="submit-btn submit-btn_card button">Создать</button>
+
                 </fieldset>
             </form>
     </section>
@@ -49,8 +102,13 @@
     <section class="popup popup_photo">
             
             <div class="popup__photo-container">
-                <button class="close-btn close-btn_photo button" type="button"></button>
-                <img src="." alt="" class="popup__photo-image">
+                <button class="close-btn close-btn_photo button"
+                        type="button"></button>
+
+                <img src="."
+                     alt=""
+                     class="popup__photo-image">
+
                 <p class="popup__photo-paragraph">Эта запись для теста</p>
             </div>
     </section>
@@ -70,11 +128,13 @@
                         <p class="profile__job">Исследователь океана</p>
                     </div>
 
-                    <button type="button" class="profile__info-btn button"></button>
+                    <button type="button"
+                            class="profile__info-btn button"></button>
                 </div>
             </div>
 
-            <button type="button" class="profile__add-btn button" ></button>
+            <button type="button"
+                    class="profile__add-btn button" ></button>
 
         </section>
 
@@ -86,7 +146,8 @@
                     <img class="card__picture" src="." alt="">
                     <div class="card__description">
                         <p class="card__text"></p>
-                        <button type="button" class="card__like button"></button>
+                        <button type="button"
+                                class="card__like button"></button>
                     </div>
                 </div>
             </template>
@@ -100,5 +161,6 @@
 
     </footer>
     <script src="script.js"></script>
+    <script src="validate.js"></script>
   </body>
 </html>

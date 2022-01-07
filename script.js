@@ -1,5 +1,4 @@
 
-
 const profilePopup = document.querySelector('.popup_profile');
 const profilePopupCloseButton = document.querySelector('.close-btn_profile');
 const profilePopupSubmit = document.getElementById('profile__form');
@@ -31,8 +30,8 @@ function profilePopupOpenShowDetails(){
     profileInputJob.value = profileJob.textContent;
     openPopup(profilePopup);
 }
-function cardSubmitHandler(event){
-    event.preventDefault();
+function cardSubmitHandler(e){
+    e.preventDefault();
     createCardFromPopup();
     closePopup(cardPopup);
 }
@@ -86,7 +85,7 @@ profilePopupCloseButton.addEventListener('click', () => closePopup(profilePopup)
 profilePopupSubmit.addEventListener('submit', profileSubmitHandler);
 
 profileAddCardButton.addEventListener('click', () => openPopup(cardPopup));
-cardPopupSubmit.addEventListener('submit', cardSubmitHandler);nn
+cardPopupSubmit.addEventListener('submit', cardSubmitHandler);
 cardPopupCloseButton.addEventListener('click', () => closePopup(cardPopup));
 photoPopupCloseButton.addEventListener('click', () => closePopup(photoPopup));
 
