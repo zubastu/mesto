@@ -1,4 +1,7 @@
 
+
+
+const documentFormList = Array.from(document.querySelectorAll('.form'));
 const profilePopup = document.querySelector('.popup_profile');
 const profilePopupCloseButton = document.querySelector('.close-btn_profile');
 const profilePopupSubmit = document.getElementById('profile__form');
@@ -14,6 +17,7 @@ const cardPopup = document.querySelector('.popup_card');
 const cardsContainer = document.getElementById('cards-container');
 const cardPopupSubmit = document.getElementById('card__form');
 const cardPopupCloseButton = document.querySelector('.close-btn_card');
+
 
 function profileSubmitHandler(event){
     event.preventDefault();
@@ -46,7 +50,7 @@ function createCard(cardName, cardImage){
 
     card.querySelector('.card__delete').addEventListener('click', () => card.remove());
     card.querySelector('.card__picture').addEventListener('click', openPhotoPopup);
-    cardsContainer.append(card);
+    cardsContainer.prepend(card);
 }
 function createCardFromPopup(){
     let cardNameInput = cardPopup.querySelector('.form__item_input_name-card');
@@ -67,10 +71,10 @@ function initCards(){
 }
 
 function closePopup(popup){
-    popup.classList.toggle('popup_opened');
+    popup.classList.remove('popup_opened');
 }
 function openPopup(popup){
-    popup.classList.toggle('popup_opened');
+    popup.classList.add('popup_opened');
 }
 function openPhotoPopup(e){
     let popupParagraph = photoPopup.querySelector('.popup__photo-paragraph');
@@ -79,6 +83,22 @@ function openPhotoPopup(e){
     popupImage.src = e.target.src;
     openPopup(photoPopup)
 }
+
+function closePopupHandlerEsc(e){
+    const currentOpenedPopup = document.querySelector('.popup_opened');
+    if((currentOpenedPopup) && (e.key === 'Escape')){
+        closePopup(currentOpenedPopup);
+  }
+}
+function closePopupHandlerMouseClick(e){
+    const currentOpenedPopup = document.querySelector('.popup_opened');
+    if((e.target.classList.contains('popup')) || (e.target.classList.contains('close-btn'))){
+        closePopup(currentOpenedPopup);
+    }
+}
+
+document.addEventListener('keydown', closePopupHandlerEsc)
+document.addEventListener('mousedown', closePopupHandlerMouseClick)
 
 profileInfoButton.addEventListener('click', profilePopupOpenShowDetails);
 profilePopupCloseButton.addEventListener('click', () => closePopup(profilePopup));

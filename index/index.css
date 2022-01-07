@@ -31,6 +31,7 @@
 @import url(../blocks/form/__heading/form__heading.css);
 @import url(../blocks/form/__input-container/form__input-container.css);
 @import url(../blocks/form/__item/form__item.css);
+@import url(../blocks/form/__input-error/form__input-error.css);
 
 @import url(../blocks/photo-cards/photo-cards.css);
 
