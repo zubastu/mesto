@@ -98,16 +98,15 @@ function closePopupHandlerMouseClick(e){
 }
 
 document.addEventListener('keydown', closePopupHandlerEsc)
-document.addEventListener('mousedown', closePopupHandlerMouseClick)
+document.addEventListener('click', closePopupHandlerMouseClick)
 
 profileInfoButton.addEventListener('click', profilePopupOpenShowDetails);
-profilePopupCloseButton.addEventListener('click', () => closePopup(profilePopup));
+
 profilePopupSubmit.addEventListener('submit', profileSubmitHandler);
 
 profileAddCardButton.addEventListener('click', () => openPopup(cardPopup));
 cardPopupSubmit.addEventListener('submit', cardSubmitHandler);
-cardPopupCloseButton.addEventListener('click', () => closePopup(cardPopup));
-photoPopupCloseButton.addEventListener('click', () => closePopup(photoPopup));
+
 
 
 
