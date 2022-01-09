@@ -49,8 +49,8 @@ function createCardFromPopup(){
 }
 function initCards(){
     cards.forEach((item) => {
-        let cardName = item.name;
-        let cardImage = item.link;
+        const cardName = item.name;
+        const cardImage = item.link;
         createCard(cardName, cardImage);
     });
 }
