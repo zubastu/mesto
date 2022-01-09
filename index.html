@@ -24,7 +24,7 @@
 
                 <form class="form"
                       id="profile__form"
-                      name="popup_profile"
+                      name="profileForm"
                       novalidate>
 
                     <button type="button"
@@ -38,6 +38,7 @@
                             <input type="text"
                                    class="form__item form__item_input_name-profile input"
                                    value="Жак-Ив Кусто"
+                                   name="profileInputName"
                                    minlength="2"
                                    maxlength="40"
                                    required
@@ -49,6 +50,7 @@
                             <input type="text"
                                    class="form__item form__item_input_job-profile input"
                                    value="Исследователь океана"
+                                   name="profileInputJob"
                                    minlength="2"
                                    maxlength="200"
                                    required
@@ -66,7 +68,7 @@
 
             <form class="form"
                   id="card__form"
-                  name="popup__card"
+                  name="cardForm"
                   novalidate>
 
                 <button type="button"
@@ -80,6 +82,7 @@
                         <input type="text"
                                class="form__item form__item_input_name-card input"
                                value=""
+                               name="cardInputName"
                                minlength="2"
                                maxlength="30"
                                required
@@ -91,6 +94,7 @@
                         <input type="url"
                                class="form__item form__item_input_link-card input"
                                value=""
+                               name="cardInputUrl"
                                required
                                placeholder="Ссылка на место">
                         <span class="form__input-error"></span>
