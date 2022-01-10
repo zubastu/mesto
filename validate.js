@@ -41,12 +41,8 @@ function setSubmitButtonCardState(checkValid){
         submitButtonCard.setAttribute('disabled', true);
     }
 }
-
-
-
 profileForm.addEventListener('input', () => {
     const isValid = profileNameInput.value.length > profileNameMinLength && profileJobInput.value.length > profileJobMinLength;
-    console.log(isValid)
     setSubmitButtonProfileState(isValid);
 })
 cardForm.addEventListener('input', () => {
