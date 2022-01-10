@@ -40,7 +40,7 @@ function createCard(cardName, cardImage){
 }
 function createCardFromPopup(){
     let cardNameInput = cardForm.elements.cardName;
-    let cardImageInput = cardForm.elements.cardUrl
+    let cardImageInput = cardForm.elements.cardUrl;
     const cardName = cardNameInput.value;
     const cardLink = cardImageInput.value;
     createCard(cardName, cardLink);
@@ -65,7 +65,7 @@ function openPhotoPopup(e){
     let popupImage = photoPopup.querySelector('.popup__photo-image');
     popupParagraph.textContent = e.target.alt;
     popupImage.src = e.target.src;
-    openPopup(photoPopup)
+    openPopup(photoPopup);
 }
 function closePopupHandlerEsc(e){
     const currentOpenedPopup = document.querySelector('.popup_opened');
@@ -94,11 +94,11 @@ function openPhotoPopupHandler(e){
         openPhotoPopup(e);
     }
 }
-cardsContainer.addEventListener('click', openPhotoPopupHandler)
-cardsContainer.addEventListener('click', deleteCardHandler)
-cardsContainer.addEventListener('click', likeButtonClickHandler)
-document.addEventListener('keydown', closePopupHandlerEsc)
-document.addEventListener('click', closePopupHandlerMouseClick)
+cardsContainer.addEventListener('click', openPhotoPopupHandler);
+cardsContainer.addEventListener('click', deleteCardHandler);
+cardsContainer.addEventListener('click', likeButtonClickHandler);
+document.addEventListener('keydown', closePopupHandlerEsc);
+document.addEventListener('click', closePopupHandlerMouseClick);
 profileInfoButton.addEventListener('click', profilePopupOpenShowDetails);
 profileForm.addEventListener('submit', profileSubmitHandler);
 profileAddCardButton.addEventListener('click', () => openPopup(cardPopup));

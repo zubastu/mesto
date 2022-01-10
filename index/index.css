@@ -13,6 +13,7 @@
 @import url(../blocks/close-btn/_profile/close-btn_profile.css);
 @import url(../blocks/input/input.css);
 @import url(../blocks/submit-btn/submit-btn.css);
+@import url(../blocks/submit-btn/_disabled/submit-btn_disabled.css);
 
 @import url(../blocks/card/__like/card__like.css);
 @import url(../blocks/card/__like/_active/card__like_active.css);
