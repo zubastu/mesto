@@ -9,3 +9,6 @@
 .button:hover{
     opacity: .6;
 }
+.button:disabled{
+    opacity: .2;
+}

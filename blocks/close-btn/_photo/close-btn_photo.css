@@ -2,6 +2,7 @@
     position: absolute;
     top: -32px;
     right: -32px;
+    z-index: 2;
 }
 @media screen and (max-width:500px) {
     .close-btn_photo{
