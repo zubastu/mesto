@@ -1,16 +1,59 @@
-
 /*
+
 formElementProfile
 formElementCard
 submitButtonProfile
 submitButtonCard
+*/
+
+const profileForm = profileFormElement;
+const cardForm = cardFormElement;
+
+const profileNameInput = profileForm.elements.profileName;
+const profileJobInput = profileForm.elements.profileJob;
+
+const cardNameInput = cardForm.elements.cardName;
+const cardUrlInput = cardForm.elements.cardUrl;
+
+const cardNameMinLength = cardForm.elements.cardName.minLength;
+const profileNameMinLength = profileForm.elements.profileName.minLength;
+const profileJobMinLength = profileForm.elements.profileJob.minLength;
+
+const submitButtonProfile = document.querySelector('.submit-btn_profile');
+const submitButtonCard = document.querySelector('.submit-btn_card');
+
+
+function setSubmitButtonProfileState(checkValid){
+    if(checkValid){
+        submitButtonProfile.classList.remove('submit-btn_disabled');
+        submitButtonProfile.removeAttribute('disabled');
+    } else {
+        submitButtonProfile.classList.add('submit-btn_disabled');
+        submitButtonProfile.setAttribute('disabled', true);
+    }
+}
+function setSubmitButtonCardState(checkValid){
+    if(checkValid){
+        submitButtonCard.classList.remove('submit-btn_disabled');
+        submitButtonCard.removeAttribute('disabled');
+    } else {
+        submitButtonCard.classList.add('submit-btn_disabled');
+        submitButtonCard.setAttribute('disabled', true);
+    }
+}
 
 
 
+profileForm.addEventListener('input', () => {
+    const isValid = profileNameInput.value.length > profileNameMinLength && profileJobInput.value.length > profileJobMinLength;
+    console.log(isValid)
+    setSubmitButtonProfileState(isValid);
+})
+cardForm.addEventListener('input', () => {
+    const isValid = cardNameInput.value.length > cardNameMinLength && cardUrlInput.value.length > 0;
+    setSubmitButtonCardState(isValid);
+})
 
-
-
- */
 
 /* Задание
 Профиль:

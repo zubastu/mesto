@@ -1,6 +1,6 @@
 
 const profilePopup = document.querySelector('.popup_profile');
-const profileForm = document.forms.profile;
+const profileFormElement = document.forms.profile;
 const profileInfoButton = document.querySelector('.profile__info-btn');
 const profileAddCardButton = document.querySelector('.profile__add-btn');
 const profileName = document.querySelector('.profile__name');
@@ -8,19 +8,19 @@ const profileJob = document.querySelector('.profile__job');
 const photoPopup = document.querySelector('.popup_photo');
 const cardPopup = document.querySelector('.popup_card');
 const cardsContainer = document.getElementById('cards-container');
-const cardForm = document.forms.card;
+const cardFormElement = document.forms.card;
 
 function profileSubmitHandler(event){
     event.preventDefault();
-    const name = profileForm.elements.profileName;
-    const job = profileForm.elements.profileJob;
+    const name = profileFormElement.elements.profileName;
+    const job = profileFormElement.elements.profileJob;
     profileName.textContent = name.value;
     profileJob.textContent = job.value;
     closePopup(profilePopup);
 }
 function profilePopupOpenShowDetails(){
-    const name = profileForm.elements.profileName;
-    const job = profileForm.elements.profileJob;
+    const name = profileFormElement.elements.profileName;
+    const job = profileFormElement.elements.profileJob;
     name.value = profileName.textContent;
     job.value = profileJob.textContent;
     openPopup(profilePopup);
@@ -39,12 +39,12 @@ function createCard(cardName, cardImage){
     cardsContainer.prepend(card);
 }
 function createCardFromPopup(){
-    let cardNameInput = cardForm.elements.cardName;
-    let cardImageInput = cardForm.elements.cardUrl;
+    let cardNameInput = cardFormElement.elements.cardName;
+    let cardImageInput = cardFormElement.elements.cardUrl;
     const cardName = cardNameInput.value;
     const cardLink = cardImageInput.value;
     createCard(cardName, cardLink);
-    cardForm.reset();
+    cardFormElement.reset();
 }
 function initCards(){
     cards.forEach((item) => {
@@ -99,9 +99,9 @@ cardsContainer.addEventListener('click', likeButtonClickHandler);
 document.addEventListener('keydown', closePopupHandlerEsc);
 document.addEventListener('click', closePopupHandlerMouseClick);
 profileInfoButton.addEventListener('click', profilePopupOpenShowDetails);
-profileForm.addEventListener('submit', profileSubmitHandler);
+profileFormElement.addEventListener('submit', profileSubmitHandler);
 profileAddCardButton.addEventListener('click', () => openPopup(cardPopup));
-cardForm.addEventListener('submit', cardSubmitHandler);
+cardFormElement.addEventListener('submit', cardSubmitHandler);
 
 const cards = [
     {
