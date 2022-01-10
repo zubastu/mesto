@@ -44,8 +44,7 @@ function createCardFromPopup(){
     const cardName = cardNameInput.value;
     const cardLink = cardImageInput.value;
     createCard(cardName, cardLink);
-    cardNameInput = null;
-    cardImageInput = null;
+    cardForm.reset();
 }
 function initCards(){
     cards.forEach((item) => {
