@@ -10,12 +10,7 @@
     border-radius: 5px;
     outline: none;
 }
-.form__item:valid{
-    border-bottom: 1px solid green;
-}
-.form__item:invalid{
-    border-bottom: 1px solid red;
-}
+
 @media screen and (max-width:500px) {
     .form__item{
         width: 238px;

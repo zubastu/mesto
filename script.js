@@ -10,8 +10,8 @@ const cardPopup = document.querySelector('.popup_card');
 const cardsContainer = document.getElementById('cards-container');
 const cardFormElement = document.forms.card;
 
-function profileSubmitHandler(event){
-    event.preventDefault();
+
+function profileSubmitHandler(){
     const name = profileFormElement.elements.profileName;
     const job = profileFormElement.elements.profileJob;
     profileName.textContent = name.value;
@@ -25,8 +25,7 @@ function profilePopupOpenShowDetails(){
     job.value = profileJob.textContent;
     openPopup(profilePopup);
 }
-function cardSubmitHandler(e){
-    e.preventDefault();
+function cardSubmitHandler(){
     createCardFromPopup();
     closePopup(cardPopup);
 }
@@ -66,6 +65,10 @@ function openPhotoPopup(e){
     popupImage.src = e.target.src;
     openPopup(photoPopup);
 }
+function openCardPopupHandler(){
+    openPopup(cardPopup);
+    cardFormElement.reset();
+}
 function closePopupHandlerEsc(e){
     const currentOpenedPopup = document.querySelector('.popup_opened');
     if((currentOpenedPopup) && (e.key === 'Escape')){
@@ -93,6 +96,7 @@ function openPhotoPopupHandler(e){
         openPhotoPopup(e);
     }
 }
+
 cardsContainer.addEventListener('click', openPhotoPopupHandler);
 cardsContainer.addEventListener('click', deleteCardHandler);
 cardsContainer.addEventListener('click', likeButtonClickHandler);
@@ -100,7 +104,7 @@ document.addEventListener('keydown', closePopupHandlerEsc);
 document.addEventListener('click', closePopupHandlerMouseClick);
 profileInfoButton.addEventListener('click', profilePopupOpenShowDetails);
 profileFormElement.addEventListener('submit', profileSubmitHandler);
-profileAddCardButton.addEventListener('click', () => openPopup(cardPopup));
+profileAddCardButton.addEventListener('click', openCardPopupHandler);
 cardFormElement.addEventListener('submit', cardSubmitHandler);
 
 const cards = [

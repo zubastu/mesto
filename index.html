@@ -20,108 +20,6 @@
 
     <main class="main center">
 
-        <section class="popup popup_profile">
-
-                <form class="form"
-                      id="profile__form"
-                      name="profile"
-                      novalidate>
-
-                    <button type="button"
-                            class="close-btn close-btn_profile button"></button>
-
-                    <h2 class="form__heading">Редактировать профиль</h2>
-                    
-                    <fieldset class="form__input-container input">
-
-                        <label class="form__field">
-                            <input type="text"
-                                   class="form__item form__item_input_name-profile input"
-                                   value="Жак-Ив Кусто"
-                                   name="profileName"
-                                   minlength="2"
-                                   maxlength="40"
-                                   required
-                                   placeholder="Имя профиля">
-                            <span class="form__input-error">Тест текста ошибк</span>
-                        </label>
-
-                        <label class="form__field">
-                            <input type="text"
-                                   class="form__item form__item_input_job-profile input"
-                                   value="Исследователь океана"
-                                   name="profileJob"
-                                   minlength="2"
-                                   maxlength="200"
-                                   required
-                                   placeholder="Деятельность">
-                            <span class="form__input-error">Тест текста ошибк</span>
-                        </label>
-
-                        <button type="submit"
-                                class="submit-btn submit-btn_profile button submit-btn_disabled" disabled>Сохранить</button>
-                    </fieldset>
-                </form>
-        </section>
-
-        <section class="popup popup_card">
-
-            <form class="form"
-                  id="card__form"
-                  name="card"
-                  novalidate>
-
-                <button type="button"
-                        class="close-btn close-btn_card button"></button>
-
-                <h2 class="form__heading">Новое место</h2>
-                
-                <fieldset class="form__input-container input">
-
-                    <label class="form__field">
-                        <input type="text"
-                               class="form__item form__item_input_name-card input"
-                               value=""
-                               name="cardName"
-                               minlength="2"
-                               maxlength="30"
-                               required
-                               placeholder="Имя места">
-                        <span class="form__input-error">Тест текста ошибки</span>
-                    </label>
-
-                    <label class="form__field">
-                        <input type="url"
-                               class="form__item form__item_input_link-card input"
-                               value=""
-                               name="cardUrl"
-                               required
-                               placeholder="Ссылка на место">
-                        <span class="form__input-error">Тест текста ошибк</span>
-                    </label>
-
-                    <button type="submit"
-                            class="submit-btn submit-btn_card button submit-btn_disabled" disabled>Создать</button>
-
-                </fieldset>
-            </form>
-    </section>
-
-    <section class="popup popup_photo">
-            
-            <div class="popup__photo-container">
-                <button class="close-btn close-btn_photo button"
-                        type="button"></button>
-
-                <img src="."
-                     alt=""
-                     class="popup__photo-image">
-
-                <p class="popup__photo-paragraph">Эта запись для теста</p>
-            </div>
-    </section>
-
-
         <section class="profile margin center">
 
                 <img src="./images/profile__image.jpg" alt="Фото Профиля" class="profile__avatar-image">
@@ -136,6 +34,110 @@
                 </div>
                 <button type="button"
                     class="profile__add-btn button"></button>
+        </section>
+
+        <section class="popup popup_profile">
+
+            <form class="form"
+                  id="profile__form"
+                  name="profile"
+                  novalidate>
+                <button type="button"
+                        class="close-btn close-btn_profile button"></button>
+
+                <h2 class="form__heading">Редактировать профиль</h2>
+
+                <fieldset class="form__input-container input">
+
+                    <label class="form__field">
+                        <input type="text"
+                               class="form__item form__item_input_name-profile input"
+                               value="Жак-Ив Кусто"
+                               name="profileName"
+                               id="name-input"
+                               minlength="2"
+                               maxlength="40"
+                               required
+                               placeholder="Имя профиля">
+                        <span class="form__input-error name-input-error"></span>
+                    </label>
+
+                    <label class="form__field">
+                        <input type="text"
+                               class="form__item form__item_input_job-profile input"
+                               value="Исследователь океана"
+                               name="profileJob"
+                               id="job-input"
+                               minlength="2"
+                               maxlength="200"
+                               required
+                               placeholder="Деятельность">
+                        <span class="form__input-error job-input-error"></span>
+                    </label>
+
+                    <button type="submit"
+                            class="submit-btn submit-btn_profile button">Сохранить</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <section class="popup popup_card">
+
+            <form class="form"
+                  id="card__form"
+                  name="card"
+                  novalidate>
+
+                <button type="button"
+                        class="close-btn close-btn_card button"></button>
+
+                <h2 class="form__heading">Новое место</h2>
+
+                <fieldset class="form__input-container input">
+
+                    <label class="form__field">
+                        <input type="text"
+                               class="form__item form__item_input_name-card input"
+                               value=""
+                               name="cardName"
+                               id="cardName-input"
+                               minlength="2"
+                               maxlength="30"
+                               required
+                               placeholder="Имя места">
+                        <span class="form__input-error cardName-input-error"></span>
+                    </label>
+
+                    <label class="form__field">
+                        <input type="url"
+                               class="form__item form__item_input_link-card input"
+                               value=""
+                               name="cardUrl"
+                               id="cardUrl-input"
+                               required
+                               placeholder="Ссылка на место">
+                        <span class="form__input-error cardUrl-input-error"></span>
+                    </label>
+
+                    <button type="submit"
+                            class="submit-btn submit-btn_card button">Создать</button>
+
+                </fieldset>
+            </form>
+        </section>
+
+        <section class="popup popup_photo">
+
+            <div class="popup__photo-container">
+                <button class="close-btn close-btn_photo button"
+                        type="button"></button>
+
+                <img src="."
+                     alt=""
+                     class="popup__photo-image">
+
+                <p class="popup__photo-paragraph">Эта запись для теста</p>
+            </div>
         </section>
 
         <section id="cards-container" class="photo-cards center">
