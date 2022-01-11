@@ -1,5 +1,21 @@
 .profile__info-text{
-    display: flex;
-    flex-direction: column;
-    max-width: 336px;
+    min-width: 336px;
+    grid-area: text;
+    display: grid;
+    grid-template-areas:
+            'name name editButton'
+            'job job job';
+    align-items: baseline;
+}
+@media screen and (max-width: 720px){
+    .profile__info-text{
+        min-width: 282px;
+        max-width: 282px;
+        margin: 0 auto;
+
+        display: grid;
+        grid-template-areas:
+                'name name editButton'
+                'job job job';
+    }
 }

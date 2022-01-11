@@ -1,6 +1,6 @@
 .form{
     width: 430px;
-    min-height: 330px;
+    height: 330px;
     background-color: #FFFFFF;
     position: absolute;
     z-index: 2;

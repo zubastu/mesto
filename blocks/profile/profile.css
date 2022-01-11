@@ -2,11 +2,21 @@
     max-width: 880px;
     min-width: 282px;
     min-height: 120px;
-    display: flex;
-    justify-content: space-between;
+    align-items:center;
+    justify-items: center;
+    display: grid;
+    grid-template-areas:
+                'avatar text . . . . . addButton'
+                'avatar text . . . . . addButton'
+                'avatar text . . . . . addButton';
+
 }
+
+
 @media screen and (max-width: 720px){
     .profile{
+        display: flex;
         flex-direction: column;
+        align-items: center;
     }
 }
