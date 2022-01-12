@@ -24,6 +24,7 @@ function profilePopupOpenShowDetails(){
     name.value = profileName.textContent;
     job.value = profileJob.textContent;
     openPopup(profilePopup);
+    document.addEventListener('keydown', closePopupHandlerEsc);
 }
 function cardSubmitHandler(){
     createCardFromPopup();
@@ -66,21 +67,26 @@ function openPhotoPopup(e){
     popupParagraph.textContent = e.target.alt;
     popupImage.src = e.target.src;
     openPopup(photoPopup);
+    document.addEventListener('keydown', closePopupHandlerEsc);
 }
 function openCardPopupHandler(){
     openPopup(cardPopup);
     cardFormElement.reset();
+    document.addEventListener('keydown', closePopupHandlerEsc);
 }
 function closePopupHandlerEsc(e){
     const currentOpenedPopup = document.querySelector('.popup_opened');
+    currentOpenedPopup.addEventListener('keydown', closePopupHandlerEsc);
     if((currentOpenedPopup) && (e.key === 'Escape')){
         closePopup(currentOpenedPopup);
+        document.removeEventListener('keydown', closePopupHandlerEsc);
   }
 }
 function closePopupHandlerMouseClick(e){
     const currentOpenedPopup = document.querySelector('.popup_opened');
     if((e.target.classList.contains('popup')) || (e.target.classList.contains('close-btn'))){
         closePopup(currentOpenedPopup);
+
     }
 }
 function deleteCardHandler(e){
@@ -96,13 +102,14 @@ function likeButtonClickHandler(e){
 function openPhotoPopupHandler(e){
     if(e.target.classList.contains('card__picture')){
         openPhotoPopup(e);
+        document.addEventListener('keydown', closePopupHandlerEsc);
     }
 }
 
 cardsContainer.addEventListener('click', openPhotoPopupHandler);
 cardsContainer.addEventListener('click', deleteCardHandler);
 cardsContainer.addEventListener('click', likeButtonClickHandler);
-document.addEventListener('keydown', closePopupHandlerEsc);
+
 document.addEventListener('mousedown', closePopupHandlerMouseClick);
 profileInfoButton.addEventListener('click', profilePopupOpenShowDetails);
 profileFormElement.addEventListener('submit', profileSubmitHandler);
