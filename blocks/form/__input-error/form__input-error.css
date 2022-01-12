@@ -6,4 +6,5 @@
     line-height: 15px;
     grid-area: error;
     display: none;
+    color: #FF0000;
 }

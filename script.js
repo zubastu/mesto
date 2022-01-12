@@ -101,7 +101,7 @@ cardsContainer.addEventListener('click', openPhotoPopupHandler);
 cardsContainer.addEventListener('click', deleteCardHandler);
 cardsContainer.addEventListener('click', likeButtonClickHandler);
 document.addEventListener('keydown', closePopupHandlerEsc);
-document.addEventListener('click', closePopupHandlerMouseClick);
+document.addEventListener('mousedown', closePopupHandlerMouseClick);
 profileInfoButton.addEventListener('click', profilePopupOpenShowDetails);
 profileFormElement.addEventListener('submit', profileSubmitHandler);
 profileAddCardButton.addEventListener('click', openCardPopupHandler);
