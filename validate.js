@@ -48,6 +48,15 @@ const setEventListeners = (validationOption, formElement) => {
         });
     });
 };
+const enableValidation = (validationOption) => {
+    const formElement = document.querySelector(validationOption.formSelector);
+
+    formElement.addEventListener('submit', function (evt) {
+        evt.preventDefault();
+    });
+
+    setEventListeners(validationOption, formElement);
+};
 
 function hasInvalidInput(inputList){
     return inputList.some((inputElement) => {
@@ -66,15 +75,6 @@ function toggleButtonState(inputList, buttonElement, validationOption){
         buttonElement.removeAttribute('disabled');
     }
 }
-const enableValidation = (validationOption) => {
-    const formElement = document.querySelector(validationOption.formSelector);
-
-    formElement.addEventListener('submit', function (evt) {
-        evt.preventDefault();
-    });
-
-    setEventListeners(validationOption, formElement);
-};
 
 const enableValidations = (validationOptions) => {
     validationOptions.forEach((validationOption) => {
