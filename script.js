@@ -11,7 +11,7 @@ const cardsContainer = document.getElementById('cards-container');
 const cardFormElement = document.forms.card;
 
 
-function profileSubmitHandler(){
+function submitProfileHandler(){
     const name = profileFormElement.elements.profileName;
     const job = profileFormElement.elements.profileJob;
     profileName.textContent = name.value;
@@ -105,7 +105,7 @@ cardsContainer.addEventListener('click', likeButtonClickHandler);
 document.addEventListener('keydown', closePopupHandlerEsc);
 document.addEventListener('mousedown', closePopupHandlerMouseClick);
 profileInfoButton.addEventListener('click', profilePopupOpenShowDetails);
-profileFormElement.addEventListener('submit', profileSubmitHandler);
+profileFormElement.addEventListener('submit', submitProfileHandler);
 profileAddCardButton.addEventListener('click', openCardPopupHandler);
 cardFormElement.addEventListener('submit', cardSubmitHandler);
 
