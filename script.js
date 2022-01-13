@@ -35,7 +35,7 @@ function submitCardHandler(){
 function addCard(cardElement){
     cardsContainer.prepend(cardElement);
 }
-function createCard(cardName, cardImage){
+const createCard = (cardName, cardImage) => {
     const cardTemplateElement = document.querySelector('#card-template').content.cloneNode(true);
     const cardElement = cardTemplateElement.querySelector('.card');
     cardElement.querySelector('.card__text').textContent = cardName;
@@ -45,20 +45,23 @@ function createCard(cardName, cardImage){
     cardLIkeButton.addEventListener('click', () => cardLIkeButton.classList.toggle('card__like_active'));
     cardElement.querySelector('.card__delete').addEventListener('click', () => cardElement.remove());
     cardElement.querySelector('.card__picture').addEventListener('click', openPhotoPopup);
-    addCard(cardElement);
     return cardElement;
 }
+
 function createCardFromPopup(){
     const cardName = cardNameInput.value;
-    const cardLink = cardImageInput.value;
-    createCard(cardName, cardLink);
+    const cardImage = cardImageInput.value;
+    const cardElement = createCard(cardName, cardImage)
+    addCard(cardElement);
     cardFormElement.reset();
 }
+
 function initCards(){
     cards.forEach((item) => {
         const cardName = item.name;
         const cardImage = item.link;
-        createCard(cardName, cardImage);
+        const cardElement = createCard(cardName, cardImage)
+        addCard(cardElement);
     });
 }
 function closePopup(popup){

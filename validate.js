@@ -53,6 +53,7 @@ const enableValidation = (validationOption) => {
 
     formElement.addEventListener('submit', function (evt) {
         evt.preventDefault();
+        enableValidations(validationOptions);
     });
 
     setEventListeners(validationOption, formElement);
@@ -66,7 +67,7 @@ function hasInvalidInput(inputList){
 }
 function toggleButtonState(inputList, buttonElement, validationOption){
 
-    if (hasInvalidInput(inputList)) {
+    if (hasInvalidInput(inputList) || (inputList.length < 0)) {
         buttonElement.setAttribute('disabled', true);
         buttonElement.classList.add(validationOption.inactiveButtonClass);
 
