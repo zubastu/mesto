@@ -6,13 +6,17 @@ const profileAddCardButton = document.querySelector('.profile__add-btn');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 const photoPopup = document.querySelector('.popup_photo');
+const nameProfile = profileFormElement.elements.profileName;
+const jobProfile = profileFormElement.elements.profileJob;
+
 const cardPopup = document.querySelector('.popup_card');
 const cardsContainer = document.getElementById('cards-container');
 const cardFormElement = document.forms.card;
-const nameProfile = profileFormElement.elements.profileName;
-const jobProfile = profileFormElement.elements.profileJob;
 const cardNameInput = cardFormElement.elements.cardName;
 const cardImageInput = cardFormElement.elements.cardUrl;
+
+const popupPhotoParagraph = photoPopup.querySelector('.popup__photo-paragraph');
+const popupPhotoImage = photoPopup.querySelector('.popup__photo-image');
 
 function submitProfileHandler(){
     profileName.textContent = nameProfile.value;
@@ -62,11 +66,9 @@ function openPopup(popup){
     popup.classList.add('popup_opened');
 }
 function openPhotoPopup(e){
-    const popupParagraph = photoPopup.querySelector('.popup__photo-paragraph');
-    const popupImage = photoPopup.querySelector('.popup__photo-image');
-    popupParagraph.textContent = e.target.alt;
-    popupImage.src = e.target.src;
-    popupImage.alt = e.target.alt;
+    popupPhotoParagraph.textContent = e.target.alt;
+    popupPhotoImage.src = e.target.src;
+    popupPhotoImage.alt = e.target.alt;
     openPopup(photoPopup);
 }
 function openCardPopupHandler(){
