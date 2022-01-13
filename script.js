@@ -9,23 +9,22 @@ const photoPopup = document.querySelector('.popup_photo');
 const cardPopup = document.querySelector('.popup_card');
 const cardsContainer = document.getElementById('cards-container');
 const cardFormElement = document.forms.card;
-
+const nameProfile = profileFormElement.elements.profileName;
+const jobProfile = profileFormElement.elements.profileJob;
+const cardNameInput = cardFormElement.elements.cardName;
+const cardImageInput = cardFormElement.elements.cardUrl;
 
 function submitProfileHandler(){
-    const name = profileFormElement.elements.profileName;
-    const job = profileFormElement.elements.profileJob;
-    profileName.textContent = name.value;
-    profileJob.textContent = job.value;
+    profileName.textContent = nameProfile.value;
+    profileJob.textContent = jobProfile.value;
     closePopup(profilePopup);
 }
-function profilePopupOpenShowDetails(){
-    const name = profileFormElement.elements.profileName;
-    const job = profileFormElement.elements.profileJob;
-    name.value = profileName.textContent;
-    job.value = profileJob.textContent;
+function openProfilePopupShowDetails(){
+    nameProfile.value = profileName.textContent;
+    jobProfile.value = profileJob.textContent;
     openPopup(profilePopup);
 }
-function cardSubmitHandler(){
+function submitCardHandler(){
     createCardFromPopup();
     closePopup(cardPopup);
 }
@@ -35,11 +34,13 @@ function createCard(cardName, cardImage){
     card.querySelector('.card__text').textContent = cardName;
     card.querySelector('.card__picture').alt = cardName;
     card.querySelector('.card__picture').src = cardImage;
+    const cardLIkeButton =  card.querySelector('.card__like');
+    cardLIkeButton.addEventListener('click', () => cardLIkeButton.classList.toggle('card__like_active'));
+    card.querySelector('.card__delete').addEventListener('click', () => card.remove());
+    card.querySelector('.card__picture').addEventListener('click', openPhotoPopup);
     cardsContainer.prepend(card);
 }
 function createCardFromPopup(){
-    let cardNameInput = cardFormElement.elements.cardName;
-    let cardImageInput = cardFormElement.elements.cardUrl;
     const cardName = cardNameInput.value;
     const cardLink = cardImageInput.value;
     createCard(cardName, cardLink);
@@ -61,10 +62,11 @@ function openPopup(popup){
     popup.classList.add('popup_opened');
 }
 function openPhotoPopup(e){
-    let popupParagraph = photoPopup.querySelector('.popup__photo-paragraph');
-    let popupImage = photoPopup.querySelector('.popup__photo-image');
+    const popupParagraph = photoPopup.querySelector('.popup__photo-paragraph');
+    const popupImage = photoPopup.querySelector('.popup__photo-image');
     popupParagraph.textContent = e.target.alt;
     popupImage.src = e.target.src;
+    popupImage.alt = e.target.alt;
     openPopup(photoPopup);
 }
 function openCardPopupHandler(){
@@ -83,31 +85,13 @@ function closePopupHandlerMouseClick(e){
         closePopup(currentOpenedPopup);
     }
 }
-function deleteCardHandler(e){
-    if(e.target.classList.contains('card__delete')){
-        e.target.parentElement.remove();
-    }
-}
-function likeButtonClickHandler(e){
-    if(e.target.classList.contains('card__like')){
-        e.target.classList.toggle('card__like_active');
-    }
-}
-function openPhotoPopupHandler(e){
-    if(e.target.classList.contains('card__picture')){
-        openPhotoPopup(e);
-    }
-}
 
-cardsContainer.addEventListener('click', openPhotoPopupHandler);
-cardsContainer.addEventListener('click', deleteCardHandler);
-cardsContainer.addEventListener('click', likeButtonClickHandler);
 document.addEventListener('keydown', closePopupHandlerEsc);
 document.addEventListener('mousedown', closePopupHandlerMouseClick);
-profileInfoButton.addEventListener('click', profilePopupOpenShowDetails);
+profileInfoButton.addEventListener('click', openProfilePopupShowDetails);
 profileFormElement.addEventListener('submit', submitProfileHandler);
 profileAddCardButton.addEventListener('click', openCardPopupHandler);
-cardFormElement.addEventListener('submit', cardSubmitHandler);
+cardFormElement.addEventListener('submit', submitCardHandler);
 
 const cards = [
     {
