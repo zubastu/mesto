@@ -50,11 +50,6 @@ const setEventListeners = (validationOption, formElement) => {
 };
 const enableValidation = (validationOption) => {
     const formElement = document.querySelector(validationOption.formSelector);
-
-    formElement.addEventListener('submit', function (evt) {
-        evt.preventDefault();
-    });
-
     setEventListeners(validationOption, formElement);
 };
 
