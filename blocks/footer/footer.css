@@ -1,12 +1,12 @@
 .footer{
     width: 100%;
-    padding: 67px 0 0 0;
+    padding: 67px 0 40px 0;
     flex-shrink: 1;
 }
 
 @media screen and (max-width:924px) {
     .footer{
-        margin: 0 19px;
+        padding: 0 19px;
     }
 }
 @media screen and (max-width:500px) {
