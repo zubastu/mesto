@@ -55,12 +55,10 @@ const enableValidation = (validationOption) => {
 
 function hasInvalidInput(inputList){
     return inputList.some((inputElement) => {
-
         return !inputElement.validity.valid;
     });
 }
 function toggleButtonState(inputList, buttonElement, validationOption){
-
     if (hasInvalidInput(inputList)) {
         buttonElement.setAttribute('disabled', true);
         buttonElement.classList.add(validationOption.inactiveButtonClass);
@@ -70,10 +68,11 @@ function toggleButtonState(inputList, buttonElement, validationOption){
         buttonElement.removeAttribute('disabled');
     }
 }
+
 const enableValidations = (validationOptions) => {
     validationOptions.forEach((validationOption) => {
         enableValidation(validationOption)
     });
-}
+};
 
 enableValidations(validationOptions);

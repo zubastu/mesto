@@ -125,10 +125,7 @@ function closeByEscape( evt ) {
 
 popupList.forEach(( popup ) => {
     popup.addEventListener('click', ( evt ) => {
-        if ( evt.target.classList.contains('popup_opened') ) {
-            closePopup( popup )
-        }
-        if ( evt.target.classList.contains('close-btn') ) {
+        if ( ( evt.target.classList.contains('popup_opened') ) || ( evt.target.classList.contains('close-btn') ) ) {
             closePopup( popup )
         }
     });
@@ -138,8 +135,6 @@ profileInfoButton.addEventListener('click', openProfilePopupShowDetails);
 profileFormElement.addEventListener('submit', submitProfileHandler);
 profileAddCardButton.addEventListener('click', openCardPopupHandler);
 cardFormElement.addEventListener('submit', submitCardHandler);
-
-
 
 initCards();
 
