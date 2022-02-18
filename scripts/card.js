@@ -5,7 +5,7 @@ class Card {
     }
 
     _getTemplate() {
-        const cardTemplate = document.getElementById('card-template').content;
+        const cardTemplate = document.querySelector('.template-card').content;
         const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
         return cardElement;
     }
@@ -22,4 +22,4 @@ const testCard = {
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
 }
 const newCard = new Card(testCard).generateCard();
-console.dir(newCard)
+document.getElementById('cards-container').append(newCard);
