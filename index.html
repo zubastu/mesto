@@ -41,18 +41,6 @@
 
         <section id="cards-container" class="photo-cards center">
 
-            <template class="template-card" id="card-template">
-                <div class="card">
-                    <button type="button" class="card__delete button"></button>
-                    <img class="card__picture" src="." alt="">
-                    <div class="card__description">
-                        <p class="card__text"></p>
-                        <button type="button"
-                                class="card__like button"></button>
-                    </div>
-                </div>
-            </template>
-
         </section>
 
         <section class="popup popup_profile">
@@ -165,6 +153,18 @@
         <p class="footer__copyright">&copy; 2022 Махин Илья</p>
 
     </footer>
+
+    <template class="template-card" id="card-template">
+        <div class="card">
+            <button type="button" class="card__delete button"></button>
+            <img class="card__picture" src="." alt="">
+            <div class="card__description">
+                <p class="card__text"></p>
+                <button type="button"
+                        class="card__like button"></button>
+            </div>
+        </div>
+    </template>
 
     <script type="module" src="scripts/card.js"></script>
 
