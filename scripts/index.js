@@ -1,7 +1,6 @@
-import Card from "./Card";
-import FormValidator from "./FormValidator";
+import Card from "./Card.js";
 
-
+/*
 const validationOptions = [
     {
         formSelector: ".form",
@@ -12,6 +11,7 @@ const validationOptions = [
         errorClass: 'form__input-error_active'
     }
 ]
+*/
 
 const cards = [
     {
@@ -48,7 +48,6 @@ const profileInfoButton = document.querySelector('.profile__info-btn');
 const profileAddCardButton = document.querySelector('.profile__add-btn');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
-const photoPopup = document.querySelector('.popup_photo');
 const nameProfile = profileFormElement.elements.profileName;
 const jobProfile = profileFormElement.elements.profileJob;
 const cardPopup = document.querySelector('.popup_card');
@@ -56,6 +55,8 @@ const cardsContainer = document.getElementById('cards-container');
 const cardFormElement = document.forms.card;
 const cardNameInput = cardFormElement.elements.cardName;
 const cardImageInput = cardFormElement.elements.cardUrl;
+
+const photoPopup = document.querySelector('.popup_photo');
 const popupPhotoParagraph = photoPopup.querySelector('.popup__photo-paragraph');
 const popupPhotoImage = photoPopup.querySelector('.popup__photo-image');
 
@@ -80,12 +81,20 @@ function openCardPopupHandler() {
 
 }
 
+function openPhotoPopup(card) {
+    popupPhotoParagraph.textContent = card._alt;
+    popupPhotoImage.src = card._image;
+    popupPhotoImage.alt = card._name;
+    openPopup(photoPopup);
+}
+
 function createCardFromPopup() {
     const card = {
         name: cardNameInput.value,
-        image: cardImageInput.value,
+        link: cardImageInput.value,
+        handleClick: openPhotoPopup,
     }
-    const cardElement = new Card(card)
+    const cardElement = new Card(card).generateCard()
     addCard( cardElement );
 }
 
@@ -116,9 +125,10 @@ function initCards() {
     cards.forEach( ( item ) => {
         const card = {
             name: item.name,
-            image: item.link,
+            link: item.link,
+            handleClick: openPhotoPopup
         }
-        const cardElement = new Card(card)
+        const cardElement = new Card(card).generateCard()
         addCard( cardElement );
     });
 }
@@ -144,4 +154,3 @@ profileAddCardButton.addEventListener('click', openCardPopupHandler);
 cardFormElement.addEventListener('submit', submitCardHandler);
 
 initCards();
-

@@ -1,8 +1,10 @@
-class Card {
+export default class Card {
     constructor(card) {
+        const defaultClickHandler = () => console.log(`On click is not defined. card=${JSON.stringify(this._cardElement)}`);
         this._name = card.name;
         this._image = card.link;
         this._alt = card.name;
+        this.handleClick = card.handleClick || defaultClickHandler;
     }
 
     _getTemplate() {
@@ -11,20 +13,11 @@ class Card {
     }
 
     deleteCard() {
-        this._cardElement.remove()
+        this._cardElement.remove();
     }
 
     toggleLikeButton() {
         this._cardElement.querySelector('.card__like').classList.toggle('card__like_active');
-        console.log(this._cardElement)
-        console.log(this)
-    }
-
-    openPhotoPopup() {
-        popupPhotoParagraph.textContent = this._alt;
-        popupPhotoImage.src = this._image;
-        popupPhotoImage.alt = this._name;
-        openPopup(photoPopup);
     }
 
     _setEventListeners() {
@@ -35,7 +28,7 @@ class Card {
             this.deleteCard();
         });
         this._cardElement.querySelector('.card__picture').addEventListener('click', () => {
-            this.openPhotoPopup();
+            this.handleClick(this);
         });
     }
 
@@ -47,7 +40,6 @@ class Card {
         this._cardElement.querySelector('.card__text').textContent = this._name;
         return this._cardElement;
     }
-
 }
 
-export default Card
+

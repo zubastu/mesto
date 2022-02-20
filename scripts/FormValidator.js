@@ -1,8 +1,4 @@
-class FormValidator {
-    enableValidation(validationOption) {
-        const formElement = Array.from(document.querySelectorAll(validationOption.formSelector));
-        this._setEventListeners(validationOption, formElement);
-    }
+export default class FormValidator {
 
     hideInputError(formElement, inputElement, validationOption) {
         const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
@@ -20,18 +16,6 @@ class FormValidator {
             buttonElement.classList.remove(validationOption.inactiveButtonClass);
             buttonElement.removeAttribute('disabled');
         }
-    }
-
-    _setEventListeners(validationOption, formElement) {
-        const inputList = Array.from(formElement.querySelectorAll(validationOption.inputSelector));
-        const buttonElement = formElement.querySelector(validationOption.submitButtonSelector);
-        toggleButtonState(inputList, buttonElement, validationOption);
-        inputList.forEach((inputElement) => {
-            inputElement.addEventListener('input', function () {
-                _checkInputValidity(formElement, inputElement, validationOption);
-                toggleButtonState(inputList, buttonElement, validationOption);
-            });
-        });
     }
 
     _showInputError(formElement, inputElement, errorMessage, validationOption) {
@@ -54,6 +38,16 @@ class FormValidator {
             return !inputElement.validity.valid;
         });
     }
-}
 
-export default FormValidator
+    _setEventListeners(validationOption, formElement) {
+        const inputList = Array.from(formElement.querySelectorAll(validationOption.inputSelector));
+        const buttonElement = formElement.querySelector(validationOption.submitButtonSelector);
+        toggleButtonState(inputList, buttonElement, validationOption);
+        inputList.forEach((inputElement) => {
+            inputElement.addEventListener('input', function () {
+                _checkInputValidity(formElement, inputElement, validationOption);
+                toggleButtonState(inputList, buttonElement, validationOption);
+            });
+        });
+    }
+}
