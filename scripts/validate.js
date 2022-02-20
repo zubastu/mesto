@@ -1,21 +1,3 @@
-const validationOptions = [
-    {
-        formSelector: ".form_profile",
-        inputSelector: '.form__item',
-        submitButtonSelector: '.submit-btn',
-        inactiveButtonClass: 'submit-btn_disabled',
-        inputErrorClass: 'form__item_type_error',
-        errorClass: 'form__input-error_active'
-    },
-    {
-        formSelector: '.form_card',
-        inputSelector: '.form__item',
-        submitButtonSelector: '.submit-btn',
-        inactiveButtonClass: 'submit-btn_disabled',
-        inputErrorClass: 'form__item_type_error',
-        errorClass: 'form__input-error_active'
-    }
-]
 
 
 const showInputError = (formElement, inputElement, errorMessage, validationOption) => {
@@ -49,7 +31,7 @@ const setEventListeners = (validationOption, formElement) => {
     });
 };
 const enableValidation = (validationOption) => {
-    const formElement = document.querySelector(validationOption.formSelector);
+    const formElement = Array.from(document.querySelectorAll(validationOption.formSelector));
     setEventListeners(validationOption, formElement);
 };
 
@@ -69,10 +51,5 @@ function toggleButtonState(inputList, buttonElement, validationOption){
     }
 }
 
-const enableValidations = (validationOptions) => {
-    validationOptions.forEach((validationOption) => {
-        enableValidation(validationOption)
-    });
-};
 
-enableValidations(validationOptions);
+enableValidation(validationOptions);
