@@ -1,17 +1,6 @@
 import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 
-/*
-const validationOptions = [
-    {
-        formSelector: ".form",
-        inputSelector: '.form__item',
-        submitButtonSelector: '.submit-btn',
-        inactiveButtonClass: 'submit-btn_disabled',
-        inputErrorClass: 'form__item_type_error',
-        errorClass: 'form__input-error_active'
-    }
-]
-*/
 
 const cards = [
     {
@@ -59,7 +48,6 @@ const cardImageInput = cardFormElement.elements.cardUrl;
 const photoPopup = document.querySelector('.popup_photo');
 const popupPhotoParagraph = photoPopup.querySelector('.popup__photo-paragraph');
 const popupPhotoImage = photoPopup.querySelector('.popup__photo-image');
-
 
 function submitProfileHandler( event ) {
     event.preventDefault();
@@ -154,3 +142,18 @@ profileAddCardButton.addEventListener('click', openCardPopupHandler);
 cardFormElement.addEventListener('submit', submitCardHandler);
 
 initCards();
+const validationOptions = [
+    {
+        formSelector: ".form",
+        inputSelector: '.form__item',
+        submitButtonSelector: '.submit-btn',
+        inactiveButtonClass: 'submit-btn_disabled',
+        inputErrorClass: 'form__item_type_error',
+        errorClass: 'form__input-error_active'
+    }
+]
+// Передаю в класс валдиации формы
+const validation = new FormValidator(validationOptions, [profileFormElement,cardFormElement])
+validation.enableValidation()
+
+console.log(validation)
