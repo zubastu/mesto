@@ -153,7 +153,7 @@ const validationOptions = [
     }
 ]
 // Передаю в класс валдиации формы
-const validation = new FormValidator(validationOptions, [profileFormElement,cardFormElement])
+const validation = new FormValidator(validationOptions)
 validation.enableValidation()
 
 console.log(validation)

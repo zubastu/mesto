@@ -1,7 +1,7 @@
 export default class FormValidator {
 
-    constructor(data, form) {
-        this.formElement = form;
+    constructor(data) {
+
         this.formSelector = data.formSelector;
         this.inputSelector = data.inputSelector;
         this.submitButtonSelector = data.submitButtonSelector;
@@ -11,8 +11,10 @@ export default class FormValidator {
     }
 
     enableValidation() {
-// сюда приходит не определено, почему?
-        this.formElement.forEach( (form) => {
+        const formElement = document.querySelectorAll(this.formSelector);
+        console.log(formElement)
+        console.log(this.formSelector)
+        formElement.forEach( (form) => {
             this._setEventListeners(form);
         })
     }
