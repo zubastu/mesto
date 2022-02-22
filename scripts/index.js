@@ -1,7 +1,6 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 
-
 const cards = [
     {
         name: 'Архыз',
@@ -76,7 +75,7 @@ function openProfilePopupShowDetails() {
     nameProfile.value = profileName.textContent;
     jobProfile.value = profileJob.textContent;
     validationProfile.toggleButtonState(profileInputs, profileSubmitButton);
-    validationProfile.clearErrorMessages(profileFormElement, profileInputs)
+    validationProfile.clearErrorMessages(profileFormElement, profileInputs);
     openPopup(profilePopup);
 }
 
@@ -84,7 +83,7 @@ function openCardPopupHandler() {
     openPopup(cardPopup);
     cardFormElement.reset();
     validationCard.toggleButtonState(cardInputs, cardSubmitButton);
-    validationCard.clearErrorMessages(cardFormElement, cardInputs)
+    validationCard.clearErrorMessages(cardFormElement, cardInputs);
 }
 
 function openPhotoPopup(card) {
@@ -100,7 +99,7 @@ function createCardFromPopup() {
         link: cardImageInput.value,
         handleClick: openPhotoPopup,
     }
-    const cardElement = new Card(card, '.template-card').generateCard()
+    const cardElement = new Card(card, '.template-card').generateCard();
     addCard(cardElement);
 }
 
@@ -132,7 +131,7 @@ function initCards() {
             link: item.link,
             handleClick: openPhotoPopup
         }
-        const cardElement = new Card(card, '.template-card').generateCard()
+        const cardElement = new Card(card, '.template-card').generateCard();
         addCard(cardElement);
     });
 }
@@ -147,7 +146,7 @@ function closeByEscape(evt) {
 popupList.forEach((popup) => {
     popup.addEventListener('click', ( evt ) => {
         if ((evt.target.classList.contains('popup_opened')) || (evt.target.classList.contains('close-btn'))) {
-            closePopup(popup)
+            closePopup(popup);
         }
     });
 });
