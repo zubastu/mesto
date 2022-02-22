@@ -1,10 +1,10 @@
-.header__logo{
+.header__logo {
     padding: 0 0 41px 0;
     width: 142px;
     height: 33px;
     transition: ease .6s;
 }
-.header__logo:hover{
+.header__logo:hover {
     opacity: .05;
 }
 
@@ -19,6 +19,6 @@
         width: 103px;
         height: 24px;
         margin: 0 0 0 27px;
-        padding: 0 0 31px 0
+        padding: 0 0 31px 0;
     }
 }
