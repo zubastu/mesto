@@ -33,15 +33,20 @@ const cards = [
 const popupList = document.querySelectorAll('.popup');
 const profilePopup = document.querySelector('.popup_profile');
 const profileFormElement = document.forms.profile;
+const profileInputs = Array.from(profileFormElement.querySelectorAll('.form__item'));
+const profileSubmitButton = profileFormElement.querySelector('.submit-btn');
 const profileInfoButton = document.querySelector('.profile__info-btn');
 const profileAddCardButton = document.querySelector('.profile__add-btn');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 const nameProfile = profileFormElement.elements.profileName;
 const jobProfile = profileFormElement.elements.profileJob;
+
 const cardPopup = document.querySelector('.popup_card');
 const cardsContainer = document.getElementById('cards-container');
 const cardFormElement = document.forms.card;
+const cardInputs = Array.from(cardFormElement.querySelectorAll('.form__item'));
+const cardSubmitButton = cardFormElement.querySelector('.submit-btn');
 const cardNameInput = cardFormElement.elements.cardName;
 const cardImageInput = cardFormElement.elements.cardUrl;
 
@@ -59,14 +64,16 @@ function submitProfileHandler( event ) {
 function openProfilePopupShowDetails() {
     nameProfile.value = profileName.textContent;
     jobProfile.value = profileJob.textContent;
-
+    validation.toggleButtonState(profileInputs, profileSubmitButton);
+    validation.clearErrorMessages(profileFormElement, profileInputs)
     openPopup( profilePopup );
 }
 
 function openCardPopupHandler() {
     openPopup(cardPopup);
     cardFormElement.reset();
-
+    validation.toggleButtonState(cardInputs, cardSubmitButton);
+    validation.clearErrorMessages(cardFormElement, cardInputs)
 }
 
 function openPhotoPopup(card) {
@@ -142,18 +149,15 @@ profileAddCardButton.addEventListener('click', openCardPopupHandler);
 cardFormElement.addEventListener('submit', submitCardHandler);
 
 initCards();
-const validationOptions = [
-    {
-        formSelector: ".form",
+const validationOptions = {
+        formSelector: '.form',
         inputSelector: '.form__item',
         submitButtonSelector: '.submit-btn',
         inactiveButtonClass: 'submit-btn_disabled',
         inputErrorClass: 'form__item_type_error',
         errorClass: 'form__input-error_active'
     }
-]
-// Передаю в класс валдиации формы
-const validation = new FormValidator(validationOptions)
-validation.enableValidation()
 
-console.log(validation)
+
+const validation = new FormValidator(validationOptions);
+validation.enableValidation();
