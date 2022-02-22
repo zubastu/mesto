@@ -28,8 +28,15 @@ const cards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
+const validationOptions = {
+    formSelector: '.form',
+    inputSelector: '.form__item',
+    submitButtonSelector: '.submit-btn',
+    inactiveButtonClass: 'submit-btn_disabled',
+    inputErrorClass: 'form__item_type_error',
+    errorClass: 'form__input-error_active'
+}
 
-/*const page = document.querySelector('.page');*/
 const popupList = document.querySelectorAll('.popup');
 const profilePopup = document.querySelector('.popup_profile');
 const profileFormElement = document.forms.profile;
@@ -54,11 +61,15 @@ const photoPopup = document.querySelector('.popup_photo');
 const popupPhotoParagraph = photoPopup.querySelector('.popup__photo-paragraph');
 const popupPhotoImage = photoPopup.querySelector('.popup__photo-image');
 
-function submitProfileHandler( event ) {
+const validationProfile = new FormValidator(validationOptions, profileFormElement);
+const validationCard = new FormValidator(validationOptions, cardFormElement);
+
+
+function submitProfileHandler(event) {
     event.preventDefault();
     profileName.textContent = nameProfile.value;
     profileJob.textContent = jobProfile.value;
-    closePopup( profilePopup );
+    closePopup(profilePopup);
 }
 
 function openProfilePopupShowDetails() {
@@ -66,7 +77,7 @@ function openProfilePopupShowDetails() {
     jobProfile.value = profileJob.textContent;
     validationProfile.toggleButtonState(profileInputs, profileSubmitButton);
     validationProfile.clearErrorMessages(profileFormElement, profileInputs)
-    openPopup( profilePopup );
+    openPopup(profilePopup);
 }
 
 function openCardPopupHandler() {
@@ -89,56 +100,54 @@ function createCardFromPopup() {
         link: cardImageInput.value,
         handleClick: openPhotoPopup,
     }
-    const cardElement = new Card(card).generateCard()
-    addCard( cardElement );
+    const cardElement = new Card(card, '.template-card').generateCard()
+    addCard(cardElement);
 }
 
-function submitCardHandler( event ) {
+function submitCardHandler(event) {
     event.preventDefault();
     createCardFromPopup();
     closePopup(cardPopup);
     cardFormElement.reset();
 }
 
-function addCard( newCard ) {
-    cardsContainer.prepend( newCard );
+function addCard(newCard) {
+    cardsContainer.prepend(newCard);
 }
 
-function closePopup( popup ) {
+function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closeByEscape);
-    /*    page.classList.remove('page_type_noScroll');*/
 }
 
-function openPopup( popup ) {
+function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closeByEscape);
-    /*    page.classList.add('page_type_noScroll');*/
 }
 
 function initCards() {
-    cards.forEach( ( item ) => {
+    cards.forEach((item) => {
         const card = {
             name: item.name,
             link: item.link,
             handleClick: openPhotoPopup
         }
-        const cardElement = new Card(card).generateCard()
-        addCard( cardElement );
+        const cardElement = new Card(card, '.template-card').generateCard()
+        addCard(cardElement);
     });
 }
 
-function closeByEscape( evt ) {
-    if ( evt.key === 'Escape' ) {
+function closeByEscape(evt) {
+    if (evt.key === 'Escape') {
         const openedPopup = document.querySelector('.popup_opened');
-        closePopup( openedPopup );
+        closePopup(openedPopup);
     }
 }
 
-popupList.forEach(( popup ) => {
+popupList.forEach((popup) => {
     popup.addEventListener('click', ( evt ) => {
-        if ( ( evt.target.classList.contains('popup_opened') ) || ( evt.target.classList.contains('close-btn') ) ) {
-            closePopup( popup )
+        if ((evt.target.classList.contains('popup_opened')) || (evt.target.classList.contains('close-btn'))) {
+            closePopup(popup)
         }
     });
 });
@@ -149,17 +158,7 @@ profileAddCardButton.addEventListener('click', openCardPopupHandler);
 cardFormElement.addEventListener('submit', submitCardHandler);
 
 initCards();
-const validationOptions = {
-        formSelector: '.form',
-        inputSelector: '.form__item',
-        submitButtonSelector: '.submit-btn',
-        inactiveButtonClass: 'submit-btn_disabled',
-        inputErrorClass: 'form__item_type_error',
-        errorClass: 'form__input-error_active'
-    }
-
-
-const validationProfile = new FormValidator(validationOptions, profileFormElement);
 validationProfile.enableValidation();
-const validationCard = new FormValidator(validationOptions, cardFormElement);
 validationCard.enableValidation();
+
+

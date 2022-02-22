@@ -1,14 +1,14 @@
 export default class Card {
-    constructor(card) {
-        const defaultClickHandler = () => console.log(`On click is not defined. card=${JSON.stringify(this._cardElement)}`);
+    constructor(card, templateSelector) {
         this._name = card.name;
         this._image = card.link;
         this._alt = card.name;
-        this.handleClick = card.handleClick || defaultClickHandler;
+        this.template = templateSelector;
+        this.handleClick = card.handleClick;
     }
 
     _getTemplate() {
-        const cardTemplate = document.querySelector('.template-card').content;
+        const cardTemplate = document.querySelector(this.template).content;
         return cardTemplate.querySelector('.card').cloneNode(true);
     }
 
