@@ -64,16 +64,16 @@ function submitProfileHandler( event ) {
 function openProfilePopupShowDetails() {
     nameProfile.value = profileName.textContent;
     jobProfile.value = profileJob.textContent;
-    validation.toggleButtonState(profileInputs, profileSubmitButton);
-    validation.clearErrorMessages(profileFormElement, profileInputs)
+    validationProfile.toggleButtonState(profileInputs, profileSubmitButton);
+    validationProfile.clearErrorMessages(profileFormElement, profileInputs)
     openPopup( profilePopup );
 }
 
 function openCardPopupHandler() {
     openPopup(cardPopup);
     cardFormElement.reset();
-    validation.toggleButtonState(cardInputs, cardSubmitButton);
-    validation.clearErrorMessages(cardFormElement, cardInputs)
+    validationCard.toggleButtonState(cardInputs, cardSubmitButton);
+    validationCard.clearErrorMessages(cardFormElement, cardInputs)
 }
 
 function openPhotoPopup(card) {
@@ -159,5 +159,7 @@ const validationOptions = {
     }
 
 
-const validation = new FormValidator(validationOptions);
-validation.enableValidation();
+const validationProfile = new FormValidator(validationOptions, profileFormElement);
+validationProfile.enableValidation();
+const validationCard = new FormValidator(validationOptions, cardFormElement);
+validationCard.enableValidation();

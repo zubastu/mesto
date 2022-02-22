@@ -1,7 +1,7 @@
 export default class FormValidator {
 
-    constructor(data) {
-        this._formSelector = data.formSelector;
+    constructor(data, form) {
+        this._form = form
         this._inputSelector = data.inputSelector;
         this._submitButtonSelector = data.submitButtonSelector;
         this._inactiveButtonClass = data.inactiveButtonClass;
@@ -10,10 +10,7 @@ export default class FormValidator {
     }
 
     enableValidation() {
-        const formElements = Array.from(document.querySelectorAll(this._formSelector))
-        formElements.forEach( (form) => {
-            this._setEventListeners(form);
-        })
+        this._setEventListeners(this._form);
     }
 
 
