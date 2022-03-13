@@ -1,9 +1,7 @@
-import {profileJob, profileName} from "../utils/constants";
-
 export default class UserInfo {
-    constructor(profileInfo) {
-        this._name = profileInfo.name;
-        this._job = profileInfo.job;
+    constructor(profileSelectors) {
+        this._name = profileSelectors.name;
+        this._job =profileSelectors.job;
     }
 
     getUserInfo() {

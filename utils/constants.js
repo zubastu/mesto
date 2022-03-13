@@ -53,9 +53,9 @@ export const cardSubmitButton = cardFormElement.querySelector('.submit-btn');
 export const cardNameInput = cardFormElement.elements.cardName;
 export const cardImageInput = cardFormElement.elements.cardUrl;
 
-export const photoPopup = document.querySelector('.popup_photo');
+/*export const photoPopup = document.querySelector('.popup_photo');
 export const popupPhotoParagraph = photoPopup.querySelector('.popup__photo-paragraph');
-export const popupPhotoImage = photoPopup.querySelector('.popup__photo-image');
+export const popupPhotoImage = photoPopup.querySelector('.popup__photo-image');*/
 
 export const profilePopupSelectors = {
     popup: '.popup_profile',
@@ -75,11 +75,4 @@ export const photoPopupSelectors = {
     popup: '.popup_photo',
     popupDescription: '.popup__photo-paragraph',
     popupImage: '.popup__photo-image',
-}
-
-const profileSelectors = {
-    infoButtonSelector: '.profile__info-btn',
-    addButton: '.profile__add-btn',
-    name: '.profile__name',
-    job: '.profile__job',
 }
