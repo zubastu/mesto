@@ -1,69 +1,46 @@
+<<<<<<< Updated upstream
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
+=======
+import {
+    profileInputs,
+    profileSubmitButton,
+    cardInputs,
+    cardSubmitButton,
+    cardImageInput,
+    cardFormElement,
+    cardPopup,
+    cardNameInput,
+    cards,
+    cardsContainer,
+    jobProfile,
+    nameProfile,
+    popupList,
+    profileAddCardButton,
+    profileFormElement,
+    profileInfoButton,
+    profileJob,
+    profileName,
+    profilePopup,
+    photoPopup,
+    popupPhotoParagraph,
+    popupPhotoImage,
+    photoPopupSelectors,
+    cardPopupSelectors,
+    profilePopupSelectors,
+    validationOptions,
+} from "../utils/constants";
 
-const cards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
-const validationOptions = {
-    formSelector: '.form',
-    inputSelector: '.form__item',
-    submitButtonSelector: '.submit-btn',
-    inactiveButtonClass: 'submit-btn_disabled',
-    inputErrorClass: 'form__item_type_error',
-    errorClass: 'form__input-error_active'
-}
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+import Popup from "../components/Popup";
+import PopupWithForm from "../components/PopupWithForm";
+import PopupWithImage from "../components/PopupWithImage";
+import Section from "../components/Section";
+import UserInfo from "../components/UserInfo";
+>>>>>>> Stashed changes
 
-const popupList = document.querySelectorAll('.popup');
-const profilePopup = document.querySelector('.popup_profile');
-const profileFormElement = document.forms.profile;
-const profileInputs = Array.from(profileFormElement.querySelectorAll('.form__item'));
-const profileSubmitButton = profileFormElement.querySelector('.submit-btn');
-const profileInfoButton = document.querySelector('.profile__info-btn');
-const profileAddCardButton = document.querySelector('.profile__add-btn');
-const profileName = document.querySelector('.profile__name');
-const profileJob = document.querySelector('.profile__job');
-const nameProfile = profileFormElement.elements.profileName;
-const jobProfile = profileFormElement.elements.profileJob;
-
-const cardPopup = document.querySelector('.popup_card');
-const cardsContainer = document.getElementById('cards-container');
-const cardFormElement = document.forms.card;
-const cardInputs = Array.from(cardFormElement.querySelectorAll('.form__item'));
-const cardSubmitButton = cardFormElement.querySelector('.submit-btn');
-const cardNameInput = cardFormElement.elements.cardName;
-const cardImageInput = cardFormElement.elements.cardUrl;
-
-const photoPopup = document.querySelector('.popup_photo');
-const popupPhotoParagraph = photoPopup.querySelector('.popup__photo-paragraph');
-const popupPhotoImage = photoPopup.querySelector('.popup__photo-image');
-
-const validationProfile = new FormValidator(validationOptions, profileFormElement);
-const validationCard = new FormValidator(validationOptions, cardFormElement);
-
-
+/*
 function submitProfileHandler(event) {
     event.preventDefault();
     profileName.textContent = nameProfile.value;
@@ -160,4 +137,10 @@ initCards();
 validationProfile.enableValidation();
 validationCard.enableValidation();
 
+*/
 
+const profileInfo = new UserInfo({
+    name: profileName.textContent,
+    job: profileJob.textContent,
+});
+console.log(profileInfo)
