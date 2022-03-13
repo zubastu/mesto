@@ -57,18 +57,23 @@ export const profilePopupSelectors = {
     popup: '.popup_profile',
     submitButtonSelector: '.submit-btn_profile',
     inputSelector: '.form__item',
-    formSelector: '.form',
+    formSelector: '.form_profile',
 }
 
 export const cardPopupSelectors = {
     popup: '.popup_card',
     submitButtonSelector: '.submit-btn_card',
     inputSelector: '.form__item',
-    formSelector: '.form',
+    formSelector: '.form_card',
 }
 
 export const photoPopupSelectors = {
     popup: '.popup_photo',
     popupDescription: '.popup__photo-paragraph',
     popupImage: '.popup__photo-image',
+}
+
+export const userSelectors = {
+    name: '.profile__name',
+    job: '.profile__job',
 }

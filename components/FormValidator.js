@@ -25,16 +25,6 @@ export default class FormValidator {
         });
     }
 
-    toggleButtonState(inputList, buttonElement){
-        if (this._hasInvalidInput(inputList)) {
-            buttonElement.setAttribute('disabled', true);
-            buttonElement.classList.add(this._inactiveButtonClass);
-        } else {
-            buttonElement.classList.remove(this._inactiveButtonClass);
-            buttonElement.removeAttribute('disabled');
-        }
-    }
-
     hideInputError(formElement, inputElement) {
         const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
         inputElement.classList.remove(this._inputErrorClass);
@@ -67,6 +57,16 @@ export default class FormValidator {
         inputList.forEach( (input) => {
             this.hideInputError(formElement, input);
         });
+    }
+
+    toggleButtonState(inputList, buttonElement){
+        if (this._hasInvalidInput(inputList)) {
+            buttonElement.setAttribute('disabled', true);
+            buttonElement.classList.add(this._inactiveButtonClass);
+        } else {
+            buttonElement.classList.remove(this._inactiveButtonClass);
+            buttonElement.removeAttribute('disabled');
+        }
     }
 
 }

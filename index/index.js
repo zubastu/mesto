@@ -21,7 +21,8 @@ import {
     validationOptions,
     profileName,
     profileJob,
-    cards
+    cards,
+    userSelectors,
 } from '../utils/constants.js';
 
 import Card from "../components/Card.js";
@@ -36,9 +37,42 @@ const validationProfile = new FormValidator(validationOptions, profileFormElemen
 const validationCard = new FormValidator(validationOptions, cardFormElement);
 
 const popupImage = new PopupWithImage(photoPopupSelectors);
-popupImage.setEventListeners()
 
-const renderCard = (cardItem) => {
+const section = new Section({
+    items: cards,
+    renderer: renderCard
+}, '.photo-cards');
+
+const userInfo = new UserInfo({
+    name: userSelectors.name,
+    job: userSelectors.job,
+});
+
+const profileForm = new PopupWithForm(profilePopupSelectors, () => {
+    userInfo.setUserInfo();
+});
+
+const cardForm = new PopupWithForm(cardPopupSelectors, () => {
+    userInfo.setUserInfo();
+});
+
+function openProfilePopupShowDetails() {
+    nameProfile.value = profileName.textContent;
+    jobProfile.value = profileJob.textContent;
+    validationProfile.toggleButtonState(profileInputs, profileSubmitButton);
+    validationProfile.clearErrorMessages(profileFormElement, profileInputs);
+    profileForm.open();
+}
+
+function submitProfileHandler() {
+    const info = userInfo.getUserInfo();
+    console.log(info)
+    profileName.textContent = nameProfile.value;
+    profileJob.textContent = jobProfile.value;
+    profileForm.close();
+}
+
+function renderCard(cardItem) {
     const card = {
         name: cardItem.name,
         link: cardItem.link,
@@ -46,12 +80,6 @@ const renderCard = (cardItem) => {
     }
     return new Card(card, '.template-card').generateCard();
 }
-
-const section = new Section({
-    items: cards,
-    renderer: renderCard
-}, '.photo-cards');
-
 
 function createCardFromPopup() {
     const card = {
@@ -61,55 +89,32 @@ function createCardFromPopup() {
     }
     const cardElement = renderCard(card);
     section.addItem(cardElement);
+    cardForm.close();
 }
 
 function openPhotoPopup() {
     popupImage.open(this);
 }
 
-function submitProfileHandler(event) {
-    event.preventDefault();
-    profileName.textContent = nameProfile.value;
-    profileJob.textContent = jobProfile.value;
-    closePopup(profilePopup);
-}
-
-function openProfilePopupShowDetails() {
-    nameProfile.value = profileName.textContent;
-    jobProfile.value = profileJob.textContent;
-    validationProfile.toggleButtonState(profileInputs, profileSubmitButton);
-    validationProfile.clearErrorMessages(profileFormElement, profileInputs);
-    openPopup(profilePopup);
-}
-
-
 function openCardPopupHandler() {
-    openPopup(cardPopup);
-    cardFormElement.reset();
+    cardForm.open()
     validationCard.toggleButtonState(cardInputs, cardSubmitButton);
     validationCard.clearErrorMessages(cardFormElement, cardInputs);
 }
 
-
-
-
-function submitCardHandler(event) {
-    event.preventDefault();
+function submitCardHandler() {
     createCardFromPopup();
-    closePopup(cardPopup);
-    cardFormElement.reset();
+    cardForm.close()
 }
-
-
-
 
 profileInfoButton.addEventListener('click', openProfilePopupShowDetails);
 profileFormElement.addEventListener('submit', submitProfileHandler);
 profileAddCardButton.addEventListener('click', openCardPopupHandler);
 cardFormElement.addEventListener('submit', submitCardHandler);
 
-// initCards();
 validationProfile.enableValidation();
 validationCard.enableValidation();
-
+profileForm.setEventListeners()
+cardForm.setEventListeners()
 section.renderArray();
+popupImage.setEventListeners()
