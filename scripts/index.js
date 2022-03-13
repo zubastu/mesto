@@ -136,12 +136,6 @@ function initCards() {
     });
 }
 
-function closeByEscape(evt) {
-    if (evt.key === 'Escape') {
-        const openedPopup = document.querySelector('.popup_opened');
-        closePopup(openedPopup);
-    }
-}
 
 popupList.forEach((popup) => {
     popup.addEventListener('click', ( evt ) => {
@@ -150,6 +144,14 @@ popupList.forEach((popup) => {
         }
     });
 });
+
+function closeByEscape(evt) {
+    if (evt.key === 'Escape') {
+        const openedPopup = document.querySelector('.popup_opened');
+        closePopup(openedPopup);
+    }
+}
+
 
 profileInfoButton.addEventListener('click', openProfilePopupShowDetails);
 profileFormElement.addEventListener('submit', submitProfileHandler);
