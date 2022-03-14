@@ -9,8 +9,6 @@ Nested
 
 Grid layout
 
-Mediaquries
-
 Java Script
 
 ООП парадигма
