@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/zubastu/mesto/issues"
   },
-  "homepage": "https://github.com/zubastu/mesto#readme"
+  "homepage": "https://github.com/zubastu/mesto#readme",
+  "devDependencies": {
+    "webpack": "^5.70.0"
+  }
 }
