@@ -1,8 +1,6 @@
 import './index.css';
 import {
-    cardImageInput,
     photoPopupSelectors,
-    cardNameInput,
     jobProfile,
     profileAddCardButton,
     profileFormElement,
@@ -40,12 +38,12 @@ const userInfo = new UserInfo({
 });
 
 const profileForm = new PopupWithForm(profilePopupSelectors, () => {
-    submitProfileHandler();
+    handleProfileFormSubmit();
 
 });
 
 const cardForm = new PopupWithForm(cardPopupSelectors, () => {
-    submitCardHandler();
+    handleCardFormSubmit();
 });
 
 function openProfilePopupShowDetails() {
@@ -56,8 +54,8 @@ function openProfilePopupShowDetails() {
     profileForm.open();
 }
 
-function submitProfileHandler() {
-    const profileInputsValue = profileForm._getInputValues();
+function handleProfileFormSubmit() {
+    const profileInputsValue = profileForm.getInputValues();
     const dataUser = {
         firstInput: profileInputsValue.profileName,
         secondInput: profileInputsValue.profileJob,
@@ -75,10 +73,12 @@ function renderCard(cardItem) {
     return new Card(card, '.template-card').generateCard();
 }
 
-function createCardFromPopup() {
+function createNewCard() {
+    const cardData = cardForm.getInputValues();
+    console.log(cardData)
     const card = {
-        name: cardNameInput.value,
-        link: cardImageInput.value,
+        name: cardData.cardName,
+        link: cardData.cardUrl,
         handleClick: openPhotoPopup,
     }
     const cardElement = renderCard(card);
@@ -86,8 +86,8 @@ function createCardFromPopup() {
     cardForm.close();
 }
 
-function openPhotoPopup() {
-    popupImage.open(this);
+function openPhotoPopup(name, link) {
+    popupImage.open(name, link);
 }
 
 function openCardPopupHandler() {
@@ -95,8 +95,8 @@ function openCardPopupHandler() {
     validationCard.clearErrorMessages();
 }
 
-function submitCardHandler() {
-    createCardFromPopup();
+function handleCardFormSubmit() {
+    createNewCard();
     cardForm.close()
 }
 

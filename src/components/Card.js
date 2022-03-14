@@ -2,7 +2,6 @@ export default class Card {
     constructor(card, templateSelector) {
         this._name = card.name;
         this._image = card.link;
-        this._alt = card.name;
         this.template = templateSelector;
         this.handleClick = card.handleClick;
     }
@@ -41,7 +40,7 @@ export default class Card {
             this.deleteCard();
         });
         this.cardPicture.addEventListener('click', () => {
-            return this.handleClick(this);
+            return this.handleClick(this._name, this._image);
         });
     }
 }
