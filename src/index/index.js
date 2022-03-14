@@ -1,7 +1,4 @@
 import './index.css';
-
-
-
 import {
     cardImageInput,
     photoPopupSelectors,
