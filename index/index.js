@@ -1,5 +1,5 @@
 import {
-    cardPopup,
+
     cardInputs,
     profileInputs,
     profileSubmitButton,
@@ -8,14 +8,11 @@ import {
     photoPopupSelectors,
     cardNameInput,
     jobProfile,
-    popupList,
     profileAddCardButton,
-    cardsContainer,
     profileFormElement,
     cardFormElement,
     nameProfile,
     profileInfoButton,
-    profilePopup,
     cardPopupSelectors,
     profilePopupSelectors,
     validationOptions,
