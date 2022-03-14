@@ -49,11 +49,12 @@ const userInfo = new UserInfo({
 });
 
 const profileForm = new PopupWithForm(profilePopupSelectors, () => {
-    userInfo.setUserInfo();
+    submitProfileHandler();
+
 });
 
 const cardForm = new PopupWithForm(cardPopupSelectors, () => {
-    userInfo.setUserInfo();
+    submitCardHandler();
 });
 
 function openProfilePopupShowDetails() {
@@ -65,10 +66,12 @@ function openProfilePopupShowDetails() {
 }
 
 function submitProfileHandler() {
-    const info = userInfo.getUserInfo();
-    console.log(info)
-    profileName.textContent = nameProfile.value;
-    profileJob.textContent = jobProfile.value;
+    const profileInputsValue = profileForm._getInputValues();
+    const dataUser = {
+        firstInput: profileInputsValue.profileName,
+        secondInput: profileInputsValue.profileJob,
+    }
+    userInfo.setUserInfo(dataUser)
     profileForm.close();
 }
 
@@ -108,13 +111,12 @@ function submitCardHandler() {
 }
 
 profileInfoButton.addEventListener('click', openProfilePopupShowDetails);
-profileFormElement.addEventListener('submit', submitProfileHandler);
 profileAddCardButton.addEventListener('click', openCardPopupHandler);
-cardFormElement.addEventListener('submit', submitCardHandler);
 
 validationProfile.enableValidation();
 validationCard.enableValidation();
 profileForm.setEventListeners()
 cardForm.setEventListeners()
 section.renderArray();
-popupImage.setEventListeners()
+popupImage.setEventListeners();
+
