@@ -1,0 +1,19 @@
+{
+  "name": "mesto",
+  "version": "1.0.1",
+  "description": "Learn Java Script",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zubastu/mesto.git"
+  },
+  "author": "Mahin Ilya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zubastu/mesto/issues"
+  },
+  "homepage": "https://github.com/zubastu/mesto#readme"
+}

@@ -16,8 +16,7 @@ import {
     cardPopupSelectors,
     profilePopupSelectors,
     validationOptions,
-    profileName,
-    profileJob,
+
     cards,
     userSelectors,
 } from '../utils/constants.js';
@@ -55,8 +54,9 @@ const cardForm = new PopupWithForm(cardPopupSelectors, () => {
 });
 
 function openProfilePopupShowDetails() {
-    nameProfile.value = profileName.textContent;
-    jobProfile.value = profileJob.textContent;
+    const userData = userInfo.getUserInfo()
+    nameProfile.value = userData.name;
+    jobProfile.value = userData.job;
     validationProfile.toggleButtonState(profileInputs, profileSubmitButton);
     validationProfile.clearErrorMessages(profileFormElement, profileInputs);
     profileForm.open();
