@@ -3,10 +3,6 @@ import './index.css';
 
 
 import {
-    cardInputs,
-    profileInputs,
-    profileSubmitButton,
-    cardSubmitButton,
     cardImageInput,
     photoPopupSelectors,
     cardNameInput,
@@ -59,8 +55,7 @@ function openProfilePopupShowDetails() {
     const userData = userInfo.getUserInfo()
     nameProfile.value = userData.name;
     jobProfile.value = userData.job;
-    validationProfile.toggleButtonState(profileInputs, profileSubmitButton);
-    validationProfile.clearErrorMessages(profileFormElement, profileInputs);
+    validationProfile.clearErrorMessages();
     profileForm.open();
 }
 
@@ -100,8 +95,7 @@ function openPhotoPopup() {
 
 function openCardPopupHandler() {
     cardForm.open()
-    validationCard.toggleButtonState(cardInputs, cardSubmitButton);
-    validationCard.clearErrorMessages(cardFormElement, cardInputs);
+    validationCard.clearErrorMessages();
 }
 
 function submitCardHandler() {
