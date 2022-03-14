@@ -1,5 +1,4 @@
 import {
-
     cardInputs,
     profileInputs,
     profileSubmitButton,
@@ -16,7 +15,6 @@ import {
     cardPopupSelectors,
     profilePopupSelectors,
     validationOptions,
-
     cards,
     userSelectors,
 } from '../utils/constants.js';
