@@ -9,7 +9,20 @@ export default class Card {
 
     _getTemplate() {
         const cardTemplate = document.querySelector(this.template).content;
-        return cardTemplate.querySelector('.card').cloneNode(true);
+        return  cardTemplate.querySelector('.card').cloneNode(true);
+    }
+
+    generateCard() {
+        this._cardElement = this._getTemplate();
+        this.likeButton = this._cardElement.querySelector('.card__like');
+        this.deleteButton = this._cardElement.querySelector('.card__delete');
+        this.cardPicture = this._cardElement.querySelector('.card__picture');
+        this.carText = this._cardElement.querySelector('.card__text');
+        this._setEventListeners();
+        this.cardPicture.src = this._image;
+        this.cardPicture.alt = this._name;
+        this.carText.textContent = this._name;
+        return this._cardElement;
     }
 
     deleteCard() {
@@ -17,28 +30,19 @@ export default class Card {
     }
 
     toggleLikeButton() {
-        this._cardElement.querySelector('.card__like').classList.toggle('card__like_active');
+        this.likeButton.classList.toggle('card__like_active');
     }
 
     _setEventListeners() {
-        this._cardElement.querySelector('.card__like').addEventListener('click', () => {
+        this.likeButton.addEventListener('click', () => {
             this.toggleLikeButton();
         });
-        this._cardElement.querySelector('.card__delete').addEventListener('click', () => {
+        this.deleteButton.addEventListener('click', () => {
             this.deleteCard();
         });
-        this._cardElement.querySelector('.card__picture').addEventListener('click', () => {
+        this.cardPicture.addEventListener('click', () => {
             return this.handleClick(this);
         });
-    }
-
-    generateCard() {
-        this._cardElement = this._getTemplate();
-        this._setEventListeners();
-        this._cardElement.querySelector('.card__picture').src = this._image;
-        this._cardElement.querySelector('.card__picture').alt = this._name;
-        this._cardElement.querySelector('.card__text').textContent = this._name;
-        return this._cardElement;
     }
 }
 
