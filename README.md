@@ -15,4 +15,6 @@ Java Script
 
 Webpack
 
+babel
+
 Ссылка на проект Github Pages : https://zubastu.github.io/mesto/
