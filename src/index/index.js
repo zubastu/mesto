@@ -1,3 +1,7 @@
+import './index.css';
+
+
+
 import {
     cardInputs,
     profileInputs,

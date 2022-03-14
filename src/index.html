@@ -5,7 +5,6 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./index/index.css">
     <title>Mesto</title>
 </head>
   <body class="page page_type_margin">
@@ -13,7 +12,7 @@
     <header class="header center">
 
         <img class="header__logo"
-             src="./images/logo__header.svg"
+             src="<%=require('./images/logo__header.svg')%>"
              alt="Логотип">
 
     </header>
@@ -22,7 +21,7 @@
 
         <section class="profile margin center">
 
-                <img src="./images/profile__image.jpg" alt="Фото Профиля" class="profile__avatar-image">
+                <img src="<%=require('./images/profile__image.jpg')%>" alt="Фото Профиля" class="profile__avatar-image">
 
                 <div class="profile__info">
                     <div class="profile__info-text">
@@ -138,7 +137,7 @@
                 <button class="close-btn close-btn_photo button"
                         type="button"></button>
 
-                <img src="."
+                <img src=".."
                      alt=""
                      class="popup__photo-image">
 
@@ -156,7 +155,7 @@
     <template class="template-card" id="card-template">
         <div class="card">
             <button type="button" class="card__delete button"></button>
-            <img class="card__picture" src="." alt="">
+            <img class="card__picture" src=".." alt="">
             <div class="card__description">
                 <p class="card__text"></p>
                 <button type="button"
@@ -165,7 +164,6 @@
         </div>
     </template>
 
-    <script type="module" src="index/index.js"></script>
 
   </body>
 </html>
