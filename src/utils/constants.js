@@ -1,3 +1,49 @@
+const profileSelectors = {
+    editButton: '.profile__info-btn',
+    addCardButton: '.profile__add-btn',
+};
+
+const formSelectors = {
+    profile: '.form_profile',
+    profileName: '.form__item_input_name-profile',
+    profileJob: '.form__item_input_job-profile',
+    card: '.form_card',
+};
+
+export const profilePopupSelectors = {
+    popup: '.popup_profile',
+    submitButtonSelector: '.submit-btn_profile',
+    inputSelector: '.form__item',
+    formSelector: '.form_profile',
+};
+
+export const cardPopupSelectors = {
+    popup: '.popup_card',
+    submitButtonSelector: '.submit-btn_card',
+    inputSelector: '.form__item',
+    formSelector: '.form_card',
+};
+
+export const photoPopupSelectors = {
+    popup: '.popup_photo',
+    popupDescription: '.popup__photo-paragraph',
+    popupImage: '.popup__photo-image',
+};
+
+export const userSelectors = {
+    name: '.profile__name',
+    job: '.profile__job',
+};
+
+export const validationOptions = {
+    formSelector: '.form',
+    inputSelector: '.form__item',
+    submitButtonSelector: '.submit-btn',
+    inactiveButtonClass: 'submit-btn_disabled',
+    inputErrorClass: 'form__item_type_error',
+    errorClass: 'form__input-error_active'
+};
+
 export const cards = [
     {
         name: 'Архыз',
@@ -24,38 +70,9 @@ export const cards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-export const profileFormElement = document.forms.profile;
-export const profileInfoButton = document.querySelector('.profile__info-btn');
-export const profileAddCardButton = document.querySelector('.profile__add-btn');
-export const nameProfile = profileFormElement.elements.profileName;
-export const jobProfile = profileFormElement.elements.profileJob;
-export const cardFormElement = document.forms.card;
-export const profilePopupSelectors = {
-    popup: '.popup_profile',
-    submitButtonSelector: '.submit-btn_profile',
-    inputSelector: '.form__item',
-    formSelector: '.form_profile',
-}
-export const cardPopupSelectors = {
-    popup: '.popup_card',
-    submitButtonSelector: '.submit-btn_card',
-    inputSelector: '.form__item',
-    formSelector: '.form_card',
-}
-export const photoPopupSelectors = {
-    popup: '.popup_photo',
-    popupDescription: '.popup__photo-paragraph',
-    popupImage: '.popup__photo-image',
-}
-export const userSelectors = {
-    name: '.profile__name',
-    job: '.profile__job',
-}
-export const validationOptions = {
-    formSelector: '.form',
-    inputSelector: '.form__item',
-    submitButtonSelector: '.submit-btn',
-    inactiveButtonClass: 'submit-btn_disabled',
-    inputErrorClass: 'form__item_type_error',
-    errorClass: 'form__input-error_active'
-}
+export const profileFormElement = document.querySelector(formSelectors.profile);
+export const cardFormElement = document.querySelector(formSelectors.card);
+export const profileInfoButton = document.querySelector(profileSelectors.editButton);
+export const profileAddCardButton = document.querySelector(profileSelectors.addCardButton);
+export const nameProfile = profileFormElement.querySelector(formSelectors.profileName);
+export const jobProfile = profileFormElement.querySelector(formSelectors.profileJob);

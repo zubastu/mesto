@@ -4,12 +4,12 @@ export default class Card {
         this._image = card.link;
         this.template = templateSelector;
         this.handleClick = card.handleClick;
-    }
+    };
 
     _getTemplate() {
         const cardTemplate = document.querySelector(this.template).content;
         return  cardTemplate.querySelector('.card').cloneNode(true);
-    }
+    };
 
     generateCard() {
         this._cardElement = this._getTemplate();
@@ -22,15 +22,15 @@ export default class Card {
         this.cardPicture.alt = this._name;
         this.carText.textContent = this._name;
         return this._cardElement;
-    }
+    };
 
     deleteCard() {
         this._cardElement.remove();
-    }
+    };
 
     toggleLikeButton() {
         this.likeButton.classList.toggle('card__like_active');
-    }
+    };
 
     _setEventListeners() {
         this.likeButton.addEventListener('click', () => {
@@ -42,7 +42,7 @@ export default class Card {
         this.cardPicture.addEventListener('click', () => {
             return this.handleClick(this._name, this._image);
         });
-    }
-}
+    };
+};
 
 

@@ -29,7 +29,7 @@ const popupImage = new PopupWithImage(photoPopupSelectors);
 
 const section = new Section({
     items: cards,
-    renderer: renderCard
+    renderer: renderCard,
 }, '.photo-cards');
 
 const userInfo = new UserInfo({
@@ -37,30 +37,28 @@ const userInfo = new UserInfo({
     job: userSelectors.job,
 });
 
-const profileForm = new PopupWithForm(profilePopupSelectors, () => {
-    handleProfileFormSubmit();
-
+const profileForm = new PopupWithForm(profilePopupSelectors, (userData) => {
+    handleProfileFormSubmit(userData);
 });
 
-const cardForm = new PopupWithForm(cardPopupSelectors, () => {
-    handleCardFormSubmit();
+const cardForm = new PopupWithForm(cardPopupSelectors, (cardData) => {
+    createNewCard(cardData);
 });
 
 function openProfilePopupShowDetails() {
-    const userData = userInfo.getUserInfo()
+    const userData = userInfo.getUserInfo();
     nameProfile.value = userData.name;
     jobProfile.value = userData.job;
     validationProfile.clearErrorMessages();
     profileForm.open();
 }
 
-function handleProfileFormSubmit() {
-    const profileInputsValue = profileForm.getInputValues();
+function handleProfileFormSubmit(userData) {
     const dataUser = {
-        firstInput: profileInputsValue.profileName,
-        secondInput: profileInputsValue.profileJob,
+        firstInput: userData.profileName,
+        secondInput: userData.profileJob,
     }
-    userInfo.setUserInfo(dataUser)
+    userInfo.setUserInfo(dataUser);
     profileForm.close();
 }
 
@@ -73,12 +71,10 @@ function renderCard(cardItem) {
     return new Card(card, '.template-card').generateCard();
 }
 
-function createNewCard() {
-    const cardData = cardForm.getInputValues();
-    console.log(cardData)
+function createNewCard(cardData) {
     const card = {
-        name: cardData.cardName,
-        link: cardData.cardUrl,
+        name: cardData.name,
+        link: cardData.link,
         handleClick: openPhotoPopup,
     }
     const cardElement = renderCard(card);
@@ -91,13 +87,8 @@ function openPhotoPopup(name, link) {
 }
 
 function openCardPopupHandler() {
-    cardForm.open()
+    cardForm.open();
     validationCard.clearErrorMessages();
-}
-
-function handleCardFormSubmit() {
-    createNewCard();
-    cardForm.close()
 }
 
 profileInfoButton.addEventListener('click', openProfilePopupShowDetails);
@@ -105,8 +96,8 @@ profileAddCardButton.addEventListener('click', openCardPopupHandler);
 
 validationProfile.enableValidation();
 validationCard.enableValidation();
-profileForm.setEventListeners()
-cardForm.setEventListeners()
-section.renderArray();
 popupImage.setEventListeners();
+profileForm.setEventListeners();
+cardForm.setEventListeners();
+section.renderArray();
 
