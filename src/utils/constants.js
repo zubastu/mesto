@@ -1,3 +1,10 @@
+import arkhyz from '../images/Архыз.jpg';
+import chelyabinsk from '../images/chelyabinsk-oblast.jpg';
+import ivanovo from '../images/ivanovo.jpg';
+import kamchatka from '../images/kamchatka.jpg';
+import holmogorskiy from '../images/kholmogorsky-rayon.jpg';
+import baikal from '../images/baikal.jpg';
+
 const profileSelectors = {
     editButton: '.profile__info-btn',
     addCardButton: '.profile__add-btn',
@@ -47,27 +54,27 @@ export const validationOptions = {
 export const cards = [
     {
         name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+        link:  arkhyz
     },
     {
         name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+        link: chelyabinsk,
     },
     {
         name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+        link: ivanovo,
     },
     {
         name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+        link: kamchatka,
     },
     {
         name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+        link: holmogorskiy,
     },
     {
         name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+        link: baikal,
     }
 ];
 export const profileFormElement = document.querySelector(formSelectors.profile);
