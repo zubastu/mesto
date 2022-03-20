@@ -16,7 +16,6 @@ export default class PopupWithForm extends Popup {
         return this._formValues;
     };
 
-
     setEventListeners() {
         super.setEventListeners();
         this._form.addEventListener('submit', (e) => {
@@ -25,12 +24,12 @@ export default class PopupWithForm extends Popup {
         });
     };
 
+    setProfileValues() {
+
+    }
+
     close() {
         super.close();
         this._form.reset();
-    };
-
-    useInputValues() {
-        return this._getInputValues();
     };
 }
