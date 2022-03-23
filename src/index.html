@@ -50,7 +50,7 @@
                 <button type="button"
                         class="close-btn close-btn_profile button"></button>
 
-                <h2 class="form__heading">Редактировать профиль</h2>
+                <h2 class="popup-heading popup-heading_type_form">Редактировать профиль</h2>
 
                 <fieldset class="form__input-container input">
 
@@ -81,7 +81,7 @@
                     </label>
 
                     <button type="submit"
-                            class="submit-btn submit-btn_profile button">Сохранить</button>
+                            class="submit-btn submit-btn_profile submit-btn_type_form button">Сохранить</button>
                 </fieldset>
             </form>
         </section>
@@ -96,7 +96,7 @@
                 <button type="button"
                         class="close-btn close-btn_card button"></button>
 
-                <h2 class="form__heading">Новое место</h2>
+                <h2 class="popup-heading popup-heading_type_form">Новое место</h2>
 
                 <fieldset class="form__input-container input">
 
@@ -125,7 +125,7 @@
                     </label>
 
                     <button type="submit"
-                            class="submit-btn submit-btn_card button">Создать</button>
+                            class="submit-btn submit-btn_card submit-btn_type_form button">Создать</button>
 
                 </fieldset>
             </form>
@@ -145,6 +145,49 @@
             </div>
         </section>
 
+        <section class="popup popup_avatar popup_opened">
+
+            <form class="form form_type_avatar"
+                  id="avatar__form"
+                  name="avatar"
+                  novalidate>
+
+                <button type="button"
+                        class="close-btn close-btn_avatar button"></button>
+
+                <h2 class="popup-heading popup-heading_type_form">Обновить аватар</h2>
+
+                <fieldset class="form__input-container input">
+
+                    <label class="form__field">
+                        <input type="url"
+                               class="form__item form__item_input_link-card input"
+                               value=""
+                               name="avatar"
+                               id="avatarURL"
+                               required
+                               placeholder="Ссылка на аватар">
+                        <span class="form__input-error avatarURL-input-error"></span>
+                    </label>
+
+                    <button type="submit"
+                            class="submit-btn submit-btn_card submit-btn_type_form button">Создать</button>
+
+                </fieldset>
+            </form>
+        </section>
+
+        <section class="popup popup_accept-delete-card popup_opened ">
+            <div class="delete-container">
+                <h2 class="popup-heading">Вы уверены?</h2>
+                <button type="submit"
+                        class="submit-btn submit-btn_type_accept button">Да</button>
+
+                <button class="close-btn close-btn_accept-delete-card button"
+                        type="button"></button>
+            </div>
+        </section>
+
     </main>
 
     <footer class="footer center">
@@ -158,8 +201,11 @@
             <img class="card__picture" src=".." alt="">
             <div class="card__description">
                 <p class="card__text"></p>
-                <button type="button"
+                <div class="card__like-section">
+                    <button type="button"
                         class="card__like button"></button>
+                    <span class="card__like-counter">8</span>
+                </div>
             </div>
         </div>
     </template>
