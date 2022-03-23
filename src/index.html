@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mesto</title>
 </head>
+
   <body class="page page_type_margin">
 
     <header class="header center">
@@ -20,8 +21,9 @@
     <main class="main ">
 
         <section class="profile margin center">
-
-                <img src="<%=require('./images/profile__image.jpg')%>" alt="Фото Профиля" class="profile__avatar-image">
+                <span class="profile__hover">
+                    <img src="<%=require('./images/profile__image.jpg')%>" alt="Фото Профиля" class="profile__avatar-image">
+                </span>
 
                 <div class="profile__info">
                     <div class="profile__info-text">
@@ -34,8 +36,6 @@
                 <button type="button"
                     class="profile__add-btn button"></button>
         </section>
-
-
 
         <section id="cards-container" class="photo-cards center">
 
@@ -145,7 +145,7 @@
             </div>
         </section>
 
-        <section class="popup popup_avatar popup_opened">
+        <section class="popup popup_avatar ">
 
             <form class="form form_type_avatar"
                   id="avatar__form"
@@ -177,7 +177,7 @@
             </form>
         </section>
 
-        <section class="popup popup_accept-delete-card popup_opened ">
+        <section class="popup popup_accept-delete-card  ">
             <div class="delete-container">
                 <h2 class="popup-heading">Вы уверены?</h2>
                 <button type="submit"
@@ -210,6 +210,6 @@
         </div>
     </template>
 
-
   </body>
+
 </html>
