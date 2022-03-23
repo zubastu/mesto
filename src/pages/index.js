@@ -67,7 +67,7 @@ function renderCard(cardItem) {
         link: cardItem.link,
         handleClick: openPhotoPopup,
     }
-    return new Card(card, '.template-card').generateCard();
+    return new Card(card, '.template-card', false).generateCard();
 }
 
 function createNewCard(cardData) {
@@ -76,7 +76,7 @@ function createNewCard(cardData) {
         link: cardData.link,
         handleClick: openPhotoPopup,
     }
-    const cardElement = renderCard(card);
+    const cardElement = new Card(card, '.template-card', true).generateCard();
     section.addItem(cardElement);
     cardForm.close();
 }
