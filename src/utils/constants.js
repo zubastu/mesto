@@ -66,6 +66,15 @@ export const popupAcceptSelectors = {
     formSelector: '.form-accept',
 }
 
+export const cardSelectors = {
+    card: '.card',
+    like: '.card__like',
+    delete: '.card__delete',
+    picture: '.card__picture',
+    text: '.card__text',
+    counter: '.card__like-counter',
+}
+
 export const cards = [
     {
         name: 'Архыз',

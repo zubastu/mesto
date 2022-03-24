@@ -12,7 +12,9 @@ import {
     validationOptions,
     cards,
     userSelectors,
-    avatarPopupSelectors, popupAcceptSelectors,
+    avatarPopupSelectors,
+    popupAcceptSelectors,
+    cardSelectors,
 } from '../utils/constants.js';
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
@@ -75,7 +77,7 @@ function renderCard(cardItem) {
         handleClick: openPhotoPopup,
         deleteHandleClick: openDeletePopup,
     }
-    return new Card(card, '.template-card', false).generateCard();
+    return new Card(card, '.template-card', false, cardSelectors).generateCard();
 }
 
 function createNewCard(cardData) {
@@ -85,7 +87,7 @@ function createNewCard(cardData) {
         handleClick: openPhotoPopup,
         deleteHandleClick: openDeletePopup,
     }
-    const cardElement = new Card(card, '.template-card', true).generateCard();
+    const cardElement = new Card(card, '.template-card', true, cardSelectors).generateCard();
     section.addItem(cardElement);
     cardForm.close();
 }
@@ -100,7 +102,6 @@ function openCardPopupHandler() {
 }
 
 function openUserPopup() {
-    console.log('click Avatar');
     avatarForm.open();
 }
 
