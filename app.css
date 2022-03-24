@@ -25,7 +25,8 @@
 .card__delete_disabled{display:none}
 .card__description{align-items:center;display:flex;justify-content:space-between;min-height:80px}
 .card__like-section{align-items:center;display:grid;grid-template-areas:"like" "counter";height:35px;justify-items:center;margin:0 20px 0 0;row-gap:3px;width:22px}
-.card__like-counter{color:#000;font-size:13px;font-style:normal;font-weight:400;grid-area:counter;height:13px;line-height:16px;text-align:center;width:10px}
+.card__like-counter{color:#000;display:block;font-size:13px;font-style:normal;font-weight:400;grid-area:counter;height:13px;line-height:16px;text-align:center;width:10px}
+.card__like-counter_disabled{display:none}
 .card__picture{border-radius:10px 10px 0 0;height:282px;-o-object-fit:cover;object-fit:cover;width:282px}
 .card__text{font-size:24px;font-style:normal;font-weight:900;line-height:29px;margin:0 0 0 21px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .header{border-bottom:1px solid #545454;display:flex;min-height:74px;width:100%}@media screen and (max-width:500px){.header{min-height:56px}}
