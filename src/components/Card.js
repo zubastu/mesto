@@ -5,6 +5,7 @@ export default class Card {
         this._boolean = boolean;
         this.template = templateSelector;
         this.handleClick = card.handleClick;
+        this.deleteHandleClick = card.deleteHandleClick;
     };
 
     _getTemplate() {
@@ -44,7 +45,7 @@ export default class Card {
             this.toggleLikeButton();
         });
         this.deleteButton.addEventListener('click', () => {
-            this.deleteCard();
+            this.deleteHandleClick();
         });
         this.cardPicture.addEventListener('click', () => {
             return this.handleClick(this._name, this._image);

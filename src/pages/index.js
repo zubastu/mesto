@@ -12,7 +12,7 @@ import {
     validationOptions,
     cards,
     userSelectors,
-    avatarPopupSelectors,
+    avatarPopupSelectors, popupAcceptSelectors,
 } from '../utils/constants.js';
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
@@ -20,6 +20,7 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
+
 
 const validationProfile = new FormValidator(validationOptions, profileFormElement);
 
@@ -44,6 +45,10 @@ const cardForm = new PopupWithForm(cardPopupSelectors, (cardData) => {
 
 const avatarForm = new PopupWithForm(avatarPopupSelectors, (avatarData) => {
     changeAvatar(avatarData);
+});
+
+const popupAcceptDelete = new PopupWithForm(popupAcceptSelectors, () => {
+    deleteCard();
 })
 
 function openProfilePopupShowDetails() {
@@ -68,6 +73,7 @@ function renderCard(cardItem) {
         name: cardItem.name,
         link: cardItem.link,
         handleClick: openPhotoPopup,
+        deleteHandleClick: openDeletePopup,
     }
     return new Card(card, '.template-card', false).generateCard();
 }
@@ -77,6 +83,7 @@ function createNewCard(cardData) {
         name: cardData.name,
         link: cardData.link,
         handleClick: openPhotoPopup,
+        deleteHandleClick: openDeletePopup,
     }
     const cardElement = new Card(card, '.template-card', true).generateCard();
     section.addItem(cardElement);
@@ -97,9 +104,18 @@ function openUserPopup() {
     avatarForm.open();
 }
 
+function openDeletePopup() {
+    popupAcceptDelete.open();
+}
+
 function changeAvatar(avatarData) {
     console.log(avatarData);
     avatarForm.close();
+}
+
+function deleteCard() {
+    console.log('delete card');
+    popupAcceptDelete.close()
 }
 
 profileInfoButton.addEventListener('click', openProfilePopupShowDetails);
@@ -108,6 +124,7 @@ profileAddCardButton.addEventListener('click', openCardPopupHandler);
 validationProfile.enableValidation();
 validationCard.enableValidation();
 popupImage.setEventListeners();
+popupAcceptDelete.setEventListeners();
 profileForm.setEventListeners();
 avatarForm.setEventListeners();
 userInfo.setEventListeners();

@@ -59,6 +59,13 @@ export const avatarPopupSelectors = {
     formSelector: '.form_type_avatar',
 }
 
+export const popupAcceptSelectors = {
+    popup: '.popup_accept-delete-card',
+    submitButtonSelector: '.submit-btn_type_accept',
+    inputSelector: false,
+    formSelector: '.form-accept',
+}
+
 export const cards = [
     {
         name: 'Архыз',
