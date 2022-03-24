@@ -24,10 +24,6 @@ export default class PopupWithForm extends Popup {
         });
     };
 
-    setProfileValues() {
-
-    }
-
     close() {
         super.close();
         this._form.reset();

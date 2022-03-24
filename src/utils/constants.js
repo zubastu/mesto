@@ -40,6 +40,7 @@ export const photoPopupSelectors = {
 export const userSelectors = {
     name: '.profile__name',
     job: '.profile__job',
+    avatar: '.profile__avatar-image',
 };
 
 export const validationOptions = {
@@ -50,6 +51,13 @@ export const validationOptions = {
     inputErrorClass: 'form__item_type_error',
     errorClass: 'form__input-error_active'
 };
+
+export const avatarPopupSelectors = {
+    popup: '.popup_avatar',
+    submitButtonSelector: '.submit-btn_avatar',
+    inputSelector: '.form__item',
+    formSelector: '.form_type_avatar',
+}
 
 export const cards = [
     {

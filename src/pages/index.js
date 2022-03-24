@@ -12,6 +12,7 @@ import {
     validationOptions,
     cards,
     userSelectors,
+    avatarPopupSelectors,
 } from '../utils/constants.js';
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
@@ -31,10 +32,7 @@ const section = new Section({
     renderer: renderCard,
 }, '.photo-cards');
 
-const userInfo = new UserInfo({
-    name: userSelectors.name,
-    job: userSelectors.job,
-});
+const userInfo = new UserInfo(userSelectors, openUserPopup);
 
 const profileForm = new PopupWithForm(profilePopupSelectors, (userData) => {
     handleProfileFormSubmit(userData);
@@ -43,6 +41,10 @@ const profileForm = new PopupWithForm(profilePopupSelectors, (userData) => {
 const cardForm = new PopupWithForm(cardPopupSelectors, (cardData) => {
     createNewCard(cardData);
 });
+
+const avatarForm = new PopupWithForm(avatarPopupSelectors, (avatarData) => {
+    changeAvatar(avatarData);
+})
 
 function openProfilePopupShowDetails() {
     const userData = userInfo.getUserInfo();
@@ -90,6 +92,16 @@ function openCardPopupHandler() {
     validationCard.clearErrorMessages();
 }
 
+function openUserPopup() {
+    console.log('click Avatar');
+    avatarForm.open();
+}
+
+function changeAvatar(avatarData) {
+    console.log(avatarData);
+    avatarForm.close();
+}
+
 profileInfoButton.addEventListener('click', openProfilePopupShowDetails);
 profileAddCardButton.addEventListener('click', openCardPopupHandler);
 
@@ -97,6 +109,8 @@ validationProfile.enableValidation();
 validationCard.enableValidation();
 popupImage.setEventListeners();
 profileForm.setEventListeners();
+avatarForm.setEventListeners();
+userInfo.setEventListeners();
 cardForm.setEventListeners();
 section.renderArray();
 
