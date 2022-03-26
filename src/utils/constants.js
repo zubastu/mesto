@@ -9,6 +9,7 @@ const formSelectors = {
     profileName: '.form__item_input_name-profile',
     profileJob: '.form__item_input_job-profile',
     card: '.form_card',
+    avatar: '.form_type_avatar',
 };
 
 export const profilePopupSelectors = {
@@ -48,6 +49,15 @@ export const validationOptions = {
     errorClass: 'form__input-error_active'
 };
 
+export const validationOptionsAvatar = {
+    formSelector: '.form_type_avatar',
+    inputSelector: '.form__item_input_link-avatar',
+    submitButtonSelector: '.submit-btn',
+    inactiveButtonClass: 'submit-btn_disabled',
+    inputErrorClass: 'form__item_type_error',
+    errorClass: 'form__input-error_active'
+};
+
 export const avatarPopupSelectors = {
     popup: '.popup_avatar',
     submitButtonSelector: '.submit-btn_avatar',
@@ -72,6 +82,10 @@ export const cardSelectors = {
     counter: '.card__like-counter',
 }
 
+export const submitAvatar = document.querySelector('.submit-btn_avatar');
+export const submitProfile = document.querySelector('.submit-btn_profile');
+export const submitCard = document.querySelector('.submit-btn_card');
+export const avatarFormElement = document.querySelector(formSelectors.avatar);
 export const profileFormElement = document.querySelector(formSelectors.profile);
 export const cardFormElement = document.querySelector(formSelectors.card);
 export const profileInfoButton = document.querySelector(profileSelectors.editButton);

@@ -15,7 +15,6 @@ export default class PopupWithHideInput extends PopupWithForm {
         super.setEventListeners()
         this._form.addEventListener('submit', (e) => {
             e.preventDefault();
-            console.log(this._hideInput)
             this._submitHandler(this._getInputValue());
         })
     }

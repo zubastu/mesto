@@ -15,7 +15,7 @@ import {
     popupAcceptSelectors,
     cardSelectors,
     hideInput,
-    cardsContainer,
+    cardsContainer, avatarFormElement, validationOptionsAvatar, submitProfile,
 } from '../utils/constants.js';
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
@@ -39,6 +39,8 @@ const api = new API(client);
 const validationProfile = new FormValidator(validationOptions, profileFormElement);
 
 const validationCard = new FormValidator(validationOptions, cardFormElement);
+
+const validationAvatar = new FormValidator(validationOptionsAvatar, avatarFormElement)
 
 const popupImage = new PopupWithImage(photoPopupSelectors);
 
@@ -90,7 +92,8 @@ function handleProfileFormSubmit(userData) {
         about: userData.profileJob,
     }
     api.setUserInfo(dataUser).then(() => {
-        profileForm.close();
+
+        console.log(submitProfile.textContent)
         api.getUserInfo().then((data) => {
             userInfo.setUserInfo({
                 firstInput: data.name,
@@ -102,6 +105,9 @@ function handleProfileFormSubmit(userData) {
         api.getUserInfo().then((data) => {
             userInfo.initUserLoad(data);
         });
+        submitProfile.innerText = 'Сохранить'
+        console.log(submitProfile.textContent)
+        profileForm.close();
     })
 }
 
@@ -116,15 +122,7 @@ function renderCard(cardItem) {
         handleClick: openPhotoPopup,
         deleteHandleClick: openDeletePopup,
     }
-    return new Card(card, '.template-card', cardSelectors, userInfo.getUserId(), removeLike, setLike).generateCard();
-}
-
-function setLike(id) {
-    api.useLike(id)
-}
-
-function removeLike(id) {
-    api.removeLike(id)
+    return new Card(card, '.template-card', cardSelectors, userInfo.getUserId()).generateCard();
 }
 
 function createNewCard(cardData) {
@@ -151,6 +149,7 @@ function openCardPopupHandler() {
 
 function openUserPopup() {
     avatarForm.open();
+    validationAvatar.clearErrorMessages()
 }
 
 function changeAvatar(avatarData) {
@@ -177,6 +176,7 @@ profileAddCardButton.addEventListener('click', openCardPopupHandler);
 
 validationProfile.enableValidation();
 validationCard.enableValidation();
+validationAvatar.enableValidation()
 popupImage.setEventListeners();
 profileForm.setEventListenersForm();
 popupAcceptDelete.setEventListeners();

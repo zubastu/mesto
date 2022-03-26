@@ -1,3 +1,5 @@
+
+
 export default class API {
     constructor(client) {
         this._client = client;
@@ -20,7 +22,6 @@ export default class API {
     };
 
     setUserInfo(data) {
-        console.log(data)
         return this._client.patch('users/me', {
             name: data.name,
             about: data.about,
