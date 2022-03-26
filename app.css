@@ -19,7 +19,7 @@
 .submit-btn_type_accept{margin-top:38px}
 .submit-btn_type_form{margin:30px 0 37px}@media screen and (max-width:500px){.submit-btn_type_form{margin:15px 0 25px}}
 .card__like{background:url(images/like-button_disabled.87ed371465c7a6a1cd01.svg);grid-area:like;height:19px;margin:0;width:22px}
-.card__like_active{background:url(images/like-button_active.4f5e35d0e4ad8d4f280a.svg) 50%}
+.card__like_active{background:url(images/like-button_active.b27c266b7a31e4e9766f.svg) 50%}
 .card{background-color:#fff;border-radius:10px 10px 10px;min-height:361px;position:relative;width:282px}
 .card__delete{background:url(images/delete__button.a85cc5e25106301e909e.svg);min-height:19px;min-width:18px;position:absolute;right:15px;top:18px}
 .card__delete_disabled{display:none}
@@ -56,7 +56,7 @@
 .profile{align-items:center;display:grid;grid-template-areas:"avatar text . addButton" "avatar text . addButton" "avatar text . addButton";justify-items:center;max-width:880px;min-height:120px;min-width:282px}@media screen and (max-width:720px){.profile{align-items:center;display:flex;flex-direction:column}}@media screen and (max-width:340px){.profile{max-width:320px;min-width:320px}}
 .profile__add-btn{align-self:center;background:url(images/add_button.13997fdf54b4cb323817.svg);border-radius:2px;box-sizing:border-box;grid-area:addButton;height:50px;justify-self:end;width:150px}@media screen and (max-width:930px){.profile__add-btn{justify-self:center;margin:0 31px 0 0}}@media screen and (max-width:720px){.profile__add-btn{background:url(images/add__button_width.8e041299935e2fbbe15e.svg);height:50px;margin:0;width:282px}}
 .profile__avatar-image{border-radius:100px;grid-area:avatar;height:120px;justify-self:baseline;opacity:1;position:relative;transition:all .5s ease-in-out;width:120px;z-index:2}.profile__avatar-image:hover{opacity:.2;transition:all .5s ease-in-out}@media screen and (max-width:930px){.profile__avatar-image{margin:0 30px 0 31px}}
-.profile__hover{background:url(images/avatar-edit-icon.a086f758840ae814ecde.svg) no-repeat 50%;min-height:26px;min-width:26px;opacity:1;z-index:0}.profile__hover:hover{opacity:1;z-index:3}
+.profile__hover{background:url(images/avatar-edit-icon.ae1a976ddb506239e9f0.svg) no-repeat 50%;min-height:26px;min-width:26px;opacity:1;z-index:0}.profile__hover:hover{opacity:1;z-index:3}
 .profile__info-btn{background:url(images/Edit-Button.af236f6cf67005f1d7aa.svg) no-repeat;grid-area:editButton;margin:0 0 0 18px;max-height:24px;max-width:24px;min-height:24px;min-width:24px}@media screen and (max-width:720px){.profile__info-btn{background:url(images/button-edit_size-smallsvg.127c755521ff17cdcb19.png) no-repeat;justify-self:center;margin:0;max-height:18px;max-width:18px;min-height:18px;min-width:18px}}
 .profile__info-text{align-items:baseline;display:grid;grid-area:text;grid-template-areas:"name editButton" "job job";grid-template-columns:1fr 1fr;margin:0 0 0 30px;min-width:320px}@media screen and (max-width:930px){.profile__info-text{margin:0 auto}}@media screen and (max-width:720px){.profile__info-text{display:grid;grid-template-areas:"name editButton" "job job";grid-template-columns:1.7fr .3fr;margin:0 auto;max-width:282px;min-width:282px}}
 .profile__info{justify-self:self-start;margin:22px 0 0;min-width:320px}
