@@ -1,9 +1,3 @@
-import arkhyz from '../images/Архыз.jpg';
-import chelyabinsk from '../images/chelyabinsk-oblast.jpg';
-import ivanovo from '../images/ivanovo.jpg';
-import kamchatka from '../images/kamchatka.jpg';
-import holmogorskiy from '../images/kholmogorsky-rayon.jpg';
-import baikal from '../images/baikal.jpg';
 
 const profileSelectors = {
     editButton: '.profile__info-btn',
@@ -22,6 +16,7 @@ export const profilePopupSelectors = {
     submitButtonSelector: '.submit-btn_profile',
     inputSelector: '.form__item',
     formSelector: '.form_profile',
+    hideInputSelector: false
 };
 
 export const cardPopupSelectors = {
@@ -29,6 +24,7 @@ export const cardPopupSelectors = {
     submitButtonSelector: '.submit-btn_card',
     inputSelector: '.form__item',
     formSelector: '.form_card',
+    hideInputSelector: false
 };
 
 export const photoPopupSelectors = {
@@ -64,6 +60,7 @@ export const popupAcceptSelectors = {
     submitButtonSelector: '.submit-btn_type_accept',
     inputSelector: false,
     formSelector: '.form-accept',
+    hideInputSelector: '.form__item_type_hide'
 }
 
 export const cardSelectors = {
@@ -75,35 +72,11 @@ export const cardSelectors = {
     counter: '.card__like-counter',
 }
 
-export const cards = [
-    {
-        name: 'Архыз',
-        link:  arkhyz
-    },
-    {
-        name: 'Челябинская область',
-        link: chelyabinsk,
-    },
-    {
-        name: 'Иваново',
-        link: ivanovo,
-    },
-    {
-        name: 'Камчатка',
-        link: kamchatka,
-    },
-    {
-        name: 'Холмогорский район',
-        link: holmogorskiy,
-    },
-    {
-        name: 'Байкал',
-        link: baikal,
-    }
-];
 export const profileFormElement = document.querySelector(formSelectors.profile);
 export const cardFormElement = document.querySelector(formSelectors.card);
 export const profileInfoButton = document.querySelector(profileSelectors.editButton);
 export const profileAddCardButton = document.querySelector(profileSelectors.addCardButton);
 export const nameProfile = profileFormElement.querySelector(formSelectors.profileName);
 export const jobProfile = profileFormElement.querySelector(formSelectors.profileJob);
+export const hideInput = document.querySelector(popupAcceptSelectors.hideInputSelector);
+export const cardsContainer = document.querySelector('.photo-cards');

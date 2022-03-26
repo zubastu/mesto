@@ -1,0 +1,15 @@
+{
+  "someText": [
+    {
+      "name": "test",
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "name": "test task from IDE",
+      "id": 3
+    }
+  ]
+}
