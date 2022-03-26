@@ -45,6 +45,7 @@ const popupImage = new PopupWithImage(photoPopupSelectors);
 const userInfo = new UserInfo(userSelectors, openUserPopup,
     api.getUserInfo().then((data) => {
         userInfo.initUserLoad(data);
+        userInfo.setUserId(data._id)
     })
 );
 
@@ -94,6 +95,7 @@ function handleProfileFormSubmit(userData) {
             userInfo.setUserInfo({
                 firstInput: data.name,
                 secondInput: data.about,
+                _id: data._id
             })
         })
     }).then(() => {
@@ -104,6 +106,7 @@ function handleProfileFormSubmit(userData) {
 }
 
 function renderCard(cardItem) {
+
     const card = {
         name: cardItem.name,
         link: cardItem.link,
@@ -113,7 +116,15 @@ function renderCard(cardItem) {
         handleClick: openPhotoPopup,
         deleteHandleClick: openDeletePopup,
     }
-    return new Card(card, '.template-card', cardSelectors).generateCard();
+    return new Card(card, '.template-card', cardSelectors, userInfo.getUserId(), removeLike, setLike).generateCard();
+}
+
+function setLike(id) {
+    api.useLike(id)
+}
+
+function removeLike(id) {
+    api.removeLike(id)
 }
 
 function createNewCard(cardData) {
@@ -173,3 +184,5 @@ avatarForm.setEventListenersForm();
 userInfo.setEventListeners();
 cardForm.setEventListenersForm();
 renderCards();
+
+userInfo.getUserId()

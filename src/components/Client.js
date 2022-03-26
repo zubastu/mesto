@@ -2,7 +2,7 @@ export default class Client {
     constructor(url, headers) {
         this._url = url;
         this._headers = headers;
-    }
+    };
 
     _renderPromise(promise) {
         return promise
@@ -10,7 +10,8 @@ export default class Client {
                if (res.ok) {
                     return res.json();
                 }
-                throw 'Error in GET promise'
+
+                return Promise.reject(`Ошибка: ${res.status}`);
             })
             .then((obj) => {
                 return obj;
@@ -18,7 +19,7 @@ export default class Client {
             .catch((err) => {
                 console.log(err);
             });
-    }
+    };
 
     get(type) {
         const promise = fetch(`${this._url}/${type}`, {
@@ -26,7 +27,7 @@ export default class Client {
             headers: this._headers
         });
         return this._renderPromise(promise);
-    }
+    };
 
     post(type, item) {
         const promise = fetch(`${this._url}/${type}`, {
@@ -39,15 +40,7 @@ export default class Client {
             })
         });
         return this._renderPromise(promise);
-    }
-
-    delete(type, id) {
-        const promise = fetch(`${this._url}/${type}/${id}`, {
-            method: 'DELETE',
-            headers: this._headers
-        });
-        return this._renderPromise(promise);
-    }
+    };
 
     patch(type, keys) {
         const promise = fetch(`${this._url}/${type}`, {
@@ -56,6 +49,21 @@ export default class Client {
             body: JSON.stringify(keys)
         });
         return this._renderPromise(promise);
-    }
+    };
 
-}
+    delete(type) {
+        const promise = fetch(`${this._url}/${type}`, {
+            method: 'DELETE',
+            headers: this._headers
+        });
+        return this._renderPromise(promise);
+    };
+
+    put(type) {
+        const promise = fetch(`${this._url}/${type}`, {
+            method: 'PUT',
+            headers: this._headers
+        });
+        return this._renderPromise(promise);
+    };
+};
