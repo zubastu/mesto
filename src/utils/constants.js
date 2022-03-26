@@ -70,7 +70,7 @@ export const popupAcceptSelectors = {
     submitButtonSelector: '.submit-btn_type_accept',
     inputSelector: false,
     formSelector: '.form-accept',
-    hideInputSelector: '.form__item_type_hide'
+    hideInputSelector: '.hide-input'
 }
 
 export const cardSelectors = {
