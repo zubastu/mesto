@@ -62,6 +62,6 @@
 .profile__info{justify-self:self-start;margin:22px 0 0;min-width:320px}
 .profile__job{color:#fff;font-size:18px;font-weight:400;grid-area:job;line-height:22px;max-width:336px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:720px){.profile__job{font-size:14px;font-weight:400;line-height:17px;margin:0 0 36px;max-width:282px;min-width:282px;text-align:center}}
 .profile__name{color:#fff;font-size:42px;font-weight:500;grid-area:name;line-height:48px;margin:0;max-width:294px;min-width:294px;overflow:hidden;text-align:start;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:720px){.profile__name{font-size:27px;font-weight:500;justify-self:end;line-height:33px;margin:0 0 14px;max-width:189px;min-width:189px;text-align:center}}
-.footer{flex-shrink:1;padding:67px 0 40px;width:100%}@media screen and (max-width:924px){.footer{padding:0 19px}}@media screen and (max-width:500px){.footer{padding:36px 0 48px}}
+.footer{flex-shrink:1;padding:67px 0 40px;width:100%}@media screen and (max-width:924px){.footer{padding:36px 19px 48px}}
 .footer__copyright{color:#545454;font-size:18px;font-style:normal;font-weight:400;line-height:22px;margin:0}@media screen and (max-width:580px){.footer__copyright{font-size:14px;font-weight:400;line-height:17px}}
 
