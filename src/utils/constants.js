@@ -12,6 +12,13 @@ const formSelectors = {
     avatar: '.form_type_avatar',
 };
 
+const submitButtonsSelectors = {
+    profile: '.submit-btn_profile',
+    card: '.submit-btn_card',
+    avatar: '.submit-btn_avatar',
+};
+
+
 export const profilePopupSelectors = {
     popup: '.popup_profile',
     submitButtonSelector: '.submit-btn_profile',
@@ -82,9 +89,10 @@ export const cardSelectors = {
     counter: '.card__like-counter',
 }
 
-export const submitAvatar = document.querySelector('.submit-btn_avatar');
-export const submitProfile = document.querySelector('.submit-btn_profile');
-export const submitCard = document.querySelector('.submit-btn_card');
+
+export const submitAvatar = document.querySelector(submitButtonsSelectors.avatar);
+export const submitProfile = document.querySelector(submitButtonsSelectors.profile);
+export const submitCard = document.querySelector(submitButtonsSelectors.card);
 export const avatarFormElement = document.querySelector(formSelectors.avatar);
 export const profileFormElement = document.querySelector(formSelectors.profile);
 export const cardFormElement = document.querySelector(formSelectors.card);
