@@ -45,10 +45,6 @@ const validationAvatar = new FormValidator(validationOptionsAvatar, avatarFormEl
 const popupImage = new PopupWithImage(photoPopupSelectors);
 
 const userInfo = new UserInfo(userSelectors, openUserPopup,
-    api.getUserInfo().then((data) => {
-        userInfo.initUserLoad(data);
-        userInfo.setUserId(data._id)
-    })
 );
 
 const profileForm = new PopupWithForm(profilePopupSelectors, (userData) => {
@@ -171,6 +167,13 @@ function deleteCard(id) {
     });
 }
 
+function initUserInfo() {
+    api.getUserInfo().then((data) => {
+        userInfo.initUserLoad(data);
+        userInfo.setUserId(data._id)
+    })
+}
+
 profileInfoButton.addEventListener('click', openProfilePopupShowDetails);
 profileAddCardButton.addEventListener('click', openCardPopupHandler);
 
@@ -184,5 +187,5 @@ avatarForm.setEventListenersForm();
 userInfo.setEventListeners();
 cardForm.setEventListenersForm();
 renderCards();
-
+initUserInfo();
 userInfo.getUserId()
