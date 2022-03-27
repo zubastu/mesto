@@ -7,7 +7,7 @@
     "build": "webpack --mode=production",
     "dev": "webpack-dev-server",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,6 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
-    "core-js": "^3.21.1",
+    "core-js": "^3.21.1"
   }
 }
