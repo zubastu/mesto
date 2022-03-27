@@ -70,7 +70,7 @@ function renderCards() {
             items: cards,
             renderer: renderCard,
         }, '.photo-cards');
-        section.renderArray();
+        section.renderArray(`.prepend`);
     });
 }
 
@@ -88,8 +88,6 @@ function handleProfileFormSubmit(userData) {
         about: userData.profileJob,
     }
     api.setUserInfo(dataUser).then(() => {
-
-        console.log(submitProfile.textContent)
         api.getUserInfo().then((data) => {
             userInfo.setUserInfo({
                 firstInput: data.name,
@@ -102,7 +100,6 @@ function handleProfileFormSubmit(userData) {
             userInfo.initUserLoad(data);
         });
         submitProfile.innerText = 'Сохранить'
-        console.log(submitProfile.textContent)
         profileForm.close();
     })
 }
@@ -171,7 +168,7 @@ function initUserInfo() {
     api.getUserInfo().then((data) => {
         userInfo.initUserLoad(data);
         userInfo.setUserId(data._id)
-    })
+    });
 }
 
 profileInfoButton.addEventListener('click', openProfilePopupShowDetails);
