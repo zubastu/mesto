@@ -71,6 +71,8 @@ function renderCards() {
             renderer: renderCard,
         }, '.photo-cards');
         section.renderArray(`.prepend`);
+    }).catch((err) => {
+        console.log(err);
     });
 }
 
@@ -101,7 +103,9 @@ function handleProfileFormSubmit(userData) {
         });
         submitProfile.innerText = 'Сохранить'
         profileForm.close();
-    })
+    }).catch((err) => {
+        console.log(err);
+    });
 }
 
 function renderCard(cardItem) {
@@ -128,7 +132,9 @@ function createNewCard(cardData) {
     api.createCard(card).then(() => {
         renderCards();
         cardForm.close();
-    })
+    }).catch((err) => {
+        console.log(err);
+    });
 }
 
 function openPhotoPopup(name, link) {
@@ -149,7 +155,9 @@ function changeAvatar(avatarData) {
     api.setAvatar(avatarData).then((userData) => {
         userInfo.initUserLoad(userData)
         avatarForm.close()
-    })
+    }).catch((err) => {
+        console.log(err);
+    });
 }
 
 function openDeletePopup(id) {
@@ -161,6 +169,8 @@ function deleteCard(id) {
     api.deleteCard(id).then(() => {
         popupAcceptDelete.close();
         renderCards();
+    }).catch((err) => {
+        console.log(err);
     });
 }
 
@@ -168,6 +178,8 @@ function initUserInfo() {
     api.getUserInfo().then((data) => {
         userInfo.initUserLoad(data);
         userInfo.setUserId(data._id)
+    }).catch((err) => {
+        console.log(err);
     });
 }
 
@@ -182,7 +194,7 @@ profileForm.setEventListenersForm();
 popupAcceptDelete.setEventListeners();
 avatarForm.setEventListenersForm();
 userInfo.setEventListeners();
+userInfo.getUserId();
 cardForm.setEventListenersForm();
 renderCards();
 initUserInfo();
-userInfo.getUserId()

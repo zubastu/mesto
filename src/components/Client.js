@@ -15,9 +15,6 @@ export default class Client {
             })
             .then((obj) => {
                 return obj;
-            })
-            .catch((err) => {
-                console.log(err);
             });
     };
 
