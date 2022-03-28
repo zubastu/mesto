@@ -13,7 +13,7 @@ export default class Card {
         this._userId = userId;
         this._deleteLike = card.removeLike
         this._setLike = card.setLike;
-        this._setLikes = this._setLikes.bind(this)
+        this._handleLikesChanged = this._handleLikesChanged.bind(this)
     };
 
     _checkId(userId) {
@@ -22,8 +22,10 @@ export default class Card {
         })
     }
 
-    _setLikes(likes) {
+    _handleLikesChanged(likes) {
         this._likes = likes;
+        this._renderLikeCounter()
+        this._renderLikeButton()
     }
 
     _getTemplate() {
@@ -70,11 +72,11 @@ export default class Card {
 
     toggleLikeButton() {
         if (this._checkId(this._userId)) {
-            this._deleteLike(this.cardId, this._setLikes)
+            this._deleteLike(this.cardId, this._handleLikesChanged)
             this.likeButton.classList.remove('card__like_active');
             this._renderLikeCounter();
-        } else if (!this._checkId(this._userId)) {
-            this._setLike(this.cardId, this._setLikes)
+        } else {
+            this._setLike(this.cardId, this._handleLikesChanged)
             this.likeButton.classList.add('card__like_active');
             this._renderLikeCounter();
         }
