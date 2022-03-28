@@ -1,8 +1,6 @@
-import API from "./API.js";
-import Client from "./Client.js";
 
 export default class Card {
-    constructor(card, templateSelector, cardSelectors, userId, deleteLike, useLike) {
+    constructor(card, templateSelector, cardSelectors, userId) {
         this._name = card.name;
         this._image = card.link;
         this._cardSelectors = cardSelectors;
@@ -13,12 +11,20 @@ export default class Card {
         this.handleClick = card.handleClick;
         this.deleteHandleClick = card.deleteHandleClick;
         this._userId = userId;
-        this._api = new API(new Client('https://mesto.nomoreparties.co/v1/cohort-38', {
-            authorization: 'fc656d80-9f90-48b6-9907-1de866c0eaf7',
-            'Content-Type': 'application/json',
-            'Accept': 'application/json: charset=utf-8'
-        }))
+        this._deleteLike = card.removeLike
+        this._setLike = card.setLike;
+        this._setLikes = this._setLikes.bind(this)
     };
+
+    _checkId(userId) {
+        return this._likes.some(function (id) {
+            return userId === id._id;
+        })
+    }
+
+    _setLikes(likes) {
+        this._likes = likes;
+    }
 
     _getTemplate() {
         const cardTemplate = document.querySelector(this._template).content;
@@ -45,12 +51,6 @@ export default class Card {
         }
     }
 
-    _checkId(userId) {
-        return this._likes.some(function (id) {
-            return userId === id._id;
-        })
-    }
-
     _renderLikeButton() {
         if (this._checkId(this._userId)) {
             this.likeButton.classList.add('card__like_active');
@@ -58,22 +58,6 @@ export default class Card {
             this.likeButton.classList.remove('card__like_active');
         }
     }
-
-    toggleLikeButton() {
-        if (this._checkId(this._userId)) {
-            this.likeButton.classList.remove('card__like_active');
-            this._api.removeLike(this.cardId).then((data) => {
-                this._likes = data.likes;
-                this._renderLikeCounter()
-            })
-        } else if (!this._checkId(this._userId)) {
-            this.likeButton.classList.add('card__like_active');
-            this._api.useLike(this.cardId).then((data) => {
-                this._likes = data.likes;
-                this._renderLikeCounter()
-            })
-        }
-    };
 
     _renderLikeCounter() {
         this.counterLikes.textContent = this._likes.length;
@@ -84,12 +68,23 @@ export default class Card {
         }
     }
 
+    toggleLikeButton() {
+        this._renderLikeCounter();
+        if (this._checkId(this._userId)) {
+            this._deleteLike(this.cardId, this._setLikes)
+            this.likeButton.classList.remove('card__like_active');
+        } else if (!this._checkId(this._userId)) {
+            this._setLike(this.cardId, this._setLikes)
+            this.likeButton.classList.add('card__like_active');
+        }
+    };
+
     _setEventListeners() {
         this.likeButton.addEventListener('click', () => {
-            this.toggleLikeButton(this._userId);
+            this.toggleLikeButton();
         });
         this.deleteButton.addEventListener('click', () => {
-            this.deleteHandleClick(this.cardId);
+            this.deleteHandleClick(this.cardId, this._cardElement);
         });
         this.cardPicture.addEventListener('click', () => {
             return this.handleClick(this._name, this._image);

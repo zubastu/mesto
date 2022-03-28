@@ -15,7 +15,7 @@ import {
     popupAcceptSelectors,
     cardSelectors,
     hideInput,
-    cardsContainer, avatarFormElement, validationOptionsAvatar, submitProfile,
+    cardsContainer, avatarFormElement, validationOptionsAvatar, submitProfile, submitCard, submitAvatar,
 } from '../utils/constants.js';
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
@@ -63,14 +63,15 @@ const popupAcceptDelete = new PopupWithHideInput(popupAcceptSelectors, (id) => {
     deleteCard(id);
 })
 
+const section = new Section({
+    renderer: renderCard,
+}, '.photo-cards');
+
 function renderCards() {
     cardsContainer.innerHTML = '';
     api.loadAllCards().then((cards) => {
-        const section = new Section({
-            items: cards,
-            renderer: renderCard,
-        }, '.photo-cards');
-        section.renderArray(`.prepend`);
+        section.setData(cards);
+        section.renderArray();
     }).catch((err) => {
         console.log(err);
     });
@@ -85,6 +86,7 @@ function openProfilePopupShowDetails() {
 }
 
 function handleProfileFormSubmit(userData) {
+    submitProfile.innerText = 'Сохранить...'
     const dataUser = {
         name: userData.profileName,
         about: userData.profileJob,
@@ -101,11 +103,12 @@ function handleProfileFormSubmit(userData) {
         api.getUserInfo().then((data) => {
             userInfo.initUserLoad(data);
         });
-        submitProfile.innerText = 'Сохранить'
         profileForm.close();
     }).catch((err) => {
         console.log(err);
-    });
+    }).finally(() => {
+        submitProfile.innerText = 'Сохранить'
+    })
 }
 
 function renderCard(cardItem) {
@@ -118,23 +121,32 @@ function renderCard(cardItem) {
         owner: cardItem.owner,
         handleClick: openPhotoPopup,
         deleteHandleClick: openDeletePopup,
+        removeLike: removeLike,
+        setLike: setLike,
     }
     return new Card(card, '.template-card', cardSelectors, userInfo.getUserId()).generateCard();
 }
 
 function createNewCard(cardData) {
+    submitCard.innerText = 'Создать...'
     const card = {
         name: cardData.name,
         link: cardData.link,
         handleClick: openPhotoPopup,
         deleteHandleClick: openDeletePopup,
+        removeLike: removeLike,
+        setLike: setLike,
     }
-    api.createCard(card).then(() => {
-        renderCards();
+
+    api.createCard(card).then((card) => {
+        const newCard = renderCard(card)
+        section.addItem(newCard);
         cardForm.close();
     }).catch((err) => {
         console.log(err);
-    });
+    }).finally(() => {
+        submitCard.innerText = 'Создать'
+    })
 }
 
 function openPhotoPopup(name, link) {
@@ -152,27 +164,49 @@ function openUserPopup() {
 }
 
 function changeAvatar(avatarData) {
+    submitAvatar.innerText = 'Сохранить...'
     api.setAvatar(avatarData).then((userData) => {
         userInfo.initUserLoad(userData)
         avatarForm.close()
     }).catch((err) => {
         console.log(err);
-    });
+    }).finally(() => {
+        submitAvatar.innerText = 'Сохранить'
+    })
 }
 
-function openDeletePopup(id) {
+function openDeletePopup(id, card) {
     hideInput.value = id
+    popupAcceptDelete.setCard(card);
     popupAcceptDelete.open()
 }
 
 function deleteCard(id) {
     api.deleteCard(id).then(() => {
+        const card = popupAcceptDelete.getCard();
+        card.remove();
         popupAcceptDelete.close();
-        renderCards();
     }).catch((err) => {
         console.log(err);
     });
 }
+
+function setLike(cardId, renderLikes) {
+    api.useLike(cardId).then((data) => {
+        renderLikes(data.likes)
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
+function removeLike(cardId, renderLikes) {
+    api.removeLike(cardId).then((data) => {
+        renderLikes(data.likes)
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
 
 function initUserInfo() {
     api.getUserInfo().then((data) => {
