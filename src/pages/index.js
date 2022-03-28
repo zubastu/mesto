@@ -15,7 +15,13 @@ import {
     popupAcceptSelectors,
     cardSelectors,
     hideInput,
-    cardsContainer, avatarFormElement, validationOptionsAvatar, submitProfile, submitCard, submitAvatar,
+    cardsContainer,
+    avatarFormElement,
+    validationOptionsAvatar,
+    submitProfile,
+    submitCard,
+    submitAvatar,
+    submitAcceptDeleteCard,
 } from '../utils/constants.js';
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
@@ -112,7 +118,6 @@ function handleProfileFormSubmit(userData) {
 }
 
 function renderCard(cardItem) {
-
     const card = {
         name: cardItem.name,
         link: cardItem.link,
@@ -182,6 +187,7 @@ function openDeletePopup(id, card) {
 }
 
 function deleteCard(id) {
+    submitAcceptDeleteCard.innerText = 'Да...'
     api.deleteCard(id).then(() => {
         const card = popupAcceptDelete.getCard();
         card.remove();
@@ -196,7 +202,9 @@ function setLike(cardId, renderLikes) {
         renderLikes(data.likes)
     }).catch((err) => {
         console.log(err);
-    });
+    }).finally(() => {
+        submitAcceptDeleteCard.innerText = 'Да'
+    })
 }
 
 function removeLike(cardId, renderLikes) {

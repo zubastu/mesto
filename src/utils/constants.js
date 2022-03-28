@@ -16,6 +16,7 @@ const submitButtonsSelectors = {
     profile: '.submit-btn_profile',
     card: '.submit-btn_card',
     avatar: '.submit-btn_avatar',
+    acceptDelete: '.submit-btn_type_accept'
 };
 
 export const profilePopupSelectors = {
@@ -89,6 +90,7 @@ export const cardSelectors = {
     cardsContainer: '.photo-cards',
 }
 
+export const submitAcceptDeleteCard = document.querySelector(submitButtonsSelectors.acceptDelete);
 export const submitAvatar = document.querySelector(submitButtonsSelectors.avatar);
 export const submitProfile = document.querySelector(submitButtonsSelectors.profile);
 export const submitCard = document.querySelector(submitButtonsSelectors.card);
