@@ -69,13 +69,14 @@ export default class Card {
     }
 
     toggleLikeButton() {
-        this._renderLikeCounter();
         if (this._checkId(this._userId)) {
             this._deleteLike(this.cardId, this._setLikes)
             this.likeButton.classList.remove('card__like_active');
+            this._renderLikeCounter();
         } else if (!this._checkId(this._userId)) {
             this._setLike(this.cardId, this._setLikes)
             this.likeButton.classList.add('card__like_active');
+            this._renderLikeCounter();
         }
     };
 
