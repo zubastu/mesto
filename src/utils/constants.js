@@ -2,6 +2,7 @@
 const profileSelectors = {
     editButton: '.profile__info-btn',
     addCardButton: '.profile__add-btn',
+    avatarProfile: '.profile__avatar-image'
 };
 
 const formSelectors = {
@@ -90,6 +91,8 @@ export const cardSelectors = {
     cardsContainer: '.photo-cards',
 }
 
+export const cardDefaultImages = document.querySelectorAll(cardSelectors.picture);
+export const userAvatar = document.querySelector(profileSelectors.avatarProfile);
 export const submitAcceptDeleteCard = document.querySelector(submitButtonsSelectors.acceptDelete);
 export const submitAvatar = document.querySelector(submitButtonsSelectors.avatar);
 export const submitProfile = document.querySelector(submitButtonsSelectors.profile);

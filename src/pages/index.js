@@ -21,8 +21,13 @@ import {
     submitProfile,
     submitCard,
     submitAvatar,
-    submitAcceptDeleteCard,
+    submitAcceptDeleteCard, userAvatar,
 } from '../utils/constants.js';
+
+import defaultAvatar from '../images/defaultAvatar.jpg';
+
+
+
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
@@ -39,7 +44,6 @@ const client = new Client('https://mesto.nomoreparties.co/v1/cohort-38', {
     'Accept': 'application/json: charset=utf-8'
 });
 
-
 const api = new API(client);
 
 const validationProfile = new FormValidator(validationOptions, profileFormElement);
@@ -50,8 +54,7 @@ const validationAvatar = new FormValidator(validationOptionsAvatar, avatarFormEl
 
 const popupImage = new PopupWithImage(photoPopupSelectors);
 
-const userInfo = new UserInfo(userSelectors, openUserPopup,
-);
+const userInfo = new UserInfo(userSelectors, openUserPopup,);
 
 const profileForm = new PopupWithForm(profilePopupSelectors, (userData) => {
     handleProfileFormSubmit(userData);
@@ -142,7 +145,6 @@ function createNewCard(cardData) {
         removeLike: removeLike,
         setLike: setLike,
     }
-
     api.createCard(card).then((card) => {
         const newCard = renderCard(card)
         section.addItem(newCard);
@@ -215,14 +217,16 @@ function removeLike(cardId, renderLikes) {
     });
 }
 
-
 function initUserInfo() {
+    userAvatar.src = defaultAvatar;
     api.getUserInfo().then((data) => {
         userInfo.initUserLoad(data);
         userInfo.setUserId(data._id)
     }).catch((err) => {
         console.log(err);
-    });
+    }).finally(() => {
+
+    })
 }
 
 profileInfoButton.addEventListener('click', openProfilePopupShowDetails);
