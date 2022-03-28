@@ -6,6 +6,7 @@
     border-radius: 10px 10px 0 0;
     opacity: 1;
     transition: all .3s ease-in-out;
+    z-index: 0;
 }
 .card__picture:hover{
     opacity: .7;
