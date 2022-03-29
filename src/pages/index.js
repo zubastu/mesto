@@ -21,12 +21,11 @@ import {
     submitProfile,
     submitCard,
     submitAvatar,
-    submitAcceptDeleteCard, userAvatar,
+    submitAcceptDeleteCard,
+    userAvatar,
 } from '../utils/constants.js';
 
 import defaultAvatar from '../images/defaultAvatar.jpg';
-
-
 
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
@@ -38,11 +37,13 @@ import Client from "../components/Client.js";
 import API from "../components/API.js";
 import PopupWithHideInput from "../components/PopupWithHideInput";
 
+
 const client = new Client('https://mesto.nomoreparties.co/v1/cohort-38', {
     authorization: 'fc656d80-9f90-48b6-9907-1de866c0eaf7',
     'Content-Type': 'application/json',
     'Accept': 'application/json: charset=utf-8'
 });
+
 
 const api = new API(client);
 
@@ -54,7 +55,8 @@ const validationAvatar = new FormValidator(validationOptionsAvatar, avatarFormEl
 
 const popupImage = new PopupWithImage(photoPopupSelectors);
 
-const userInfo = new UserInfo(userSelectors, openUserPopup,);
+const userInfo = new UserInfo(userSelectors, openUserPopup,
+);
 
 const profileForm = new PopupWithForm(profilePopupSelectors, (userData) => {
     handleProfileFormSubmit(userData);
@@ -100,19 +102,15 @@ function handleProfileFormSubmit(userData) {
         name: userData.profileName,
         about: userData.profileJob,
     }
-    api.setUserInfo(dataUser).then(() => {
-        api.getUserInfo().then((data) => {
+    api.setUserInfo(dataUser).then((data) => {
             userInfo.setUserInfo({
                 firstInput: data.name,
                 secondInput: data.about,
                 _id: data._id
             })
-        })
-    }).then(() => {
-        api.getUserInfo().then((data) => {
             userInfo.initUserLoad(data);
-        });
-        profileForm.close();
+        }).then(() => {
+            profileForm.close();
     }).catch((err) => {
         console.log(err);
     }).finally(() => {
@@ -145,6 +143,7 @@ function createNewCard(cardData) {
         removeLike: removeLike,
         setLike: setLike,
     }
+
     api.createCard(card).then((card) => {
         const newCard = renderCard(card)
         section.addItem(newCard);
@@ -182,26 +181,18 @@ function changeAvatar(avatarData) {
     })
 }
 
-function openDeletePopup(id, card) {
+function openDeletePopup(id, cardDelete) {
     hideInput.value = id
-    popupAcceptDelete.setCard(card);
+    popupAcceptDelete.setCardDeleteMethod(cardDelete);
     popupAcceptDelete.open()
 }
 
 function deleteCard(id) {
     submitAcceptDeleteCard.innerText = 'Да...'
     api.deleteCard(id).then(() => {
-        const card = popupAcceptDelete.getCard();
-        card.remove();
+        const cardDelete = popupAcceptDelete.getCardDeleteMethod();
+        cardDelete()
         popupAcceptDelete.close();
-    }).catch((err) => {
-        console.log(err);
-    });
-}
-
-function setLike(cardId, renderLikes) {
-    api.useLike(cardId).then((data) => {
-        renderLikes(data.likes)
     }).catch((err) => {
         console.log(err);
     }).finally(() => {
@@ -209,24 +200,27 @@ function setLike(cardId, renderLikes) {
     })
 }
 
-function removeLike(cardId, renderLikes) {
-    api.removeLike(cardId).then((data) => {
+function setLike(cardId, renderLikes) {
+    return api.useLike(cardId).then((data) => {
         renderLikes(data.likes)
-    }).catch((err) => {
-        console.log(err);
+    });
+}
+
+function removeLike(cardId, renderLikes) {
+    return api.removeLike(cardId).then((data) => {
+        renderLikes(data.likes)
     });
 }
 
 function initUserInfo() {
-    userAvatar.src = defaultAvatar;
+    userAvatar.src = defaultAvatar
     api.getUserInfo().then((data) => {
         userInfo.initUserLoad(data);
-        userInfo.setUserId(data._id)
+        userInfo.setUserId(data._id);
+        renderCards();
     }).catch((err) => {
         console.log(err);
-    }).finally(() => {
-
-    })
+    });
 }
 
 profileInfoButton.addEventListener('click', openProfilePopupShowDetails);
@@ -240,7 +234,5 @@ profileForm.setEventListenersForm();
 popupAcceptDelete.setEventListeners();
 avatarForm.setEventListenersForm();
 userInfo.setEventListeners();
-userInfo.getUserId();
 cardForm.setEventListenersForm();
-renderCards();
 initUserInfo();

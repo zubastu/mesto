@@ -91,7 +91,7 @@ export const cardSelectors = {
     cardsContainer: '.photo-cards',
 }
 
-export const cardDefaultImages = document.querySelectorAll(cardSelectors.picture);
+
 export const userAvatar = document.querySelector(profileSelectors.avatarProfile);
 export const submitAcceptDeleteCard = document.querySelector(submitButtonsSelectors.acceptDelete);
 export const submitAvatar = document.querySelector(submitButtonsSelectors.avatar);

@@ -5,7 +5,7 @@ export default class PopupWithHideInput extends PopupWithForm {
         super(dataSelectors, submitHandler);
         this._submitHandler = submitHandler;
         this._hideInput = this._form.querySelector(dataSelectors.hideInputSelector);
-        this.card = null;
+        this.cardDelete = null;
     }
 
     _getInputValue() {
@@ -19,11 +19,11 @@ export default class PopupWithHideInput extends PopupWithForm {
             this._submitHandler(this._getInputValue());
         })
     }
-    setCard(card) {
-        this.card = card;
+    setCardDeleteMethod(cardDelete) {
+        this.cardDelete = cardDelete;
     }
 
-    getCard() {
-        return this.card;
+    getCardDeleteMethod() {
+        return this.cardDelete;
     }
 }
