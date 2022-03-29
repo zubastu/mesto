@@ -72,13 +72,19 @@ export default class Card {
 
     toggleLikeButton() {
         if (this._checkId(this._userId)) {
-            this._deleteLike(this.cardId, this._handleLikesChanged)
-            this.likeButton.classList.remove('card__like_active');
-            this._renderLikeCounter();
+            this._deleteLike(this.cardId, this._handleLikesChanged).then(()=>{
+                this.likeButton.classList.remove('card__like_active');
+                this._renderLikeCounter();
+            }).catch((err) => {
+                console.log(err);
+            });
         } else {
-            this._setLike(this.cardId, this._handleLikesChanged)
-            this.likeButton.classList.add('card__like_active');
-            this._renderLikeCounter();
+            this._setLike(this.cardId, this._handleLikesChanged).then(()=>{
+                this.likeButton.classList.add('card__like_active');
+                this._renderLikeCounter();
+            }).catch((err) => {
+                console.log(err);
+            });
         }
     };
 
@@ -96,6 +102,10 @@ export default class Card {
         this._renderLikeButton()
         this._renderDeleteButton()
     };
+
+    delete() {
+        this._cardElement.remove();
+    }
 };
 
 

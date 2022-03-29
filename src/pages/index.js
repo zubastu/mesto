@@ -97,19 +97,15 @@ function handleProfileFormSubmit(userData) {
         name: userData.profileName,
         about: userData.profileJob,
     }
-    api.setUserInfo(dataUser).then(() => {
-        api.getUserInfo().then((data) => {
+    api.setUserInfo(dataUser).then((data) => {
             userInfo.setUserInfo({
                 firstInput: data.name,
                 secondInput: data.about,
                 _id: data._id
             })
-        })
-    }).then(() => {
-        api.getUserInfo().then((data) => {
             userInfo.initUserLoad(data);
-        });
-        profileForm.close();
+        }).then(() => {
+            profileForm.close();
     }).catch((err) => {
         console.log(err);
     }).finally(() => {
@@ -180,26 +176,18 @@ function changeAvatar(avatarData) {
     })
 }
 
-function openDeletePopup(id, card) {
+function openDeletePopup(id, cardDelete) {
     hideInput.value = id
-    popupAcceptDelete.setCard(card);
+    popupAcceptDelete.setCardDeleteMethod(cardDelete);
     popupAcceptDelete.open()
 }
 
 function deleteCard(id) {
     submitAcceptDeleteCard.innerText = 'Да...'
     api.deleteCard(id).then(() => {
-        const card = popupAcceptDelete.getCard();
-        card.remove();
+        const cardDelete = popupAcceptDelete.getCardDeleteMethod();
+        cardDelete()
         popupAcceptDelete.close();
-    }).catch((err) => {
-        console.log(err);
-    });
-}
-
-function setLike(cardId, renderLikes) {
-    api.useLike(cardId).then((data) => {
-        renderLikes(data.likes)
     }).catch((err) => {
         console.log(err);
     }).finally(() => {
@@ -207,19 +195,23 @@ function setLike(cardId, renderLikes) {
     })
 }
 
-function removeLike(cardId, renderLikes) {
-    api.removeLike(cardId).then((data) => {
+function setLike(cardId, renderLikes) {
+    return api.useLike(cardId).then((data) => {
         renderLikes(data.likes)
-    }).catch((err) => {
-        console.log(err);
     });
 }
 
+function removeLike(cardId, renderLikes) {
+    return api.removeLike(cardId).then((data) => {
+        renderLikes(data.likes)
+    });
+}
 
 function initUserInfo() {
     api.getUserInfo().then((data) => {
         userInfo.initUserLoad(data);
-        userInfo.setUserId(data._id)
+        userInfo.setUserId(data._id);
+        renderCards();
     }).catch((err) => {
         console.log(err);
     });
@@ -236,7 +228,5 @@ profileForm.setEventListenersForm();
 popupAcceptDelete.setEventListeners();
 avatarForm.setEventListenersForm();
 userInfo.setEventListeners();
-userInfo.getUserId();
 cardForm.setEventListenersForm();
-renderCards();
 initUserInfo();
