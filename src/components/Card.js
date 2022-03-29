@@ -13,7 +13,8 @@ export default class Card {
         this._userId = userId;
         this._deleteLike = card.removeLike
         this._setLike = card.setLike;
-        this._handleLikesChanged = this._handleLikesChanged.bind(this)
+        this._handleLikesChanged = this._handleLikesChanged.bind(this);
+        this.delete = this.delete.bind(this);
     };
 
     _checkId(userId) {
@@ -72,17 +73,11 @@ export default class Card {
 
     toggleLikeButton() {
         if (this._checkId(this._userId)) {
-            this._deleteLike(this.cardId, this._handleLikesChanged).then(()=>{
-                this.likeButton.classList.remove('card__like_active');
-                this._renderLikeCounter();
-            }).catch((err) => {
+            this._deleteLike(this.cardId, this._handleLikesChanged).catch((err) => {
                 console.log(err);
             });
         } else {
-            this._setLike(this.cardId, this._handleLikesChanged).then(()=>{
-                this.likeButton.classList.add('card__like_active');
-                this._renderLikeCounter();
-            }).catch((err) => {
+            this._setLike(this.cardId, this._handleLikesChanged).catch((err) => {
                 console.log(err);
             });
         }

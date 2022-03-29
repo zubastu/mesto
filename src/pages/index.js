@@ -181,17 +181,17 @@ function changeAvatar(avatarData) {
     })
 }
 
-function openDeletePopup(id, cardDelete) {
+function openDeletePopup(id, card) {
     hideInput.value = id
-    popupAcceptDelete.setCardDeleteMethod(cardDelete);
+    popupAcceptDelete.setCard(card);
     popupAcceptDelete.open()
 }
 
 function deleteCard(id) {
     submitAcceptDeleteCard.innerText = 'Да...'
     api.deleteCard(id).then(() => {
-        const cardDelete = popupAcceptDelete.getCardDeleteMethod();
-        cardDelete()
+        const card = popupAcceptDelete.getCard();
+        card.delete()
         popupAcceptDelete.close();
     }).catch((err) => {
         console.log(err);
