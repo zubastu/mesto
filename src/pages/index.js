@@ -32,6 +32,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import Client from "../components/Client.js";
 import API from "../components/API.js";
 import PopupWithHideInput from "../components/PopupWithHideInput";
+import {userAvatar} from "../utils/constants";
 
 const client = new Client('https://mesto.nomoreparties.co/v1/cohort-38', {
     authorization: 'fc656d80-9f90-48b6-9907-1de866c0eaf7',
@@ -208,6 +209,7 @@ function removeLike(cardId, renderLikes) {
 }
 
 function initUserInfo() {
+    userAvatar.src = defaultAvatar
     api.getUserInfo().then((data) => {
         userInfo.initUserLoad(data);
         userInfo.setUserId(data._id);
