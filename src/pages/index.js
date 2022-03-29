@@ -22,6 +22,7 @@ import {
     submitCard,
     submitAvatar,
     submitAcceptDeleteCard,
+    userAvatar,
 } from '../utils/constants.js';
 
 import defaultAvatar from '../images/defaultAvatar.jpg';
