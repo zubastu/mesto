@@ -14,7 +14,6 @@ export default class Card {
         this._deleteLike = card.removeLike
         this._setLike = card.setLike;
         this._handleLikesChanged = this._handleLikesChanged.bind(this);
-        this.delete = this.delete.bind(this);
     };
 
     _checkId(userId) {
@@ -88,7 +87,7 @@ export default class Card {
             this.toggleLikeButton();
         });
         this.deleteButton.addEventListener('click', () => {
-            this.deleteHandleClick(this.cardId, this._cardElement);
+            this.deleteHandleClick(this.cardId, this);
         });
         this.cardPicture.addEventListener('click', () => {
             return this.handleClick(this._name, this._image);
