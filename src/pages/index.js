@@ -181,8 +181,8 @@ function changeAvatar(avatarData) {
     })
 }
 
-function openDeletePopup(id, card) {
-    hideInput.value = id
+function openDeletePopup(card) {
+    hideInput.value = card.cardId
     popupAcceptDelete.setCard(card);
     popupAcceptDelete.open()
 }

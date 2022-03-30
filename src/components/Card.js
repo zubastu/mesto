@@ -87,7 +87,7 @@ export default class Card {
             this.toggleLikeButton();
         });
         this.deleteButton.addEventListener('click', () => {
-            this.deleteHandleClick(this.cardId, this);
+            this.deleteHandleClick(this);
         });
         this.cardPicture.addEventListener('click', () => {
             return this.handleClick(this._name, this._image);
