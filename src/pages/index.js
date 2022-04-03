@@ -55,8 +55,7 @@ const validationAvatar = new FormValidator(validationOptionsAvatar, avatarFormEl
 
 const popupImage = new PopupWithImage(photoPopupSelectors);
 
-const userInfo = new UserInfo(userSelectors, openUserPopup,
-);
+const userInfo = new UserInfo(userSelectors, openUserPopup);
 
 const profileForm = new PopupWithForm(profilePopupSelectors, (userData) => {
     handleProfileFormSubmit(userData);
@@ -81,6 +80,7 @@ const section = new Section({
 function renderCards() {
     cardsContainer.innerHTML = '';
     api.loadAllCards().then((cards) => {
+        console.log(cards)
         section.setData(cards);
         section.renderArray();
     }).catch((err) => {
