@@ -88,7 +88,7 @@ export const cardSelectors = {
     picture: '.card__picture',
     text: '.card__text',
     counter: '.card__like-counter',
-    cardsContainer: '.photo-cards',
+    cardsContainerLoader: '.load-overlay',
 }
 
 
@@ -105,4 +105,4 @@ export const profileAddCardButton = document.querySelector(profileSelectors.addC
 export const nameProfile = profileFormElement.querySelector(formSelectors.profileName);
 export const jobProfile = profileFormElement.querySelector(formSelectors.profileJob);
 export const hideInput = document.querySelector(popupAcceptSelectors.hideInputSelector);
-export const cardsContainer = document.querySelector(cardSelectors.cardsContainer);
+export const cardsContainerLoader = document.querySelector(cardSelectors.cardsContainerLoader);

@@ -1,8 +1,11 @@
+import defaultCard from '../images/default-cards.png'
+
 
 export default class Card {
     constructor(card, templateSelector, cardSelectors, userId) {
         this._name = card.name;
         this._image = card.link;
+        this._errorLoadImage = defaultCard;
         this._cardSelectors = cardSelectors;
         this._likes = card.likes;
         this._ownerId = card.owner._id;

@@ -15,7 +15,7 @@ import {
     popupAcceptSelectors,
     cardSelectors,
     hideInput,
-    cardsContainer,
+    cardsContainerLoader,
     avatarFormElement,
     validationOptionsAvatar,
     submitProfile,
@@ -26,6 +26,7 @@ import {
 } from '../utils/constants.js';
 
 import defaultAvatar from '../images/defaultAvatar.jpg';
+import loadCards from '../images/refresh.svg'
 
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
@@ -78,9 +79,9 @@ const section = new Section({
 }, '.photo-cards');
 
 function renderCards() {
-    cardsContainer.innerHTML = '';
+    cardsContainerLoader.style.display = 'block'
     api.loadAllCards().then((cards) => {
-        console.log(cards)
+        cardsContainerLoader.style.display = 'none'
         section.setData(cards);
         section.renderArray();
     }).catch((err) => {
@@ -132,6 +133,227 @@ function renderCard(cardItem) {
     }
     return new Card(card, '.template-card', cardSelectors, userInfo.getUserId()).generateCard();
 }
+const refreshData = [
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+    {
+        name: 'Refresh',
+        link: 'https://cdni.comss.net/logo/update_w10.png'
+    },
+]
+
+
+/*function init() {
+    refreshData.forEach((card) => {
+        createNewCard(card)
+    })
+}*/
 
 function createNewCard(cardData) {
     submitCard.innerText = 'Создать...'
@@ -236,3 +458,4 @@ avatarForm.setEventListenersForm();
 userInfo.setEventListeners();
 cardForm.setEventListenersForm();
 initUserInfo();
+init()

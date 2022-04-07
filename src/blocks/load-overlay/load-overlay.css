@@ -1,0 +1,16 @@
+.load-overlay{
+    max-height: 300px;
+    align-self: center;
+    justify-self: center;
+    display: none;
+    animation: rotateLoad infinite 2s;
+}
+
+@keyframes rotateLoad {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
