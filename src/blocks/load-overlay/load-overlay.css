@@ -4,15 +4,14 @@
     align-self: center;
     justify-self: center;
     display: none;
-    animation: rotateLoad infinite 2s;
-    transform: scale(-1, -1);
+    animation: rotateLoad infinite 1.7s;
 }
 
 @keyframes rotateLoad {
     0% {
-        transform: rotate(-0deg);
+        transform: rotate(-0deg) scale(1.5);
     }
     100% {
-        transform: rotate(-360deg);
+        transform: rotate(-360deg) scale(1);
     }
 }
