@@ -17,4 +17,6 @@ Webpack
 
 babel
 
+API
+
 Ссылка на проект Github Pages : https://zubastu.github.io/mesto/
