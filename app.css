@@ -2,7 +2,7 @@
 @font-face{font-display:swap;font-family:Inter;font-style:normal;font-weight:400;src:url(fonts/inter-400.a252fc44cf11fd602874.woff)}@font-face{font-display:swap;font-family:Inter;font-style:normal;font-weight:500;src:url(fonts/Inter-500.18b8c68e64126db9ce88.woff)}@font-face{font-display:swap;font-family:Inter;font-style:normal;font-weight:900;src:url(fonts/inter-900.6f3f8d238cb5ec6a7884.woff)}
 .page{background-color:#000;display:flex;flex-direction:column;font-family:Inter,Arial,sans-serif;max-width:880px;min-height:100vh;min-width:320px;position:relative}
 .page_type_margin{margin:45px auto 0}@media screen and (max-width:500px){.page_type_margin{margin:28px auto 0}}
-.load-overlay{align-self:center;-webkit-animation:rotateLoad 2s infinite;animation:rotateLoad 2s infinite;display:none;justify-self:center;margin:50px 0 0;max-height:150px;transform:scale(-1)}@-webkit-keyframes rotateLoad{0%{transform:rotate(0deg)}to{transform:rotate(-1turn)}}@keyframes rotateLoad{0%{transform:rotate(0deg)}to{transform:rotate(-1turn)}}
+.load-overlay{align-self:center;-webkit-animation:rotateLoad 1.7s infinite;animation:rotateLoad 1.7s infinite;display:none;justify-self:center;margin:50px 0 0;max-height:150px}@-webkit-keyframes rotateLoad{0%{transform:rotate(0deg) scale(1.5)}to{transform:rotate(-1turn) scale(1)}}@keyframes rotateLoad{0%{transform:rotate(0deg) scale(1.5)}to{transform:rotate(-1turn) scale(1)}}
 .center{margin:0 auto}
 .main{display:flex;flex:auto;flex-direction:column;max-width:880px;min-width:320px}
 .margin{margin:40px 0 51px}
